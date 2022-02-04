@@ -1,4 +1,4 @@
-package enums;
+package enemy;
 
 public enum EnemyClass {
 

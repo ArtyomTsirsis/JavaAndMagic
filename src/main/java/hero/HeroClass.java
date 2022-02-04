@@ -1,9 +1,10 @@
-package enums;
+package hero;
 
 public enum HeroClass {
 
+    Archer,
     Knight,
-    Wizard,
     Thief,
+    Wizard,
 
 }

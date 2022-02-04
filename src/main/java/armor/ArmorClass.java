@@ -1,9 +1,10 @@
-package enums;
+package armor;
 
 public enum ArmorClass {
 
-    Shield,
+    ArmorSuit,
     MagicalShield,
-    Armor
+    Shield
+
 
 }
