@@ -3,6 +3,7 @@ package GameDemo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 class DataBaseHeroRepository implements HeroRepository {
 
     private long counter = 1;

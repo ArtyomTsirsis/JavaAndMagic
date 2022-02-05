@@ -3,6 +3,7 @@ package GameDemo;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
 public class MainMenu {
 
     private Map<Integer, UIAction> menuNumberToActionMap;

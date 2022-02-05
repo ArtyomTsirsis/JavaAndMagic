@@ -1,4 +1,5 @@
 package GameDemo;
+
 import java.util.Scanner;
 
 public class CreateHeroUIAction implements UIAction {

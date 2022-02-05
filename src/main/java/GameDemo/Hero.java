@@ -1,6 +1,7 @@
 package GameDemo;
 
 import java.util.Objects;
+
 public class Hero {
     private Long id;
     private String name;

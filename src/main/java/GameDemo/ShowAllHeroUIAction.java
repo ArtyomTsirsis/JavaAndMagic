@@ -1,4 +1,5 @@
 package GameDemo;
+
 public class ShowAllHeroUIAction implements UIAction {
 
     private HeroRepository repository;
