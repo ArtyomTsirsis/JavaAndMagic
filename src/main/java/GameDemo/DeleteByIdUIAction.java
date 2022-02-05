@@ -1,7 +1,6 @@
 package GameDemo;
 
 import java.util.Scanner;
-
 class DeleteByIdUIAction implements UIAction {
 
     private HeroRepository repository;

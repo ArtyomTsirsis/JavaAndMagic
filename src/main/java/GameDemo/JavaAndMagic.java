@@ -1,5 +1,4 @@
 package GameDemo;
-
 public class JavaAndMagic {
 
     public static void main(String[] args) {
