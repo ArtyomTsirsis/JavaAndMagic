@@ -1,5 +1,8 @@
 package enemy;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Enemy {
 
     private EnemyClass enemyClass;

@@ -1,14 +1,14 @@
 package hero;
 
 import armor.Armor;
-import weapon.LightWeapon;
+import weapon.Axe;
 
 public class Thief extends Hero {
 
     private final static HeroClass heroClass = HeroClass.Thief;
-    private LightWeapon weapon;
+    private Axe weapon;
 
-    public Thief(String name, Integer health, Integer strength, Integer level, Integer dexterity, Armor armor, LightWeapon weapon) {
+    public Thief(String name, Integer health, Integer strength, Integer level, Integer dexterity, Armor armor, Axe weapon) {
         super(name, health, strength, level, dexterity, armor);
         this.weapon = weapon;
 

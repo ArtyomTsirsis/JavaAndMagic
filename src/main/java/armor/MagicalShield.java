@@ -1,11 +1,10 @@
 package armor;
 
-public class MagicalShield extends Armor {
+public class MagicalShield implements Armor {
 
-    private final static ArmorClass armorClass = ArmorClass.MagicalShield;
-
-    public MagicalShield(ArmorClass name, Integer durability, Integer physicalDefense, Integer magicalDefense) {
-        super(name, durability, physicalDefense, magicalDefense);
-    }
+    private ArmorClass armorClass = ArmorClass.MagicalShield;
+    private Integer durability = 150;
+    private Integer physicalDefense = 0;
+    private Integer magicalDefense = 15;
 
 }
