@@ -1,5 +1,6 @@
 package weapon;
 
+
 public class Bow implements Weapon {
 
     WeaponType weaponType = WeaponType.Bow;
