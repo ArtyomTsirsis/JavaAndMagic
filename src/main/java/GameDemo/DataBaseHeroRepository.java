@@ -60,4 +60,5 @@ class DataBaseHeroRepository implements HeroRepository {
                 ", memory=" + memory +
                 '}';
     }
+
 }

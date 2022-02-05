@@ -22,5 +22,6 @@ public class CreateHeroUIAction implements UIAction {
 
         // сохранение его в базу данных
         repository.save(hero1);
+
     }
 }

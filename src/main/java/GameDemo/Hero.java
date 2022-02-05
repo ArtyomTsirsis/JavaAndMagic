@@ -46,4 +46,5 @@ public class Hero {
                 "Герой id = " + id +
                 ", имя = '" + name + '\'' ;
     }
+
 }
