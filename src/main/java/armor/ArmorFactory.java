@@ -2,7 +2,7 @@ package armor;
 
 public class ArmorFactory {
 
-    public static Armor getArmor(ArmorClass armorClass) {
+    public static Armor createArmor(ArmorClass armorClass) {
         Armor toReturn;
         switch (armorClass) {
             case ARMOR_SUIT:

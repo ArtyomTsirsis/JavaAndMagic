@@ -2,7 +2,7 @@ package enemy;
 
 public class EnemyFactory {
 
-    public static Enemy getEnemy(EnemyClass enemyClass) {
+    public static Enemy createEnemy(EnemyClass enemyClass) {
         Enemy toReturn;
         switch (enemyClass) {
             case ORC:

@@ -2,7 +2,7 @@ package weapon;
 
 public class WeaponFactory {
 
-    public static Weapon getWeapon(WeaponType weaponType) {
+    public static Weapon createWeapon(WeaponType weaponType) {
         Weapon toReturn;
         switch (weaponType) {
             case AXE:

@@ -2,7 +2,7 @@ package hero;
 
 public class HeroFactory {
 
-    public static Hero getHero(HeroClass heroClass, String name) {
+    public static Hero createHero(HeroClass heroClass, String name) {
         Hero toReturn;
         switch (heroClass) {
             case ARCHER:
