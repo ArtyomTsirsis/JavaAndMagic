@@ -1,16 +1,27 @@
 package hero;
 
 import armor.Armor;
-import weapon.Lance;
+import armor.MagicalShield;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+import weapon.MagicStaff;
+import weapon.Weapon;
 
-public class Wizard extends Hero {
+@RequiredArgsConstructor
+@ToString
+@Data
+public class Wizard implements Hero {
 
-    private final static HeroClass heroClass = HeroClass.Wizard;
-    private Lance weapon;
-
-    public Wizard(String name, Integer health, Integer strength, Integer level, Integer dexterity, Armor armor, Lance weapon) {
-        super(name, health, strength, level, dexterity, armor);
-        this.weapon = weapon;
-    }
+    private final static HeroClass heroClass = HeroClass.WIZARD;
+    @NonNull
+    private String name;
+    private Integer health = 200;
+    private Integer strength = 15;
+    private Integer level = 1;
+    private Integer dexterity = 25;
+    private Armor armor = new MagicalShield();
+    private Weapon weapon = new MagicStaff();
 
 }

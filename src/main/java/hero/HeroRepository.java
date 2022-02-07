@@ -7,4 +7,5 @@ public class HeroRepository {
 
     public final static Map<HeroClass, Hero> heroRepo = new HashMap<>();
 
+
 }

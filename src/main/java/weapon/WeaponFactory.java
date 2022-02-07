@@ -5,19 +5,19 @@ public class WeaponFactory {
     public static Weapon getWeapon(WeaponType weaponType) {
         Weapon toReturn;
         switch (weaponType) {
-            case Axe:
+            case AXE:
                 toReturn = new Axe();
                 break;
-            case Bow:
+            case BOW:
                 toReturn = new Bow();
                 break;
-            case Lance:
+            case LANCE:
                 toReturn = new Lance();
                 break;
-            case MagicStaff:
+            case MAGIC_STAFF:
                 toReturn = new MagicStaff();
                 break;
-            case Sword:
+            case SWORD:
                 toReturn = new Sword();
                 break;
             default:

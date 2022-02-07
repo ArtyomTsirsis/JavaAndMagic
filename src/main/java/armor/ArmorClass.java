@@ -2,9 +2,10 @@ package armor;
 
 public enum ArmorClass {
 
-    ArmorSuit,
-    MagicalShield,
-    Shield
+    ARMOR_SUIT,
+    LEATHER_ARMOR,
+    MAGICAL_SHIELD,
+    SHIELD
 
 
 }

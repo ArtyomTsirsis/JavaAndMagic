@@ -1,16 +1,27 @@
 package hero;
 
 import armor.Armor;
+import armor.LeatherArmor;
+import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import weapon.Bow;
+import weapon.Weapon;
 
-public class Archer extends Hero {
+@RequiredArgsConstructor
+@ToString
+@Data
+public class Archer implements Hero {
 
-    private final static HeroClass heroClass = HeroClass.Archer;
-    private Bow weapon;
-
-    public Archer(String name, Integer health, Integer strength, Integer level, Integer dexterity, Armor armor, Bow weapon) {
-        super(name, health, strength, level, dexterity, armor);
-        this.weapon = weapon;
-    }
+    private final static HeroClass heroClass = HeroClass.ARCHER;
+    @NonNull
+    private String name;
+    private Integer health = 150;
+    private Integer strength = 10;
+    private Integer level = 1;
+    private Integer dexterity = 35;
+    private Armor armor = new LeatherArmor();
+    private Weapon weapon = new Bow();
 
 }

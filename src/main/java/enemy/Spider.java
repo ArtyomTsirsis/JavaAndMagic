@@ -1,12 +1,16 @@
 package enemy;
 
-public class Spider extends Enemy {
+import lombok.Data;
 
-    private final static EnemyClass enemyClass = EnemyClass.Spider;
+@Data
+public class Spider implements Enemy {
 
-
-    public Spider(EnemyClass enemyClass, Integer health, Integer dexterity, Integer physicalDamage, Integer magicalDamage, Integer physicalDefense, Integer magicalDefense) {
-        super(enemyClass, health, dexterity, physicalDamage, magicalDamage, physicalDefense, magicalDefense);
-    }
+    private final static EnemyClass enemyClass = EnemyClass.SPIDER;
+    private Integer health = 70;
+    private Integer dexterity = 35;
+    private Integer physicalDamage = 20;
+    private Integer magicalDamage = 30;
+    private Integer physicalDefense = 10;
+    private Integer magicalDefense = 0;
 
 }

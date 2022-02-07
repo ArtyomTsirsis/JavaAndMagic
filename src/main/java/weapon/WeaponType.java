@@ -2,10 +2,10 @@ package weapon;
 
 public enum WeaponType {
 
-    Axe,
-    Bow,
-    Lance,
-    MagicStaff,
-    Sword,
+    AXE,
+    BOW,
+    LANCE,
+    MAGIC_STAFF,
+    SWORD,
 
 }
