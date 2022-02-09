@@ -15,5 +15,6 @@ public interface Hero {
     Integer getDexterity();
     Armor getArmor();
     Weapon getWeapon();
+    String toString();
 
 }
