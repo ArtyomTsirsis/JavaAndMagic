@@ -1,12 +1,25 @@
 package enemy;
 
-public class Orc extends Enemy {
+import lombok.Data;
 
-    private final static EnemyClass enemyClass = EnemyClass.Orc;
+@Data
+public class Orc implements Enemy {
 
+    private final static EnemyClass ENEMY_CLASS = EnemyClass.ORC;
+    private Integer health = 500;
+    private Integer dexterity = 10;
+    private Integer physicalDamage = 150;
+    private Integer magicalDamage = 0;
+    private Integer physicalDefense = 40;
+    private Integer magicalDefense = 0;
 
-    public Orc(EnemyClass enemyClass, Integer health, Integer dexterity, Integer physicalDamage, Integer magicalDamage, Integer physicalDefense, Integer magicalDefense) {
-        super(enemyClass, health, dexterity, physicalDamage, magicalDamage, physicalDefense, magicalDefense);
+    public EnemyClass getEnemyClass() {
+        return ENEMY_CLASS;
+    }
+
+    @Override
+    public void setHealth(Integer health) {
+        this.health = health;
     }
 
 }

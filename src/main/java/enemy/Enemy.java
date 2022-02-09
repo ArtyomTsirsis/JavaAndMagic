@@ -1,16 +1,14 @@
 package enemy;
 
-import lombok.AllArgsConstructor;
+public interface Enemy {
 
-@AllArgsConstructor
-public class Enemy {
-
-    private EnemyClass enemyClass;
-    private Integer health;
-    private Integer dexterity;
-    private Integer physicalDamage;
-    private Integer magicalDamage;
-    private Integer physicalDefense;
-    private Integer magicalDefense;
+    EnemyClass getEnemyClass();
+    Integer getHealth();
+    void setHealth(Integer health);
+    Integer getDexterity();
+    Integer getPhysicalDamage();
+    Integer getMagicalDamage();
+    Integer getPhysicalDefense();
+    Integer getMagicalDefense();
 
 }

@@ -2,8 +2,8 @@ package enemy;
 
 public enum EnemyClass {
 
-    Orc,
-    Skeleton,
-    Spider,
+    ORC,
+    SKELETON,
+    SPIDER,
 
 }

@@ -2,16 +2,19 @@ package armor;
 
 public class ArmorFactory {
 
-    public static Armor getArmor(ArmorClass armorClass) {
+    public static Armor createArmor(ArmorClass armorClass) {
         Armor toReturn;
         switch (armorClass) {
-            case ArmorSuit:
+            case ARMOR_SUIT:
                 toReturn = new ArmorSuit();
                 break;
-            case MagicalShield:
+            case LEATHER_ARMOR:
+                toReturn = new LeatherArmor();
+                break;
+            case MAGICAL_SHIELD:
                 toReturn = new MagicalShield();
                 break;
-            case Shield:
+            case SHIELD:
                 toReturn = new Shield();
                 break;
             default:

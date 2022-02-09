@@ -1,11 +1,26 @@
 package enemy;
 
-public class Skeleton extends Enemy {
+import lombok.Data;
 
-    private final static EnemyClass enemyClass = EnemyClass.Skeleton;
+@Data
+public class Skeleton implements Enemy {
 
-    public Skeleton(EnemyClass enemyClass, Integer health, Integer dexterity, Integer physicalDamage, Integer magicalDamage, Integer physicalDefense, Integer magicalDefense) {
-        super(enemyClass, health, dexterity, physicalDamage, magicalDamage, physicalDefense, magicalDefense);
+    private final static EnemyClass ENEMY_CLASS = EnemyClass.SKELETON;
+    private Integer health = 150;
+    private Integer dexterity = 15;
+    private Integer physicalDamage = 50;
+    private Integer magicalDamage = 20;
+    private Integer physicalDefense = 20;
+    private Integer magicalDefense = 0;
+
+
+    public EnemyClass getEnemyClass() {
+        return ENEMY_CLASS;
+    }
+
+    @Override
+    public void setHealth(Integer health) {
+        this.health = health;
     }
 
 }

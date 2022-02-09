@@ -1,8 +1,13 @@
 package weapon;
 
-class MagicStaff implements Weapon {
+import lombok.Data;
+import lombok.ToString;
 
-    WeaponType weaponType = WeaponType.MagicStaff;
+@Data
+@ToString
+public class MagicStaff implements Weapon {
+
+    WeaponType weaponType = WeaponType.MAGIC_STAFF;
     Integer durability = 30;
     Integer physicalDamage = 0;
     Integer magicalDamage = 50;

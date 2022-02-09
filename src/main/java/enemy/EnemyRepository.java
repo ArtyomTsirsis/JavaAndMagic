@@ -5,6 +5,6 @@ import java.util.Map;
 
 public class EnemyRepository {
 
-    public final static Map<EnemyClass, Enemy> enemyRepo = new HashMap<>();
+    private final static Map<EnemyClass, Enemy> enemyRepo = new HashMap<>();
 
 }
