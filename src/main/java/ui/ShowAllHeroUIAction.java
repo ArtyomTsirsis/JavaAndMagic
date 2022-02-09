@@ -1,4 +1,5 @@
 package ui;
+import hero.Hero;
 import hero.HeroRepository;
 
 public class ShowAllHeroUIAction implements UIAction {
@@ -16,6 +17,8 @@ public class ShowAllHeroUIAction implements UIAction {
 
         // поиск всех героев в базе данных:
 
+        Iterable<Hero> result = heroRepo.findAll();
+        System.out.println(result);
 
 
         // выводим на консоль результаты поиска
