@@ -9,7 +9,7 @@ import lombok.ToString;
 public class Bow implements Weapon {
 
     WeaponType weaponType = WeaponType.BOW;
-    HeroClass whoCanUse = HeroClass.ARCHER;
+    HeroClass[] whoCanUse = {HeroClass.ARCHER};
     Integer durability = 100;
     Integer physicalDamage = 30;
     Integer magicalDamage = 0;

@@ -5,7 +5,7 @@ import hero.HeroClass;
 public interface Weapon {
 
     WeaponType getWeaponType();
-    HeroClass getWhoCanUse();
+    HeroClass[] getWhoCanUse();
     Integer getDurability();
     Integer getPhysicalDamage();
     Integer getMagicalDamage();
