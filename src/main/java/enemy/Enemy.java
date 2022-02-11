@@ -10,5 +10,6 @@ public interface Enemy {
     Integer getMagicalDamage();
     Integer getPhysicalDefense();
     Integer getMagicalDefense();
+    String toString();
 
 }

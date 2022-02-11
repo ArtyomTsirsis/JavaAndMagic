@@ -1,5 +1,6 @@
 package weapon;
 
+import hero.HeroClass;
 import lombok.Data;
 import lombok.ToString;
 
@@ -8,6 +9,7 @@ import lombok.ToString;
 public class Axe implements Weapon {
 
     WeaponType weaponType = WeaponType.AXE;
+    HeroClass whoCanUse = HeroClass.KNIGHT;
     Integer durability = 50;
     Integer physicalDamage = 100;
     Integer magicalDamage = 0;
