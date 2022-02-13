@@ -1,5 +1,6 @@
 package weapon;
 
+import hero.HeroClass;
 import lombok.Data;
 import lombok.ToString;
 
@@ -8,6 +9,7 @@ import lombok.ToString;
 public class Sword implements Weapon {
 
     WeaponType weaponType = WeaponType.BOW;
+    HeroClass[] whoCanUse = {HeroClass.KNIGHT};
     Integer durability = 100;
     Integer physicalDamage = 70;
     Integer magicalDamage = 0;

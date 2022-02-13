@@ -1,5 +1,6 @@
 package weapon;
 
+import hero.HeroClass;
 import lombok.Data;
 import lombok.ToString;
 
@@ -8,6 +9,7 @@ import lombok.ToString;
 public class MagicStaff implements Weapon {
 
     WeaponType weaponType = WeaponType.MAGIC_STAFF;
+    HeroClass[] whoCanUse = {HeroClass.WIZARD};
     Integer durability = 30;
     Integer physicalDamage = 0;
     Integer magicalDamage = 50;
