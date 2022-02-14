@@ -1,7 +1,7 @@
 package ui;
 
-import hero.HeroClass;
-import hero.HeroRepository;
+import repository.hero.HeroClass;
+import repository.hero.HeroRepository;
 
 import java.util.Scanner;
 
