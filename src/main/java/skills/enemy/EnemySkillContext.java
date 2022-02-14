@@ -7,7 +7,7 @@ public class EnemySkillContext {
 
     private EnemySkill enemySkill;
 
-    public void setStrategy(EnemySkill enemySkill) {
+    public void setEnemySkill(EnemySkill enemySkill) {
         this.enemySkill = enemySkill;
     }
 

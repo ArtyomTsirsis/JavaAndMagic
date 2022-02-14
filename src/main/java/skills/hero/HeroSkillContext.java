@@ -7,7 +7,7 @@ public class HeroSkillContext {
 
     private HeroSkill heroSkill;
 
-    public void setStrategy(HeroSkill heroSkill) {
+    public void setHeroSkill(HeroSkill heroSkill) {
         this.heroSkill = heroSkill;
     }
 
