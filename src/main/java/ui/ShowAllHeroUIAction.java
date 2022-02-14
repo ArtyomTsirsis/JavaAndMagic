@@ -1,6 +1,6 @@
 package ui;
-import hero.Hero;
-import hero.HeroRepository;
+import repository.hero.Hero;
+import repository.hero.HeroRepository;
 
 public class ShowAllHeroUIAction implements UIAction {
 
