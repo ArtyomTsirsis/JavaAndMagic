@@ -2,6 +2,9 @@ package repository.hero;
 
 import repository.armor.Armor;
 import repository.weapon.Weapon;
+import skills.hero.HeroSkill;
+
+import java.util.List;
 
 public interface Hero {
 
@@ -15,6 +18,7 @@ public interface Hero {
     Integer getDexterity();
     Armor getArmor();
     Weapon getWeapon();
+    List<HeroSkill> getSkills();
     String toString();
 
 }

@@ -1,14 +1,20 @@
 package repository.hero;
 
-import repository.armor.Armor;
-import repository.armor.ArmorClass;
-import repository.armor.ArmorFactory;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import repository.armor.Armor;
+import repository.armor.ArmorClass;
+import repository.armor.ArmorFactory;
 import repository.weapon.Weapon;
 import repository.weapon.WeaponFactory;
 import repository.weapon.WeaponType;
+import skills.hero.ConcreteHeroSkillAttack;
+import skills.hero.ConcreteHeroSkillHealing;
+import skills.hero.ConcreteHeroSkillShoot;
+import skills.hero.HeroSkill;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Data
@@ -23,6 +29,7 @@ public class Archer implements Hero {
     private Integer dexterity = 35;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.LEATHER_ARMOR);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.BOW);
+    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillShoot(), new ConcreteHeroSkillHealing());
 
     @Override
     public HeroClass getHeroClass() {

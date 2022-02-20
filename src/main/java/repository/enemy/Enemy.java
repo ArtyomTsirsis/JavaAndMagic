@@ -1,5 +1,9 @@
 package repository.enemy;
 
+import skills.enemy.EnemySkill;
+
+import java.util.List;
+
 public interface Enemy {
 
     EnemyClass getEnemyClass();
@@ -10,6 +14,7 @@ public interface Enemy {
     Integer getMagicalDamage();
     Integer getPhysicalDefense();
     Integer getMagicalDefense();
+    List<EnemySkill> getSkills();
     String toString();
 
 }

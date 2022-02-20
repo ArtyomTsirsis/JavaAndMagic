@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import repository.weapon.Weapon;
 import repository.weapon.WeaponFactory;
 import repository.weapon.WeaponType;
+import skills.hero.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Data
@@ -23,6 +26,7 @@ public class Thief implements Hero {
     private Integer dexterity = 30;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.LEATHER_ARMOR);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.LANCE);
+    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillStealthAttack(), new ConcreteHeroSkillHealing());
 
     public HeroClass getHeroClass() {
         return HERO_CLASS;

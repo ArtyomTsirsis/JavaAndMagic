@@ -8,7 +8,7 @@ public class ConcreteEnemySkillFireDamage implements EnemySkill {
     @Override
     public String execute(Hero hero, Enemy enemy) {
 
-        return "";
+        return "Враг наносит урон огнем - Х";
     }
 
 }

@@ -8,7 +8,7 @@ public class ConcreteEnemySkillPowerAttack implements EnemySkill {
     @Override
     public String execute(Hero hero, Enemy enemy) {
 
-        return "";
+        return "Враг нанес вам урон Х ОЗ мощной атакой";
     }
 
 }
