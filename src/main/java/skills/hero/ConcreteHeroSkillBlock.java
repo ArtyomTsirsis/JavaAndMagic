@@ -12,7 +12,7 @@ public class ConcreteHeroSkillBlock implements HeroSkill {
     @Override
     public String execute(Hero hero, Enemy enemy) {
 
-        return "";
+        return "Это хрень потом будет чем-то другим";
     }
 
 }

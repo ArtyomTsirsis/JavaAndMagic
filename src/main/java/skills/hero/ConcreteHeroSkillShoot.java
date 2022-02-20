@@ -12,7 +12,7 @@ public class ConcreteHeroSkillShoot implements HeroSkill {
     @Override
     public String execute(Hero hero, Enemy enemy) {
 
-        return "";
+        return "Попадание. Вы нанесли урон Х";
     }
 
 }

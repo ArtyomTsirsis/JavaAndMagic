@@ -12,7 +12,7 @@ public class ConcreteHeroSkillStealthAttack implements HeroSkill {
     @Override
     public String execute(Hero hero, Enemy enemy) {
 
-        return "";
+        return "Скрытная атака. Вы нанесли урон Х";
     }
 
 }
