@@ -1,6 +1,11 @@
 package repository.enemy;
 
 import lombok.Data;
+import skills.enemy.ConcreteEnemySkillAttack;
+import skills.enemy.ConcreteEnemySkillPowerAttack;
+import skills.enemy.EnemySkill;
+
+import java.util.List;
 
 @Data
 public class Orc implements Enemy {
@@ -12,6 +17,7 @@ public class Orc implements Enemy {
     private Integer magicalDamage = 0;
     private Integer physicalDefense = 40;
     private Integer magicalDefense = 0;
+    private List<EnemySkill> skills = List.of(new ConcreteEnemySkillAttack(), new ConcreteEnemySkillPowerAttack());
 
     public EnemyClass getEnemyClass() {
         return ENEMY_CLASS;
