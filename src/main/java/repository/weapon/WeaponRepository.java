@@ -8,10 +8,8 @@ public class WeaponRepository {
     private final static Map<WeaponType, Weapon> weaponRepo = new HashMap<>();
 
     //    Create Heroes in Factory and put them to Map.
-    public Weapon save(WeaponType weaponType) {
-        Weapon toReturn = WeaponFactory.createWeapon(weaponType);
-        weaponRepo.put(weaponType, toReturn);
-        return toReturn;
+    public void save(WeaponType weaponType) {
+        weaponRepo.put(weaponType, WeaponFactory.createWeapon(weaponType));
     }
 
     //    Find hero by id

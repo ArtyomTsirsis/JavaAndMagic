@@ -8,10 +8,8 @@ public class EnemyRepository {
     private final static Map<EnemyClass, Enemy> enemyRepo = new HashMap<>();
 
     //    Create Heroes in Factory and put them to Map.
-    public Enemy save(EnemyClass enemyClass) {
-        Enemy toReturn = EnemyFactory.createEnemy(enemyClass);
-        enemyRepo.put(enemyClass, toReturn);
-        return toReturn;
+    public void save(EnemyClass enemyClass) {
+        enemyRepo.put(enemyClass, EnemyFactory.createEnemy(enemyClass));
     }
 
     //    Find hero by id
