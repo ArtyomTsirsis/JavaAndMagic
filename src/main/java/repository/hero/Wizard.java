@@ -23,7 +23,7 @@ public class Wizard implements Hero {
     private Integer health = 200;
     private Integer strength = 15;
     private Integer level = 1;
-    private Integer dexterity = 25;
+    private Integer dexterity = 8;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.MAGICAL_SHIELD);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.MAGIC_STAFF);
     private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillFireDamage(), new ConcreteHeroSkillHealing());
@@ -38,8 +38,8 @@ public class Wizard implements Hero {
     }
 
     @Override
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void increaseLevel() {
+        level++;
     }
 
 }

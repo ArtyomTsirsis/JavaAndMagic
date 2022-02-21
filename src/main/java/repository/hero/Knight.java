@@ -23,7 +23,7 @@ public class Knight implements Hero {
     private Integer health = 400;
     private Integer strength = 20;
     private Integer level = 1;
-    private Integer dexterity = 20;
+    private Integer dexterity = 10;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.SHIELD);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.SWORD);
     private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillPowerAttack(), new ConcreteHeroSkillHealing());
@@ -38,8 +38,8 @@ public class Knight implements Hero {
     }
 
     @Override
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void increaseLevel() {
+        level++;
     }
 
 }

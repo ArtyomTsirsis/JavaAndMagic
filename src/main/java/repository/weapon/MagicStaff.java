@@ -14,5 +14,11 @@ public class MagicStaff implements Weapon {
     Integer physicalDamage = 0;
     Integer magicalDamage = 50;
     Integer level = 1;
+    Integer criticalHitChance = 1;
+
+    @Override
+    public void increaseLevel() {
+        level++;
+    }
 
 }

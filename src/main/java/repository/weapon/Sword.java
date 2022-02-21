@@ -14,5 +14,11 @@ public class Sword implements Weapon {
     Integer physicalDamage = 70;
     Integer magicalDamage = 0;
     Integer level = 1;
+    Integer criticalHitChance = 1;
+
+    @Override
+    public void increaseLevel() {
+        level++;
+    }
 
 }

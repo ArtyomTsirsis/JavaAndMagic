@@ -26,7 +26,7 @@ public class Archer implements Hero {
     private Integer health = 150;
     private Integer strength = 10;
     private Integer level = 1;
-    private Integer dexterity = 35;
+    private Integer dexterity = 12;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.LEATHER_ARMOR);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.BOW);
     private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillShoot(), new ConcreteHeroSkillHealing());
@@ -42,8 +42,8 @@ public class Archer implements Hero {
     }
 
     @Override
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void increaseLevel() {
+        level++;
     }
 
 }

@@ -8,8 +8,8 @@ public class ArmorRepository {
     private final static Map<ArmorClass, Armor> armorRepo = new HashMap<>();
 
     //    Create Heroes in Factory and put them to Map.
-    public void save(ArmorClass armorClass) {
-        armorRepo.put(armorClass, ArmorFactory.createArmor(armorClass));
+    public void save(Armor armor) {
+        armorRepo.put(armor.getArmorClass(), armor);
     }
 
     //    Find hero by id

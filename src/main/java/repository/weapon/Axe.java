@@ -14,5 +14,11 @@ public class Axe implements Weapon {
     Integer physicalDamage = 100;
     Integer magicalDamage = 0;
     Integer level = 1;
+    Integer criticalHitChance = 2;
+
+    @Override
+    public void increaseLevel() {
+        level++;
+    }
 
 }

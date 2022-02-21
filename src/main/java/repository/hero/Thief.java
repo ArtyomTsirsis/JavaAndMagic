@@ -23,7 +23,7 @@ public class Thief implements Hero {
     private Integer health = 250;
     private Integer strength = 15;
     private Integer level = 1;
-    private Integer dexterity = 30;
+    private Integer dexterity = 20;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.LEATHER_ARMOR);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.LANCE);
     private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillStealthAttack(), new ConcreteHeroSkillHealing());
@@ -38,8 +38,8 @@ public class Thief implements Hero {
     }
 
     @Override
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void increaseLevel() {
+        level++;
     }
 
 }

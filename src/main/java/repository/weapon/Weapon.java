@@ -13,6 +13,8 @@ public interface Weapon {
     Integer getMagicalDamage();
     void setMagicalDamage(Integer damage);
     Integer getLevel();
+    void increaseLevel();
+    Integer getCriticalHitChance();
     String toString();
 
 }

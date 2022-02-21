@@ -7,10 +7,8 @@ public class HeroRepository {
     private final static Map<String, Hero> heroRepo = new HashMap<>();
 
 //    Create Heroes in Factory and put them to Map.
-    public Hero save(HeroClass heroClass, String heroName) {
-        Hero toReturn = HeroFactory.createHero(heroClass, heroName);
-        heroRepo.put(heroName, toReturn);
-        return toReturn;
+    public void save(Hero hero) {
+        heroRepo.put(hero.getName(), hero);
     }
 
 //    Find hero by id

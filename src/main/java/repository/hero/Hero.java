@@ -14,7 +14,7 @@ public interface Hero {
     void setHealth(Integer health);
     Integer getStrength();
     Integer getLevel();
-    void setLevel(Integer level);
+    void increaseLevel();
     Integer getDexterity();
     Armor getArmor();
     Weapon getWeapon();

@@ -11,7 +11,7 @@ public class Skeleton implements Enemy {
 
     private final static EnemyClass ENEMY_CLASS = EnemyClass.SKELETON;
     private Integer health = 150;
-    private Integer dexterity = 15;
+    private Integer dexterity = 10;
     private Integer physicalDamage = 50;
     private Integer magicalDamage = 20;
     private Integer physicalDefense = 20;

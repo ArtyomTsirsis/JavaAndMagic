@@ -14,5 +14,11 @@ public class Bow implements Weapon {
     Integer physicalDamage = 30;
     Integer magicalDamage = 0;
     Integer level = 1;
+    Integer criticalHitChance = 3;
+
+    @Override
+    public void increaseLevel() {
+        level++;
+    }
 
 }
