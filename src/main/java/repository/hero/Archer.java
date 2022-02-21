@@ -9,10 +9,7 @@ import repository.armor.ArmorFactory;
 import repository.weapon.Weapon;
 import repository.weapon.WeaponFactory;
 import repository.weapon.WeaponType;
-import skills.hero.ConcreteHeroSkillAttack;
-import skills.hero.ConcreteHeroSkillHealing;
-import skills.hero.ConcreteHeroSkillShoot;
-import skills.hero.HeroSkill;
+import skills.hero.*;
 
 import java.util.List;
 
@@ -29,7 +26,7 @@ public class Archer implements Hero {
     private Integer dexterity = 12;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.LEATHER_ARMOR);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.BOW);
-    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillShoot(), new ConcreteHeroSkillHealing());
+    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttackWOWeapon(), new ConcreteHeroSkillShoot(), new ConcreteHeroSkillHealing());
 
     @Override
     public HeroClass getHeroClass() {

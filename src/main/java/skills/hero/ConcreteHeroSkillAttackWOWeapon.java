@@ -5,20 +5,18 @@ import repository.enemy.Enemy;
 import repository.hero.Hero;
 
 @Data
-public class ConcreteHeroSkillShoot implements HeroSkill {
+public class ConcreteHeroSkillAttackWOWeapon implements HeroSkill {
 
     private static final CriticalHitOrMissCalculatorContext CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new CriticalHitOrMissCalculatorContext();
-    private final String name = "Стрельба";
-    private int criticalHitChance = 10;
+    private final String name = "Аттака без оружия";
+    private int criticalHitChance = 0;
     private int missChance = 0;
 
     @Override
     public String execute(Hero hero, Enemy enemy) {
-        int criticalHitOrMissCoefficient = CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT.
-                getCriticalHitOrMissCoefficient(hero, enemy, this);
-        int damage = ((hero.getStrength() * hero.getLevel() + (hero.getWeapon().getPhysicalDamage() *
-                hero.getWeapon().getLevel() - enemy.getPhysicalDefense()) + (hero.getWeapon().getMagicalDamage() *
-                hero.getWeapon().getLevel() - enemy.getMagicalDefense()))) * criticalHitOrMissCoefficient;
+        int criticalHitOrMissCoefficient = CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT
+                .getCriticalHitOrMissCoefficient(hero, enemy, this);
+        int damage = hero.getStrength() * hero.getLevel() * criticalHitOrMissCoefficient;
         hero.increaseLevel();
         hero.getWeapon().increaseLevel();
         if (damage > 0 ) {

@@ -7,6 +7,8 @@ public interface HeroSkill {
 
     String execute(Hero hero, Enemy enemy);
     String getName();
+    int getCriticalHitChance();
+    int getMissChance();
 
 }
 

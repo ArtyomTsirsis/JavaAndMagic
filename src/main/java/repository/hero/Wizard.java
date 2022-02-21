@@ -26,7 +26,7 @@ public class Wizard implements Hero {
     private Integer dexterity = 8;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.MAGICAL_SHIELD);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.MAGIC_STAFF);
-    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillFireDamage(), new ConcreteHeroSkillHealing());
+    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttackWOWeapon(), new ConcreteHeroSkillFireDamage(), new ConcreteHeroSkillHealing());
 
     public HeroClass getHeroClass() {
         return HERO_CLASS;

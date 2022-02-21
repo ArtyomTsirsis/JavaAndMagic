@@ -26,7 +26,7 @@ public class Knight implements Hero {
     private Integer dexterity = 10;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.SHIELD);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.SWORD);
-    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttack(), new ConcreteHeroSkillPowerAttack(), new ConcreteHeroSkillHealing());
+    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillFastAttack(), new ConcreteHeroSkillPowerAttack(), new ConcreteHeroSkillHealing());
 
     public HeroClass getHeroClass() {
         return HERO_CLASS;
