@@ -12,14 +12,23 @@ public class ConcreteHeroSkillAttack implements HeroSkill {
 
     @Override
     public String execute(Hero hero, Enemy enemy) {
+        int criticalHitOrMissCoefficient = criticalHitOrMissCalculatorContext.getCriticalHitOrMissCoefficient(hero, enemy);
         int damage = enemy.getHealth() - (hero.getStrength() * hero.getLevel() + hero.getWeapon().getPhysicalDamage() *
                 hero.getWeapon().getLevel() - enemy.getPhysicalDefense() + hero.getWeapon().getMagicalDamage() +
-                hero.getWeapon().getLevel() - enemy.getMagicalDefense()) *
-                criticalHitOrMissCalculatorContext.getCriticalHitOrMissCoefficient(hero, enemy);
+                hero.getWeapon().getLevel() - enemy.getMagicalDefense()) * criticalHitOrMissCoefficient;
         enemy.setHealth(enemy.getHealth() - damage);
         hero.increaseLevel();
         hero.getWeapon().increaseLevel();
-        return "Быстрая атака. Вы нанесли урон " + damage;
+        if (0 >= enemy.getHealth()) {
+            return "Вы нанесли урон " + damage +" ОЗ быстрой атакой. Победа!";
+        }
+        switch (criticalHitOrMissCoefficient) {
+            case 0:
+                return "Промах!";
+            case 1:
+                return "Критическое попадание! Вы нанесли урон " + damage + " ОЗ быстрой атакой.";
+        }
+        return "Вы нанесли урон " + damage + " ОЗ быстрой атакой.";
     }
 
 }
