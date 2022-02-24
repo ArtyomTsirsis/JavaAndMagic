@@ -47,7 +47,7 @@ public class StartAdventureUIAction implements UIAction {
 
         System.out.println("\033[H\033[2J");
         System.out.flush();
-        // запрашиваем данные о герое с консоли у пользолвателя (пока только имя и класс =))
+        // Спрашиваем направление у пользователя
         System.out.println("**************************************");
         Scanner sc = new Scanner(System.in);
         System.out.println("Where we go hero?: ");
