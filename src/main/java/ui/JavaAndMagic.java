@@ -1,4 +1,5 @@
 package ui;
+
 import repository.hero.HeroRepository;
 
 public class JavaAndMagic {

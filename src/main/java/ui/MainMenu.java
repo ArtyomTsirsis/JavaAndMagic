@@ -3,6 +3,10 @@ package ui;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import core.CreateHeroService;
+import core.DeleteByIdService;
+import core.ShowAllHeroService;
 import repository.hero.HeroRepository;
 
 public class MainMenu {
@@ -13,10 +17,14 @@ public class MainMenu {
     public MainMenu(HeroRepository repository) {
         this.repository = repository;
 
+        var createHeroService = new CreateHeroService(repository);
+        var showAllHeroService = new ShowAllHeroService(repository);
+        var deleteByIdService = new DeleteByIdService(repository);
+
         menuNumberToActionMap = new HashMap();
-        menuNumberToActionMap.put(1, new CreateHeroUIAction(repository));
-        menuNumberToActionMap.put(2, new ShowAllHeroUIAction(repository));
-        menuNumberToActionMap.put(3, new DeleteByIdUIAction(repository));
+        menuNumberToActionMap.put(1, new CreateHeroUIAction(createHeroService));
+        menuNumberToActionMap.put(2, new ShowAllHeroUIAction(showAllHeroService));
+        menuNumberToActionMap.put(3, new DeleteByIdUIAction(showAllHeroService, deleteByIdService));
 
 
     }
@@ -29,15 +37,28 @@ public class MainMenu {
             System.out.println("\033[H\033[2J");
             System.out.flush();
 
-            System.out.println("1) Создаём героя.");
-            System.out.println("2) Вывести всех героев.");
-            System.out.println("3) Удаляем героя.");
-            System.out.println("0) Завершаем программу.");
+            System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
+                    "      ░░███                                      ███░░░░░███                ░░███    ░░██████ ██████                     ░░░           \n" +
+                    "       ░███   ██████   █████ █████  ██████      ░███    ░███  ████████    ███████     ░███░█████░███   ██████    ███████ ████   ██████ \n" +
+                    "       ░███  ░░░░░███ ░░███ ░░███  ░░░░░███     ░███████████ ░░███░░███  ███░░███     ░███░░███ ░███  ░░░░░███  ███░░███░░███  ███░░███\n" +
+                    "       ░███   ███████  ░███  ░███   ███████     ░███░░░░░███  ░███ ░███ ░███ ░███     ░███ ░░░  ░███   ███████ ░███ ░███ ░███ ░███ ░░░ \n" +
+                    " ███   ░███  ███░░███  ░░███ ███   ███░░███     ░███    ░███  ░███ ░███ ░███ ░███     ░███      ░███  ███░░███ ░███ ░███ ░███ ░███  ███\n" +
+                    "░░████████  ░░████████  ░░█████   ░░████████    █████   █████ ████ █████░░████████    █████     █████░░████████░░███████ █████░░██████ \n" +
+                    " ░░░░░░░░    ░░░░░░░░    ░░░░░     ░░░░░░░░    ░░░░░   ░░░░░ ░░░░ ░░░░░  ░░░░░░░░    ░░░░░     ░░░░░  ░░░░░░░░  ░░░░░███░░░░░  ░░░░░░  \n" +
+                    "                                                                                                                ███ ░███               \n" +
+                    "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
+                    "                                                                                                                ░░░░░░                 ");
+            System.out.println();
+            System.out.println("1) Create hero.");
+            System.out.println("2) Show all heroes.");
+            System.out.println("3) Remove hero.");
+            System.out.println("0) Exit.");
             System.out.println("**************************************");
-            System.out.print("Пожалуйста, введите число: ");
+            System.out.print("Please select actions from the list: ");
             int userSelectedMenuNumber = Integer.parseInt(sc.nextLine());
             if (userSelectedMenuNumber == 0) {
-                System.out.println("Удачного дня! Заходите ещё!");
+                System.out.println("**************************************");
+                System.out.println("Have a nice day! Comeback later!");
                 break;
             } else {
                 executeUIAction(userSelectedMenuNumber);
@@ -50,7 +71,7 @@ public class MainMenu {
         if (uiAction != null) {
             uiAction.execute();
         } else {
-            System.out.println("Нужно выбирать действия из списка, а не как вы: " + userSelectedMenuNumber);
+            System.out.println("Please select actions from the list, not like you: " + userSelectedMenuNumber);
         }
     }
 

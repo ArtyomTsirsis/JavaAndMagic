@@ -1,17 +1,19 @@
 package ui;
+
 import java.util.Scanner;
 
-import repository.hero.Hero;
-import repository.hero.HeroRepository;
+import core.DeleteByIdService;
+import core.ShowAllHeroService;
 
 public class DeleteByIdUIAction implements UIAction {
 
-    private HeroRepository heroRepo;
-//    Long id; надо переделать на ИД
+    private ShowAllHeroService showAllHeroService;
+    private final DeleteByIdService deleteByIdService;
     String heroName;
 
-    public DeleteByIdUIAction(HeroRepository repository) {
-        this.heroRepo = repository;
+    public DeleteByIdUIAction(ShowAllHeroService showAllHeroService, DeleteByIdService deleteByIdService) {
+        this.showAllHeroService = showAllHeroService;
+        this.deleteByIdService = deleteByIdService;
     }
 
     public void execute() {
@@ -20,23 +22,21 @@ public class DeleteByIdUIAction implements UIAction {
         System.out.flush();
 
         // вывод всех героев из базы данных:
-        Iterable<Hero> result = heroRepo.findAll();
-        System.out.println(result);
+        showAllHeroService.findAll().forEach(hero -> {
+            System.out.println("Hero name: " + hero.getName());
+        });
 
         // запрашиваем имя героя с консоли у пользолвателя
         Scanner sc = new Scanner(System.in);
-        System.out.print("Введите имя героя, которого хотите удалить: ");
+        System.out.print("Enter hero name, what you want to remove: ");
         heroName = sc.nextLine();
 
         // поиск героя в базе данных и удаление:
-        heroRepo.deleteById(heroName);
+        deleteByIdService.delete(heroName);
 
-        System.out.println("Герой удалён");
         System.out.println("**************************************");
 
     }
-
-
 
 
 }

@@ -1,19 +1,20 @@
 package ui;
 
+import core.CreateHeroService;
 import repository.hero.HeroClass;
-import repository.hero.HeroRepository;
+import repository.hero.HeroFactory;
+
 
 import java.util.Scanner;
 
 public class CreateHeroUIAction implements UIAction {
 
-    private HeroRepository heroRepo;
-    HeroClass heroClass;
-    String heroName;
+    private CreateHeroService createHeroService;
+    private HeroClass heroClass;
+    private String heroName;
 
-
-    public CreateHeroUIAction(HeroRepository repository) {
-        this.heroRepo = repository;
+    public CreateHeroUIAction(CreateHeroService createHeroService) {
+        this.createHeroService = createHeroService;
     }
 
     public void execute() {
@@ -22,37 +23,33 @@ public class CreateHeroUIAction implements UIAction {
         System.out.flush();
         // запрашиваем данные о герое с консоли у пользолвателя (пока только имя и класс =))
         Scanner sc = new Scanner(System.in);
-        System.out.print("Пожалуйста, введите имя героя: ");
+        System.out.print("Please, enter Hero name: ");
         heroName = sc.nextLine();
 
-        System.out.println("На выбор есть четыре вида класса, выберите тот - который вам больше подходит!");
-        System.out.println("1) Лучник. (Меткий стрелок, использующий лук как главное оружие.)");
-        System.out.println("2) Рыцарь. (Облачённый в блестящие латы, с двуручным мечом.)");
-        System.out.println("3) Волшебник. (Мантия с капющоном скрвыает под собой его 'тёмные' как ночь глаза.)");
-        System.out.println("4) Вор. (Гроза базарных площадей, берегите ваши кошельки! Вооружён 2-я кортиками.)");
-        System.out.print("Какой ваш выбор?: ");
+        System.out.println("**************************************");
+        System.out.println("We made a simple four classes!");
+        System.out.println();
+        System.out.println("1) Archer. (accurate shooter, use a bow like a main weapon.)");
+        System.out.println("2) Knight. (Dressed in shiny armor, with a two-handed sword.)");
+        System.out.println("3) Wizard. (A hooded robe hides his 'dark' eyes as night.)");
+        System.out.println("4) Thief. (Thunderstorm marketplaces, take care of your wallets! Armed with 2 daggers.)");
+        System.out.println();
+        System.out.print("What your choice?: ");
 
 
         int selector = Integer.parseInt(sc.nextLine());
         switch (selector) {
-            case 1:
-                heroClass = HeroClass.ARCHER;
-                break;
-            case 2:
-                heroClass = HeroClass.KNIGHT;
-                break;
-            case 3:
-                heroClass = HeroClass.WIZARD;
-            case 4:
-                heroClass = HeroClass.THIEF;
-                break;
-            default:
-                System.out.println("Пожалуйста сделайте выбор от 1 до 4-х.");
-                break;
+            case 1 -> heroClass = HeroClass.ARCHER;
+            case 2 -> heroClass = HeroClass.KNIGHT;
+            case 3 -> heroClass = HeroClass.WIZARD;
+            case 4 -> heroClass = HeroClass.THIEF;
+            default -> System.out.println("Please make a choice between 1 and 4.");
         }
 
         // сохранение его в базу данных
-        heroRepo.save(heroClass, heroName);
+
+        var hero = HeroFactory.createHero(heroClass, heroName);
+        createHeroService.create(hero);
 
     }
 }
