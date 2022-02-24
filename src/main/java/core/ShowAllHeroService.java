@@ -14,4 +14,5 @@ public class ShowAllHeroService {
     public Iterable<Hero> findAll() {
         return repository.findAll();
     }
+
 }

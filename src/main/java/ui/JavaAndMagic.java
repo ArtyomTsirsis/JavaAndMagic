@@ -9,4 +9,5 @@ public class JavaAndMagic {
         MainMenu game = new MainMenu(repository);
         game.run();
     }
+
 }

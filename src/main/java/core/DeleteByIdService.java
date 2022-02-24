@@ -20,4 +20,5 @@ public class DeleteByIdService {
             System.out.println("Hero with this name doesn't exist!");
         }
     }
+
 }

@@ -10,4 +10,5 @@ public class InnerLazyMain {
         Battle battle = new Battle(new Knight("Rex"), new Orc());
         battle.fightSimulator();
     }
+
 }

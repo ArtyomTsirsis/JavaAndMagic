@@ -22,4 +22,5 @@ public class CreateHeroService {
             System.out.println("Hero with this name already exist!");
         }
     }
+
 }

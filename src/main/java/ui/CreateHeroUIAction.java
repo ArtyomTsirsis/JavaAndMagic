@@ -52,4 +52,5 @@ public class CreateHeroUIAction implements UIAction {
         createHeroService.create(hero);
 
     }
+
 }
