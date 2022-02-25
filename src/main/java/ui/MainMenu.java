@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import core.CreateHeroService;
 import core.DeleteByIdService;
+import core.StartAdventureService;
 import core.ShowAllHeroService;
 import repository.hero.HeroRepository;
 
@@ -20,16 +21,31 @@ public class MainMenu {
         var createHeroService = new CreateHeroService(repository);
         var showAllHeroService = new ShowAllHeroService(repository);
         var deleteByIdService = new DeleteByIdService(repository);
+        var startAdventureService = new StartAdventureService(repository);
 
         menuNumberToActionMap = new HashMap();
         menuNumberToActionMap.put(1, new CreateHeroUIAction(createHeroService));
-        menuNumberToActionMap.put(2, new ShowAllHeroUIAction(showAllHeroService));
-        menuNumberToActionMap.put(3, new DeleteByIdUIAction(showAllHeroService, deleteByIdService));
+        menuNumberToActionMap.put(2, new StartAdventureUIAction(startAdventureService));
+        menuNumberToActionMap.put(3, new ShowAllHeroUIAction(showAllHeroService));
+        menuNumberToActionMap.put(4, new DeleteByIdUIAction(showAllHeroService, deleteByIdService));
 
 
     }
 
     public void run() {
+
+
+        System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
+                "      ░░███                                      ███░░░░░███                ░░███    ░░██████ ██████                     ░░░           \n" +
+                "       ░███   ██████   █████ █████  ██████      ░███    ░███  ████████    ███████     ░███░█████░███   ██████    ███████ ████   ██████ \n" +
+                "       ░███  ░░░░░███ ░░███ ░░███  ░░░░░███     ░███████████ ░░███░░███  ███░░███     ░███░░███ ░███  ░░░░░███  ███░░███░░███  ███░░███\n" +
+                "       ░███   ███████  ░███  ░███   ███████     ░███░░░░░███  ░███ ░███ ░███ ░███     ░███ ░░░  ░███   ███████ ░███ ░███ ░███ ░███ ░░░ \n" +
+                " ███   ░███  ███░░███  ░░███ ███   ███░░███     ░███    ░███  ░███ ░███ ░███ ░███     ░███      ░███  ███░░███ ░███ ░███ ░███ ░███  ███\n" +
+                "░░████████  ░░████████  ░░█████   ░░████████    █████   █████ ████ █████░░████████    █████     █████░░████████░░███████ █████░░██████ \n" +
+                " ░░░░░░░░    ░░░░░░░░    ░░░░░     ░░░░░░░░    ░░░░░   ░░░░░ ░░░░ ░░░░░  ░░░░░░░░    ░░░░░     ░░░░░  ░░░░░░░░  ░░░░░███░░░░░  ░░░░░░  \n" +
+                "                                                                                                                ███ ░███               \n" +
+                "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
+                "                                                                                                                ░░░░░░                 ");
 
         Scanner sc = new Scanner(System.in);
 
@@ -37,21 +53,11 @@ public class MainMenu {
             System.out.println("\033[H\033[2J");
             System.out.flush();
 
-            System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
-                    "      ░░███                                      ███░░░░░███                ░░███    ░░██████ ██████                     ░░░           \n" +
-                    "       ░███   ██████   █████ █████  ██████      ░███    ░███  ████████    ███████     ░███░█████░███   ██████    ███████ ████   ██████ \n" +
-                    "       ░███  ░░░░░███ ░░███ ░░███  ░░░░░███     ░███████████ ░░███░░███  ███░░███     ░███░░███ ░███  ░░░░░███  ███░░███░░███  ███░░███\n" +
-                    "       ░███   ███████  ░███  ░███   ███████     ░███░░░░░███  ░███ ░███ ░███ ░███     ░███ ░░░  ░███   ███████ ░███ ░███ ░███ ░███ ░░░ \n" +
-                    " ███   ░███  ███░░███  ░░███ ███   ███░░███     ░███    ░███  ░███ ░███ ░███ ░███     ░███      ░███  ███░░███ ░███ ░███ ░███ ░███  ███\n" +
-                    "░░████████  ░░████████  ░░█████   ░░████████    █████   █████ ████ █████░░████████    █████     █████░░████████░░███████ █████░░██████ \n" +
-                    " ░░░░░░░░    ░░░░░░░░    ░░░░░     ░░░░░░░░    ░░░░░   ░░░░░ ░░░░ ░░░░░  ░░░░░░░░    ░░░░░     ░░░░░  ░░░░░░░░  ░░░░░███░░░░░  ░░░░░░  \n" +
-                    "                                                                                                                ███ ░███               \n" +
-                    "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
-                    "                                                                                                                ░░░░░░                 ");
             System.out.println();
             System.out.println("1) Create hero.");
-            System.out.println("2) Show all heroes.");
-            System.out.println("3) Remove hero.");
+            System.out.println("2) Start adventure.");
+            System.out.println("3) Show all heroes.");
+            System.out.println("4) Remove hero.");
             System.out.println("0) Exit.");
             System.out.println("**************************************");
             System.out.print("Please select actions from the list: ");
