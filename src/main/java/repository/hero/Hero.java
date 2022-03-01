@@ -21,4 +21,8 @@ public interface Hero {
     List<HeroSkill> getSkills();
     String toString();
 
+    default boolean isAlive(Hero hero) {
+        return 0 < hero.getHealth();
+    }
+
 }

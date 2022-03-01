@@ -17,4 +17,8 @@ public interface Enemy {
     List<EnemySkill> getSkills();
     String toString();
 
+    default boolean isAlive(Enemy enemy) {
+        return 0 < enemy.getHealth();
+    }
+
 }
