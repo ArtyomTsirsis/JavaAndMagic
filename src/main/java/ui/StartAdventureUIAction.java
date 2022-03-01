@@ -1,6 +1,8 @@
 package ui;
 
+import core.CreateHeroService;
 import core.StartAdventureService;
+import repository.hero.Hero;
 import repository.hero.HeroClass;
 import repository.hero.HeroFactory;
 
@@ -8,7 +10,9 @@ import java.util.Scanner;
 
 public class StartAdventureUIAction implements UIAction {
 
+
     private StartAdventureService startAdventureService;
+    private Hero hero;
 
     public StartAdventureUIAction(StartAdventureService startAdventureService) {
         this.startAdventureService = startAdventureService;
@@ -47,17 +51,28 @@ public class StartAdventureUIAction implements UIAction {
 
         System.out.println("\033[H\033[2J");
         System.out.flush();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Каким героем отправимся в путь?:");
+        String name = sc.nextLine();
         // Спрашиваем направление у пользователя
         System.out.println("**************************************");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Where we go hero?: ");
+        System.out.println("Where we go " + name + "?: ");
         System.out.println();
         System.out.println("1) Only forward - adventure awaits!");
         System.out.println("2) Turn left - looks quieter.");
         System.out.println("3) Turn right - a large mountain is in sight.");
         System.out.println();
-        System.out.print("What your choice?: ");
+        System.out.print("What's your choice?: ");
         int input = Integer.parseInt(sc.nextLine());
+
+        switch (input) {
+            case 1 -> startAdventureService.startAdventure(name);
+
+            default -> {
+            }
+        }
+
     }
 
 }
