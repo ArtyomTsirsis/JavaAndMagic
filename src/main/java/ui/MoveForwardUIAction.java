@@ -21,7 +21,8 @@ public class MoveForwardUIAction implements UIAction{
         System.out.flush();
 
         System.out.println("**************************************");
-        System.out.println("        _\n" +
+        System.out.println();
+        System.out.print("        _\n" +
                 "       / \\      _-'\n" +
                 "     _/|  \\-''- _ /\n" +
                 "__-' { |          \\\n" +
@@ -36,10 +37,14 @@ public class MoveForwardUIAction implements UIAction{
                 "        _'\n" +
                 "      _-'\n");
 
-        System.out.println();
-        System.out.println("Not so fast hero! Njam...njam...\n" +
-                "First of all answer on my three questions!\n" +
-                "If u are wrong, I'm eat you!");
+        System.out.println("                 \n" +
+                "                |\\             \n" +
+                "    ___________/  \\____________________________\n" +
+                "   /  Not so fast hero! Njam...njam...          \\\n" +
+                "  |  First of all answer on my three questions! |\n" +
+                "  |    If u are wrong, I'm eat you!             |\n" +
+                "   \\___________________________________________/\n" +
+                "  ");
         System.out.println();
 
         Scanner sc = new Scanner(System.in);
