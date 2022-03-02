@@ -1,10 +1,9 @@
 package ui;
 
-import core.CreateHeroService;
+import core.ShowAllHeroService;
 import core.StartAdventureService;
 import repository.hero.Hero;
-import repository.hero.HeroClass;
-import repository.hero.HeroFactory;
+
 
 import java.util.Scanner;
 
@@ -12,7 +11,13 @@ public class StartAdventureUIAction implements UIAction {
 
 
     private StartAdventureService startAdventureService;
+    private ShowAllHeroService showAllHeroService;
     private Hero hero;
+
+    public StartAdventureUIAction(StartAdventureService startAdventureService, ShowAllHeroService showAllHeroService) {
+        this.startAdventureService = startAdventureService;
+        this.showAllHeroService = showAllHeroService;
+    }
 
     public StartAdventureUIAction(StartAdventureService startAdventureService) {
         this.startAdventureService = startAdventureService;
@@ -53,7 +58,13 @@ public class StartAdventureUIAction implements UIAction {
         System.out.flush();
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Каким героем отправимся в путь?:");
+        System.out.println("**************************************");
+        System.out.println("Available heroes: ");
+        showAllHeroService.findAll().forEach(hero -> {
+            System.out.println("----> " + hero.getName() + " (" + hero.getHeroClass() + ")");
+        });
+        System.out.println();
+        System.out.print("Please type a name: ");
         String name = sc.nextLine();
         // Спрашиваем направление у пользователя
         System.out.println("**************************************");
