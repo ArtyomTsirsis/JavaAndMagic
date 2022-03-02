@@ -19,10 +19,6 @@ public class StartAdventureUIAction implements UIAction {
         this.showAllHeroService = showAllHeroService;
     }
 
-    public StartAdventureUIAction(StartAdventureService startAdventureService) {
-        this.startAdventureService = startAdventureService;
-    }
-
     @Override
     public void execute() {
 
@@ -68,6 +64,7 @@ public class StartAdventureUIAction implements UIAction {
         String name = sc.nextLine();
         // Спрашиваем направление у пользователя
         System.out.println("**************************************");
+
         System.out.println("Where we go " + name + "?: ");
         System.out.println();
         System.out.println("1) Only forward - adventure awaits!");
@@ -75,15 +72,18 @@ public class StartAdventureUIAction implements UIAction {
         System.out.println("3) Turn right - a large mountain is in sight.");
         System.out.println();
         System.out.print("What's your choice?: ");
+
         int input = Integer.parseInt(sc.nextLine());
-
         switch (input) {
-            case 1 -> startAdventureService.startAdventure(name);
+            case 1 -> startAdventureService.moveForward(name);
+            case 2 -> startAdventureService.moveLeft(name);
+            case 3 -> startAdventureService.moveRight(name);
 
-            default -> {
-            }
+            default -> System.out.println("Please make a choice between 1 and 3.");
         }
 
     }
 
 }
+
+
