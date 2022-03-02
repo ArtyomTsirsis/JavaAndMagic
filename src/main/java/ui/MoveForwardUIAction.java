@@ -1,15 +1,8 @@
 package ui;
 
-import repository.hero.Hero;
-import repository.hero.HeroClass;
-import repository.hero.HeroRepository;
-
 import java.util.Scanner;
 
 public class MoveForwardUIAction implements UIAction{
-
-    private Hero hero;
-    private String heroName;
 
     public MoveForwardUIAction() {
 
