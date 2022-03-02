@@ -3,10 +3,14 @@ package core;
 import repository.enemy.Orc;
 import repository.hero.HeroRepository;
 import skills.hero.ConcreteHeroSkillFastAttack;
+import ui.MoveForwardUIAction;
 
 public class StartAdventureService {
 
+
+    private String heroName;
     private final HeroRepository repository;
+    private MoveForwardUIAction moveForwardUIAction = new MoveForwardUIAction();
     private ConcreteHeroSkillFastAttack concreteHeroSkillFastAttack = new ConcreteHeroSkillFastAttack();
 
     public StartAdventureService(HeroRepository repository) {
@@ -15,6 +19,12 @@ public class StartAdventureService {
 
     public void moveForward(String heroName) {
         var hero = repository.findById(heroName);
+
+        moveForwardUIAction.execute();
+
+
+
+
         var orc = new Orc();
 
         repository.findAll().forEach(System.out::println);
