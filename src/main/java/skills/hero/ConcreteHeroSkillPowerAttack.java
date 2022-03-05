@@ -7,7 +7,7 @@ import repository.hero.Hero;
 @Data
 public class ConcreteHeroSkillPowerAttack implements HeroSkill {
 
-    private static final CriticalHitOrMissCalculatorContext CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new CriticalHitOrMissCalculatorContext();
+    private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
     private final String name = "Мощная атака";
     private int criticalHitChance = 7;
     private int missChance = 10;
@@ -18,15 +18,15 @@ public class ConcreteHeroSkillPowerAttack implements HeroSkill {
                 getCriticalHitOrMissCoefficient(hero, enemy, this);
         int damage = ((hero.getStrength() * hero.getLevel() + (hero.getWeapon().getPhysicalDamage() *
                 hero.getWeapon().getLevel() - enemy.getPhysicalDefense()) + (hero.getWeapon().getMagicalDamage() *
-                hero.getWeapon().getLevel() - enemy.getMagicalDefense()))) * criticalHitOrMissCoefficient;
+                hero.getWeapon().getLevel() - enemy.getMagicalDefense()))) * criticalHitOrMissCoefficient * 2;
         hero.increaseLevel();
         hero.getWeapon().increaseLevel();
-        if (damage > 0 ) {
-            enemy.setHealth(enemy.getHealth() - damage);
+        if (0 >= damage) {
             return "Враг отразил атаку";
-        } else if (0 >= enemy.getHealth()) {
+        } else if (damage >= enemy.getHealth()) {
             return "Вы нанесли урон " + damage +" ОЗ. Победа!";
         }
+        enemy.setHealth(enemy.getHealth() - damage);
         switch (criticalHitOrMissCoefficient) {
             case 0:
                 return "Промах!";

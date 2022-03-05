@@ -1,7 +1,7 @@
 package repository.enemy;
 
 import lombok.Data;
-import skills.enemy.ConcreteEnemySkillAttack;
+import skills.enemy.ConcreteEnemySkillFastAttack;
 import skills.enemy.ConcreteEnemySkillPowerAttack;
 import skills.enemy.EnemySkill;
 
@@ -17,7 +17,7 @@ public class Orc implements Enemy {
     private Integer magicalDamage = 0;
     private Integer physicalDefense = 40;
     private Integer magicalDefense = 0;
-    private List<EnemySkill> skills = List.of(new ConcreteEnemySkillAttack(), new ConcreteEnemySkillPowerAttack());
+    private List<EnemySkill> skills = List.of(new ConcreteEnemySkillFastAttack(), new ConcreteEnemySkillPowerAttack());
 
     public EnemyClass getEnemyClass() {
         return ENEMY_CLASS;

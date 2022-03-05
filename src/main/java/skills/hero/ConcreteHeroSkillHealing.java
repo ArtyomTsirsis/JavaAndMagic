@@ -7,7 +7,7 @@ import repository.hero.Hero;
 @Data
 public class ConcreteHeroSkillHealing implements HeroSkill {
 
-    private static final CriticalHitOrMissCalculatorContext CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new CriticalHitOrMissCalculatorContext();
+    private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
     private final String name = "Лечение";
     private int criticalHitChance = 0;
     private int missChance = 0;

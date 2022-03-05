@@ -5,25 +5,26 @@ import repository.enemy.Enemy;
 import repository.hero.Hero;
 
 @Data
-public class ConcreteEnemySkillFireDamage implements EnemySkill {
+public class ConcreteEnemySkillFastAttack implements EnemySkill {
 
     private static final EnemyCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new EnemyCriticalHitOrMissCalculator();
-    private final String name = "Атака огнем";
+    private final String name = "Быстрая атака";
     private int criticalHitChance = 0;
-    private int missChance = -7;
+    private int missChance = 0;
 
     @Override
     public String execute(Hero hero, Enemy enemy) {
-        int criticalHitOrMissCoefficient = CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT.
-                getCriticalHitOrMissCoefficient(hero, enemy, this);
-        int damage = (enemy.getMagicalDamage() - hero.getArmor().getMagicalDefense()) * criticalHitOrMissCoefficient;
+        int criticalHitOrMissCoefficient = CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT
+                .getCriticalHitOrMissCoefficient(hero, enemy, this);
+        int damage = ((enemy.getPhysicalDamage() - hero.getArmor().getPhysicalDefense()) +
+                (enemy.getMagicalDamage() - hero.getArmor().getMagicalDefense())) * criticalHitOrMissCoefficient;
         hero.increaseLevel();
         if (0 >= damage) {
-            return "Вы отразил атаку";
+            return "Вы отразили атаку";
         } else if (damage >= enemy.getHealth()) {
             return "Вы получили урон " + damage +" ОЗ. Поражение!";
         }
-        enemy.setHealth(enemy.getHealth() - damage);
+        hero.setHealth(hero.getHealth() - damage);
         switch (criticalHitOrMissCoefficient) {
             case 0:
                 return "Промах!";

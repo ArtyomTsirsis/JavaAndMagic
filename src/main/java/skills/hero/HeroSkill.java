@@ -11,4 +11,3 @@ public interface HeroSkill {
     int getMissChance();
 
 }
-
