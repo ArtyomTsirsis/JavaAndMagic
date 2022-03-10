@@ -1,9 +1,9 @@
-package ui;
+package com.game.ui;
 
 import java.util.Scanner;
 
-import core.DeleteByIdService;
-import core.ShowAllHeroService;
+import com.game.core.ShowAllHeroService;
+import com.game.core.DeleteByIdService;
 
 public class DeleteByIdUIAction implements UIAction {
 

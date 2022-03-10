@@ -1,6 +1,6 @@
-package ui;
+package com.game.ui;
 
-import core.CreateHeroService;
+import com.game.core.CreateHeroService;
 import com.game.repository.hero.HeroClass;
 import com.game.repository.hero.HeroFactory;
 

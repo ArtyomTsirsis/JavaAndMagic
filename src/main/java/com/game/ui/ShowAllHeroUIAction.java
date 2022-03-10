@@ -1,6 +1,6 @@
-package ui;
+package com.game.ui;
 
-import core.ShowAllHeroService;
+import com.game.core.ShowAllHeroService;
 
 public class ShowAllHeroUIAction implements UIAction {
 

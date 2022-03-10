@@ -1,4 +1,4 @@
-package ui;
+package com.game.ui;
 
 import com.game.repository.hero.HeroRepository;
 

@@ -1,7 +1,7 @@
-package ui;
+package com.game.ui;
 
-import core.ShowAllHeroService;
-import core.StartAdventureService;
+import com.game.core.ShowAllHeroService;
+import com.game.core.StartAdventureService;
 import repository.hero.Hero;
 
 

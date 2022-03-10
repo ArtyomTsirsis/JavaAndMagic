@@ -1,8 +1,8 @@
 package com.game.skills.enemy;
 
 import com.game.repository.enemy.Enemy;
-import lombok.Data;
 import com.game.repository.hero.Hero;
+import lombok.Data;
 
 @Data
 public class ConcreteEnemySkillFastAttack implements EnemySkill {

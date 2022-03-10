@@ -1,13 +1,13 @@
-package ui;
+package com.game.ui;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import core.CreateHeroService;
-import core.DeleteByIdService;
-import core.StartAdventureService;
-import core.ShowAllHeroService;
+import com.game.core.ShowAllHeroService;
+import com.game.core.CreateHeroService;
+import com.game.core.DeleteByIdService;
+import com.game.core.StartAdventureService;
 import com.game.repository.hero.HeroRepository;
 
 public class MainMenu {
