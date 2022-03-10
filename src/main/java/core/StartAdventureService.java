@@ -1,8 +1,8 @@
 package core;
 
-import repository.enemy.Enemy;
-import repository.hero.Hero;
-import repository.hero.HeroRepository;
+import com.game.repository.enemy.Enemy;
+import com.game.repository.hero.Hero;
+import com.game.repository.hero.HeroRepository;
 
 public class StartAdventureService {
 

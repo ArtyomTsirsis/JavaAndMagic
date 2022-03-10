@@ -1,8 +1,6 @@
 package ui;
 
 import core.StartAdventureService;
-import repository.hero.HeroClass;
-import repository.hero.HeroFactory;
 
 import java.util.Scanner;
 

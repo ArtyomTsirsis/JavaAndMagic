@@ -8,7 +8,7 @@ import core.CreateHeroService;
 import core.DeleteByIdService;
 import core.StartAdventureService;
 import core.ShowAllHeroService;
-import repository.hero.HeroRepository;
+import com.game.repository.hero.HeroRepository;
 
 public class MainMenu {
 

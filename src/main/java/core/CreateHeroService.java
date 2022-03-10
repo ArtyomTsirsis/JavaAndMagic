@@ -1,8 +1,8 @@
 package core;
 
 
-import repository.hero.Hero;
-import repository.hero.HeroRepository;
+import com.game.repository.hero.Hero;
+import com.game.repository.hero.HeroRepository;
 
 public class CreateHeroService {
 

@@ -1,8 +1,6 @@
 package ui;
 
 import core.ShowAllHeroService;
-import repository.hero.Hero;
-import repository.hero.HeroRepository;
 
 public class ShowAllHeroUIAction implements UIAction {
 

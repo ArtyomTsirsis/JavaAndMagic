@@ -1,6 +1,6 @@
 package ui;
 
-import repository.hero.HeroRepository;
+import com.game.repository.hero.HeroRepository;
 
 public class JavaAndMagic {
 

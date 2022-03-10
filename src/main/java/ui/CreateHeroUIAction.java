@@ -1,8 +1,8 @@
 package ui;
 
 import core.CreateHeroService;
-import repository.hero.HeroClass;
-import repository.hero.HeroFactory;
+import com.game.repository.hero.HeroClass;
+import com.game.repository.hero.HeroFactory;
 
 
 import java.util.Scanner;
