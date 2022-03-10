@@ -15,6 +15,7 @@ public class CreateHeroService {
     public void create(Hero hero) {
         if (null == repository.findById(hero.getName())) {
             repository.save(hero);
+
             System.out.println("**************************************");
             System.out.println("Hero successfully made!");
         } else {
