@@ -25,7 +25,7 @@ public class MainMenu {
 
         menuNumberToActionMap = new HashMap();
         menuNumberToActionMap.put(1, new CreateHeroUIAction(createHeroService));
-        menuNumberToActionMap.put(2, new StartAdventureUIAction(startAdventureService));
+        menuNumberToActionMap.put(2, new StartAdventureUIAction(startAdventureService, showAllHeroService));
         menuNumberToActionMap.put(3, new ShowAllHeroUIAction(showAllHeroService));
         menuNumberToActionMap.put(4, new DeleteByIdUIAction(showAllHeroService, deleteByIdService));
 
