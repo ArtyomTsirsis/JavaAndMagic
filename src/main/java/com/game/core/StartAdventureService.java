@@ -1,9 +1,9 @@
 package com.game.core;
 
 import com.game.ui.MoveForwardUIAction;
-import repository.enemy.Orc;
-import repository.hero.HeroRepository;
-import skills.hero.ConcreteHeroSkillFastAttack;
+import com.game.repository.enemy.Orc;
+import com.game.repository.hero.HeroRepository;
+import com.game.skills.hero.ConcreteHeroSkillFastAttack;
 
 public class StartAdventureService {
 
