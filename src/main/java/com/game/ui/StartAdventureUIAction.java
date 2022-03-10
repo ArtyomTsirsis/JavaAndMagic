@@ -2,7 +2,7 @@ package com.game.ui;
 
 import com.game.core.ShowAllHeroService;
 import com.game.core.StartAdventureService;
-import repository.hero.Hero;
+import com.game.repository.hero.Hero;
 
 
 import java.util.Scanner;
