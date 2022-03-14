@@ -19,7 +19,7 @@ public class CreateHeroService {
     @Autowired
     ConverterToDto converter;
 
-    public CreateHeroResponse hero(CreateHeroRequest request) throws KeyAlreadyExistsException {
+    public CreateHeroResponse createHero(CreateHeroRequest request) throws KeyAlreadyExistsException {
         if (repository.findById(request.getName()) != null) {
             throw new KeyAlreadyExistsException();
         }
