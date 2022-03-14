@@ -6,11 +6,13 @@ import com.game.repository.armor.ArmorFactory;
 import com.game.repository.weapon.Weapon;
 import com.game.repository.weapon.WeaponFactory;
 import com.game.repository.weapon.WeaponType;
+import com.game.skills.hero.ConcreteHeroSkillFastAttack;
+import com.game.skills.hero.ConcreteHeroSkillHealing;
+import com.game.skills.hero.ConcreteHeroSkillPowerAttack;
 import com.game.skills.hero.HeroSkill;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -27,10 +29,7 @@ public class Knight implements Hero {
     private Integer dexterity = 10;
     private Armor armor = ArmorFactory.createArmor(ArmorClass.SHIELD);
     private Weapon weapon = WeaponFactory.createWeapon(WeaponType.SWORD);
-    @Autowired
-    private List<HeroSkill> skills;
-//            = List.of(new ConcreteHeroSkillFastAttack(), new ConcreteHeroSkillPowerAttack(), new ConcreteHeroSkillHealing());
-
+    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillFastAttack(), new ConcreteHeroSkillPowerAttack(), new ConcreteHeroSkillHealing());
     public HeroClass getHeroClass() {
         return HERO_CLASS;
     }

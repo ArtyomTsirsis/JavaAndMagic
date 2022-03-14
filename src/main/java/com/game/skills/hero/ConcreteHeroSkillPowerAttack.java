@@ -1,11 +1,9 @@
 package com.game.skills.hero;
 
 import com.game.repository.enemy.Enemy;
-import lombok.Data;
 import com.game.repository.hero.Hero;
-import org.springframework.stereotype.Component;
+import lombok.Data;
 
-@Component
 @Data
 public class ConcreteHeroSkillPowerAttack implements HeroSkill {
 

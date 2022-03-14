@@ -1,10 +1,8 @@
 package com.game.repository.hero;
 
-import org.springframework.stereotype.Repository;
+import java.util.HashMap;
+import java.util.Map;
 
-import java.util.*;
-
-@Repository
 public class HeroRepository {
 
     private final static Map<String, Hero> heroRepo = new HashMap<>();
