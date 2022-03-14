@@ -1,6 +1,6 @@
 package com.game.battle;
 
-import com.game.repository.enemy.Enemy;
+import com.game.repository.stuff.enemy.Enemy;
 import com.game.repository.hero.Hero;
 import com.game.skills.enemy.EnemySkill;
 import com.game.skills.enemy.EnemySkillContext;

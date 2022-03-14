@@ -1,8 +1,8 @@
 package com.game.repository.dto;
 
-import com.game.repository.armor.Armor;
+import com.game.repository.stuff.armor.Armor;
 import com.game.repository.hero.HeroClass;
-import com.game.repository.weapon.Weapon;
+import com.game.repository.stuff.weapon.Weapon;
 import com.game.skills.hero.HeroSkill;
 import lombok.AllArgsConstructor;
 import lombok.Data;

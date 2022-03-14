@@ -1,4 +1,4 @@
-package com.game.repository.armor;
+package com.game.repository.stuff.armor;
 
 public enum ArmorClass {
 

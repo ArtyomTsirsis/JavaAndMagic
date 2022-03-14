@@ -1,7 +1,7 @@
 package com.game.core;
 
 import com.game.ui.MoveForwardUIAction;
-import com.game.repository.enemy.Orc;
+import com.game.repository.stuff.enemy.Orc;
 import com.game.repository.hero.HeroRepository;
 import com.game.skills.hero.ConcreteHeroSkillFastAttack;
 

@@ -1,6 +1,6 @@
 package com.game.skills.hero;
 
-import com.game.repository.enemy.Enemy;
+import com.game.repository.stuff.enemy.Enemy;
 import com.game.repository.hero.Hero;
 import lombok.Data;
 

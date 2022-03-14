@@ -1,4 +1,4 @@
-package com.game.repository.enemy;
+package com.game.repository.stuff.enemy;
 
 import lombok.Data;
 import com.game.skills.enemy.ConcreteEnemySkillFastAttack;

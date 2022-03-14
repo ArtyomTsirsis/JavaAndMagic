@@ -1,4 +1,4 @@
-package com.game.repository.weapon;
+package com.game.repository.stuff.weapon;
 
 import com.game.repository.hero.HeroClass;
 import lombok.Data;
@@ -6,15 +6,15 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class Bow implements Weapon {
+public class Sword implements Weapon {
 
     WeaponType weaponType = WeaponType.BOW;
-    HeroClass[] whoCanUse = {HeroClass.ARCHER};
+    HeroClass[] whoCanUse = {HeroClass.KNIGHT};
     Integer durability = 100;
-    Integer physicalDamage = 30;
+    Integer physicalDamage = 70;
     Integer magicalDamage = 0;
     Integer level = 1;
-    Integer criticalHitChance = 5;
+    Integer criticalHitChance = 1;
 
     @Override
     public void increaseLevel() {

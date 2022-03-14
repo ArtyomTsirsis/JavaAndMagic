@@ -1,6 +1,6 @@
 package com.game.battle;
 
-import com.game.repository.enemy.Orc;
+import com.game.repository.stuff.enemy.Orc;
 import com.game.repository.hero.Knight;
 
 public class InnerLazyMain {

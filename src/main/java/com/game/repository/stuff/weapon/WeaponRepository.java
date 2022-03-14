@@ -1,4 +1,4 @@
-package com.game.repository.weapon;
+package com.game.repository.stuff.weapon;
 
 import java.util.HashMap;
 import java.util.Map;

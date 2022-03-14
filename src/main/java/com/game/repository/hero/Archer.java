@@ -1,11 +1,11 @@
 package com.game.repository.hero;
 
-import com.game.repository.armor.Armor;
-import com.game.repository.armor.ArmorClass;
-import com.game.repository.armor.ArmorFactory;
-import com.game.repository.weapon.Weapon;
-import com.game.repository.weapon.WeaponFactory;
-import com.game.repository.weapon.WeaponType;
+import com.game.repository.stuff.armor.Armor;
+import com.game.repository.stuff.armor.ArmorClass;
+import com.game.repository.stuff.armor.ArmorFactory;
+import com.game.repository.stuff.weapon.Weapon;
+import com.game.repository.stuff.weapon.WeaponFactory;
+import com.game.repository.stuff.weapon.WeaponType;
 import com.game.skills.hero.ConcreteHeroSkillAttackWOWeapon;
 import com.game.skills.hero.ConcreteHeroSkillHealing;
 import com.game.skills.hero.ConcreteHeroSkillShoot;
