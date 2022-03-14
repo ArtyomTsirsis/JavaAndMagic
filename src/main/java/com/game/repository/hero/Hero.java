@@ -1,7 +1,7 @@
 package com.game.repository.hero;
 
-import com.game.repository.stuff.armor.Armor;
-import com.game.repository.stuff.weapon.Weapon;
+import com.game.repository.armor.Armor;
+import com.game.repository.weapon.Weapon;
 import com.game.skills.hero.HeroSkill;
 
 import java.util.List;
