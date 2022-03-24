@@ -1,10 +1,15 @@
 package com.game.repository.armor;
 
+import com.game.repository.weapon.Axe;
+
 public class ArmorFactory {
 
     public static Armor createArmor(ArmorClass armorClass) {
         Armor toReturn;
         switch (armorClass) {
+            case WITHOUT_ARMOR:
+                toReturn = new WOArmor();
+                break;
             case ARMOR_SUIT:
                 toReturn = new ArmorSuit();
                 break;

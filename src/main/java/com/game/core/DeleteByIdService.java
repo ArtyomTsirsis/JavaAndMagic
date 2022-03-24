@@ -1,12 +1,12 @@
 package com.game.core;
 
-import com.game.repository.hero.HeroRepository;
+import com.game.repository.hero.HashMapHeroRepository;
 
 public class DeleteByIdService {
 
-    private final HeroRepository repository;
+    private final HashMapHeroRepository repository;
 
-    public DeleteByIdService(HeroRepository repository) {
+    public DeleteByIdService(HashMapHeroRepository repository) {
         this.repository = repository;
     }
 

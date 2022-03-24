@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 public class MagicStaff implements Weapon {
 
+    private Integer id;
     WeaponType weaponType = WeaponType.MAGIC_STAFF;
     HeroClass[] whoCanUse = {HeroClass.WIZARD};
     Integer durability = 30;
@@ -19,6 +20,11 @@ public class MagicStaff implements Weapon {
     @Override
     public void increaseLevel() {
         level++;
+    }
+
+    @Override
+    public void decreaseDurability() {
+        this.durability--;
     }
 
 }

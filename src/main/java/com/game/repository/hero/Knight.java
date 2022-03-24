@@ -6,15 +6,9 @@ import com.game.repository.armor.ArmorFactory;
 import com.game.repository.weapon.Weapon;
 import com.game.repository.weapon.WeaponFactory;
 import com.game.repository.weapon.WeaponType;
-import com.game.skills.hero.ConcreteHeroSkillFastAttack;
-import com.game.skills.hero.ConcreteHeroSkillHealing;
-import com.game.skills.hero.ConcreteHeroSkillPowerAttack;
-import com.game.skills.hero.HeroSkill;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Data
@@ -27,9 +21,11 @@ public class Knight implements Hero {
     private Integer strength = 20;
     private Integer level = 1;
     private Integer dexterity = 10;
-    private Armor armor = ArmorFactory.createArmor(ArmorClass.SHIELD);
-    private Weapon weapon = WeaponFactory.createWeapon(WeaponType.SWORD);
-    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillFastAttack(), new ConcreteHeroSkillPowerAttack(), new ConcreteHeroSkillHealing());
+    private Armor armor = ArmorFactory.createArmor(ArmorClass.WITHOUT_ARMOR);
+    private Weapon weapon = WeaponFactory.createWeapon(WeaponType.WITHOUT_WEAPON);
+    private String skills = "FastAttack, PowerAttack, Healing";
+
+    @Override
     public HeroClass getHeroClass() {
         return HERO_CLASS;
     }

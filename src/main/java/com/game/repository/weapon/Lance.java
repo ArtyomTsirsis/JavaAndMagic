@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 public class Lance implements Weapon {
 
+    private Integer id;
     WeaponType weaponType = WeaponType.LANCE;
     HeroClass[] whoCanUse = {HeroClass.THIEF};
     Integer durability = 100;
@@ -19,6 +20,11 @@ public class Lance implements Weapon {
     @Override
     public void increaseLevel() {
         level++;
+    }
+
+    @Override
+    public void decreaseDurability() {
+        this.durability--;
     }
 
 }

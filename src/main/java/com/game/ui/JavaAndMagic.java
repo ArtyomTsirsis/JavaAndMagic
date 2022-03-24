@@ -1,11 +1,11 @@
 package com.game.ui;
 
-import com.game.repository.hero.HeroRepository;
+import com.game.repository.hero.HashMapHeroRepository;
 
 public class JavaAndMagic {
 
     public static void main(String[] args) {
-        HeroRepository repository = new HeroRepository();
+        HashMapHeroRepository repository = new HashMapHeroRepository();
         MainMenu game = new MainMenu(repository);
         game.run();
     }

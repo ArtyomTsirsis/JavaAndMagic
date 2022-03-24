@@ -2,9 +2,6 @@ package com.game.repository.hero;
 
 import com.game.repository.armor.Armor;
 import com.game.repository.weapon.Weapon;
-import com.game.skills.hero.HeroSkill;
-
-import java.util.List;
 
 public interface Hero {
 
@@ -18,7 +15,7 @@ public interface Hero {
     Integer getDexterity();
     Armor getArmor();
     Weapon getWeapon();
-    List<HeroSkill> getSkills();
+    String getSkills();
     String toString();
 
     default boolean isAlive(Hero hero) {

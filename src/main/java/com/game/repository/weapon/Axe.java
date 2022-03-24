@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 public class Axe implements Weapon {
 
+    private Integer id;
     WeaponType weaponType = WeaponType.AXE;
     HeroClass[] whoCanUse = {HeroClass.KNIGHT};
     Integer durability = 50;
@@ -19,6 +20,11 @@ public class Axe implements Weapon {
     @Override
     public void increaseLevel() {
         level++;
+    }
+
+    @Override
+    public void decreaseDurability() {
+        this.durability--;
     }
 
 }

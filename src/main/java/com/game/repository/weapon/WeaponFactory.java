@@ -5,6 +5,9 @@ public class WeaponFactory {
     public static Weapon createWeapon(WeaponType weaponType) {
         Weapon toReturn;
         switch (weaponType) {
+            case WITHOUT_WEAPON:
+                toReturn = new WOWeapon();
+                break;
             case AXE:
                 toReturn = new Axe();
                 break;
