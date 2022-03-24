@@ -1,5 +1,8 @@
 package com.game.repository.hero;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class HeroFactory {
 
     public static Hero createHero(HeroClass heroClass, String name) {

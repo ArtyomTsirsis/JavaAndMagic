@@ -2,13 +2,13 @@ package com.game.core;
 
 
 import com.game.repository.hero.Hero;
-import com.game.repository.hero.HeroRepository;
+import com.game.repository.hero.HashMapHeroRepository;
 
 public class CreateHeroService {
 
-    private final HeroRepository repository;
+    private final HashMapHeroRepository repository;
 
-    public CreateHeroService(HeroRepository repository) {
+    public CreateHeroService(HashMapHeroRepository repository) {
         this.repository = repository;
     }
 

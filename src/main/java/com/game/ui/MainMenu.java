@@ -1,21 +1,21 @@
 package com.game.ui;
 
+import com.game.core.CreateHeroService;
+import com.game.core.DeleteByIdService;
+import com.game.core.ShowAllHeroService;
+import com.game.core.StartAdventureService;
+import com.game.repository.hero.HashMapHeroRepository;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import com.game.core.ShowAllHeroService;
-import com.game.core.CreateHeroService;
-import com.game.core.DeleteByIdService;
-import com.game.core.StartAdventureService;
-import com.game.repository.hero.HeroRepository;
-
 public class MainMenu {
 
     private Map<Integer, UIAction> menuNumberToActionMap;
-    private HeroRepository repository;
+    private HashMapHeroRepository repository;
 
-    public MainMenu(HeroRepository repository) {
+    public MainMenu(HashMapHeroRepository repository) {
         this.repository = repository;
 
         var createHeroService = new CreateHeroService(repository);

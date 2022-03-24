@@ -6,15 +6,9 @@ import com.game.repository.armor.ArmorFactory;
 import com.game.repository.weapon.Weapon;
 import com.game.repository.weapon.WeaponFactory;
 import com.game.repository.weapon.WeaponType;
-import com.game.skills.hero.ConcreteHeroSkillFastAttack;
-import com.game.skills.hero.ConcreteHeroSkillHealing;
-import com.game.skills.hero.ConcreteHeroSkillStealthAttack;
-import com.game.skills.hero.HeroSkill;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Data
@@ -27,10 +21,11 @@ public class Thief implements Hero {
     private Integer strength = 15;
     private Integer level = 1;
     private Integer dexterity = 20;
-    private Armor armor = ArmorFactory.createArmor(ArmorClass.LEATHER_ARMOR);
-    private Weapon weapon = WeaponFactory.createWeapon(WeaponType.LANCE);
-    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillFastAttack(), new ConcreteHeroSkillStealthAttack(), new ConcreteHeroSkillHealing());
+    private Armor armor = ArmorFactory.createArmor(ArmorClass.WITHOUT_ARMOR);
+    private Weapon weapon = WeaponFactory.createWeapon(WeaponType.WITHOUT_WEAPON);
+    private String skills = "FastAttack, StealthAttack, Healing";
 
+    @Override
     public HeroClass getHeroClass() {
         return HERO_CLASS;
     }

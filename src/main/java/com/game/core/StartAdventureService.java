@@ -2,18 +2,18 @@ package com.game.core;
 
 import com.game.ui.MoveForwardUIAction;
 import com.game.repository.enemy.Orc;
-import com.game.repository.hero.HeroRepository;
+import com.game.repository.hero.HashMapHeroRepository;
 import com.game.skills.hero.ConcreteHeroSkillFastAttack;
 
 public class StartAdventureService {
 
 
     private String heroName;
-    private final HeroRepository repository;
+    private final HashMapHeroRepository repository;
     private MoveForwardUIAction moveForwardUIAction = new MoveForwardUIAction();
     private ConcreteHeroSkillFastAttack concreteHeroSkillFastAttack = new ConcreteHeroSkillFastAttack();
 
-    public StartAdventureService(HeroRepository repository) {
+    public StartAdventureService(HashMapHeroRepository repository) {
         this.repository = repository;
     }
 

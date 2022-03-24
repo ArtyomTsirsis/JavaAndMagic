@@ -6,15 +6,9 @@ import com.game.repository.armor.ArmorFactory;
 import com.game.repository.weapon.Weapon;
 import com.game.repository.weapon.WeaponFactory;
 import com.game.repository.weapon.WeaponType;
-import com.game.skills.hero.ConcreteHeroSkillAttackWOWeapon;
-import com.game.skills.hero.ConcreteHeroSkillFireDamage;
-import com.game.skills.hero.ConcreteHeroSkillHealing;
-import com.game.skills.hero.HeroSkill;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Data
@@ -27,10 +21,11 @@ public class Wizard implements Hero {
     private Integer strength = 15;
     private Integer level = 1;
     private Integer dexterity = 8;
-    private Armor armor = ArmorFactory.createArmor(ArmorClass.MAGICAL_SHIELD);
-    private Weapon weapon = WeaponFactory.createWeapon(WeaponType.MAGIC_STAFF);
-    private List<HeroSkill> skills = List.of(new ConcreteHeroSkillAttackWOWeapon(), new ConcreteHeroSkillFireDamage(), new ConcreteHeroSkillHealing());
+    private Armor armor = ArmorFactory.createArmor(ArmorClass.WITHOUT_ARMOR);
+    private Weapon weapon = WeaponFactory.createWeapon(WeaponType.WITHOUT_WEAPON);
+    private String skills = "AttackWOWeapon, FireDamage, Healing";
 
+    @Override
     public HeroClass getHeroClass() {
         return HERO_CLASS;
     }
