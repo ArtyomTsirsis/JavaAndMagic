@@ -1,6 +1,6 @@
 package com.game.reposervices;
 
-import com.game.dto.ConverterToDto;
+import com.game.utils.ConverterToDto;
 import com.game.dto.CreateHeroRequest;
 import com.game.dto.CreateHeroResponse;
 import com.game.repository.hero.Hero;
