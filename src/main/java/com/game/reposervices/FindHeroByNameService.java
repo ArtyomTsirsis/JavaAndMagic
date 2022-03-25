@@ -1,6 +1,6 @@
 package com.game.reposervices;
 
-import com.game.dto.ConverterToDto;
+import com.game.utils.ConverterToDto;
 import com.game.dto.FindHeroByIdResponse;
 import com.game.repository.hero.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
