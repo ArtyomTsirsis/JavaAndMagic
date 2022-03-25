@@ -1,7 +1,7 @@
 package com.game.skills.hero;
 
+import com.game.dto.hero.HeroDTO;
 import com.game.repository.enemy.Enemy;
-import com.game.repository.hero.Hero;
 import lombok.Data;
 
 @Data
@@ -13,7 +13,7 @@ public class ConcreteHeroSkillHealing implements HeroSkill {
     private int missChance = 0;
 
     @Override
-    public String execute(Hero hero, Enemy enemy) {
+    public String execute(HeroDTO hero, Enemy enemy) {
         int heal = 10 * hero.getLevel() + 50;
         hero.setHealth(hero.getHealth() + heal);
         return "Вы восстановили " + heal + " ОЗ.";

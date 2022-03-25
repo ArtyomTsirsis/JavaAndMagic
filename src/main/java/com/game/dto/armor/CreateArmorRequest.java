@@ -1,4 +1,4 @@
-package com.game.dto;
+package com.game.dto.armor;
 
 import com.game.repository.hero.HeroClass;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateHeroRequest {
+public class CreateArmorRequest {
 
     private HeroClass heroClass;
     private String name;

@@ -1,11 +1,11 @@
-package com.game.dto;
+package com.game.dto.hero;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class FindHeroByIdResponse {
+public class CreateHeroResponse {
 
     private HeroDTO hero;
 

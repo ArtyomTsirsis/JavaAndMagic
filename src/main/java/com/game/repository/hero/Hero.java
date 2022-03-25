@@ -1,8 +1,5 @@
 package com.game.repository.hero;
 
-import com.game.repository.armor.Armor;
-import com.game.repository.weapon.Weapon;
-
 public interface Hero {
 
     HeroClass getHeroClass();
@@ -13,8 +10,8 @@ public interface Hero {
     Integer getLevel();
     void increaseLevel();
     Integer getDexterity();
-    Armor getArmor();
-    Weapon getWeapon();
+    Integer getArmorID();
+    Integer getWeaponID();
     String getSkills();
     String toString();
 

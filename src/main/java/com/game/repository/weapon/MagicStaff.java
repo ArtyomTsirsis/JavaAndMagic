@@ -9,13 +9,13 @@ import lombok.ToString;
 public class MagicStaff implements Weapon {
 
     private Integer id;
-    WeaponType weaponType = WeaponType.MAGIC_STAFF;
-    HeroClass[] whoCanUse = {HeroClass.WIZARD};
-    Integer durability = 30;
-    Integer physicalDamage = 0;
-    Integer magicalDamage = 50;
-    Integer level = 1;
-    Integer criticalHitChance = 1;
+    private WeaponType weaponType = WeaponType.MAGIC_STAFF;
+    private HeroClass[] whoCanUse = {HeroClass.WIZARD};
+    private Integer durability = 30;
+    private Integer physicalDamage = 0;
+    private Integer magicalDamage = 50;
+    private Integer level = 1;
+    private Integer criticalHitChance = 1;
 
     @Override
     public void increaseLevel() {
