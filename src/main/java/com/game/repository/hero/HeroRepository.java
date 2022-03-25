@@ -1,12 +1,13 @@
 package com.game.repository.hero;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface HeroRepository {
 
-    public void save(Hero hero);
-    public Hero findById(String heroName);
-    public List<Hero> findAll();
-    public void deleteById(String heroName);
+    void save(Hero hero);
+    Optional<Hero> findById(String heroName);
+    List<Hero> findAll();
+    void deleteById(String heroName);
 
 }
