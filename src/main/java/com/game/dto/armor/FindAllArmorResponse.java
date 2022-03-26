@@ -7,8 +7,8 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class FindAllArmnorResponse {
+public class FindAllArmorResponse {
 
-    private List<ArmorDTO> heroes;
+    private List<ArmorDTO> armor;
 
 }

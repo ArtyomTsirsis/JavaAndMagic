@@ -1,6 +1,6 @@
 package com.game.reposervices.weapon;
 
-import com.game.repository.hero.HeroRepository;
+import com.game.repository.weapon.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class DeleteWeaponByIDService {
 
     @Autowired
-    private HeroRepository repository;
+    private WeaponRepository repository;
 
-    public void deleteByName(String name) {
-        repository.deleteById(name);
+    public void deleteByID(Integer id) {
+        repository.deleteById(id);
     }
 
 }

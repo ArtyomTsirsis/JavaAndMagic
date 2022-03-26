@@ -9,6 +9,6 @@ import java.util.List;
 @AllArgsConstructor
 public class FindAllWeaponResponse {
 
-    private List<WeaponDTO> heroes;
+    private List<WeaponDTO> weapon;
 
 }

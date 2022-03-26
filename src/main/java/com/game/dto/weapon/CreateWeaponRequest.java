@@ -1,6 +1,6 @@
 package com.game.dto.weapon;
 
-import com.game.repository.hero.HeroClass;
+import com.game.repository.weapon.WeaponType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateWeaponRequest {
 
-    private HeroClass heroClass;
-    private String name;
+    private WeaponType weaponType;
 
 }

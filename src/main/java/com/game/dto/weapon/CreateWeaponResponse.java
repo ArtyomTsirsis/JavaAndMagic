@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class CreateWeaponResponse {
 
-    private WeaponDTO hero;
+    private WeaponDTO weapon;
 
 }

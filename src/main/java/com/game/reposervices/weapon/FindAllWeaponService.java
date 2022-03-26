@@ -1,8 +1,8 @@
 package com.game.reposervices.weapon;
 
-import com.game.dto.hero.FindAllHeroesResponse;
-import com.game.repository.hero.HeroRepository;
-import com.game.utils.HeroDTOConverter;
+import com.game.dto.weapon.FindAllWeaponResponse;
+import com.game.repository.weapon.WeaponRepository;
+import com.game.utils.WeaponDTOConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 public class FindAllWeaponService {
 
     @Autowired
-    private HeroRepository repository;
+    private WeaponRepository repository;
     @Autowired
-    private HeroDTOConverter converter;
+    private WeaponDTOConverter converter;
 
-    public FindAllHeroesResponse findAll() {
-        return new FindAllHeroesResponse(repository.findAll().stream().map(converter::convertToDto).toList());
+    public FindAllWeaponResponse findAll() {
+        return new FindAllWeaponResponse(repository.findAll().stream().map(converter::convertToDto).toList());
     }
 
 }

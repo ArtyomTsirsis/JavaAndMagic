@@ -1,6 +1,6 @@
 package com.game.reposervices.armor;
 
-import com.game.repository.hero.HeroRepository;
+import com.game.repository.armor.ArmorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class DeleteArmorByIDService {
 
     @Autowired
-    private HeroRepository repository;
+    private ArmorRepository repository;
 
-    public void deleteByName(String name) {
-        repository.deleteById(name);
+    public void deleteByID(Integer id) {
+        repository.deleteById(id);
     }
 
 }
