@@ -1,4 +1,4 @@
-package com.game.dto;
+package com.game.dto.weapon;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,8 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class FindAllHeroesResponse {
+public class FindAllWeaponResponse {
 
-    private List<HeroDTO> heroes;
+    private List<WeaponDTO> weapon;
 
 }

@@ -2,7 +2,7 @@ package com.game.repository.armor;
 
 public interface Armor {
 
-    int getId();
+    Integer getId();
     ArmorClass getArmorClass();
     Integer getDurability();
     void setDurability(Integer durability);

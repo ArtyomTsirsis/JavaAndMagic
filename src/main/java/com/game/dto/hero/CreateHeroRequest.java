@@ -1,4 +1,4 @@
-package com.game.dto;
+package com.game.dto.hero;
 
 import com.game.repository.hero.HeroClass;
 import lombok.AllArgsConstructor;

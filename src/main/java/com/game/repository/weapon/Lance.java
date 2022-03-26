@@ -9,13 +9,13 @@ import lombok.ToString;
 public class Lance implements Weapon {
 
     private Integer id;
-    WeaponType weaponType = WeaponType.LANCE;
-    HeroClass[] whoCanUse = {HeroClass.THIEF};
-    Integer durability = 100;
-    Integer physicalDamage = 20;
-    Integer magicalDamage = 20;
-    Integer level = 1;
-    Integer criticalHitChance = 8;
+    private WeaponType weaponType = WeaponType.LANCE;
+    private HeroClass[] whoCanUse = {HeroClass.THIEF};
+    private Integer durability = 100;
+    private Integer physicalDamage = 20;
+    private Integer magicalDamage = 20;
+    private Integer level = 1;
+    private Integer criticalHitChance = 8;
 
     @Override
     public void increaseLevel() {

@@ -1,30 +1,32 @@
 package com.game.repository.armor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class HashMapArmorRepository implements ArmorRepository {
 
-    private final static Map<ArmorClass, Armor> armorRepo = new HashMap<>();
+    private final static Map<Integer, Armor> armorRepo = new HashMap<>();
 
     @Override
     public void save(Armor armor) {
-        armorRepo.put(armor.getArmorClass(), armor);
+        armorRepo.put(armor.getId(), armor);
     }
 
     @Override
-    public Armor findById(ArmorClass armorClass) {
-        return armorRepo.get(armorClass);
+    public Optional<Armor> findById(Integer id) {
+        return Optional.ofNullable(armorRepo.get(id));
     }
 
     @Override
-    public Iterable<Armor> findAll() {
-        return armorRepo.values();
+    public List<Armor> findAll() {
+        return armorRepo.values().stream().toList();
     }
 
     @Override
-    public void deleteById(ArmorClass armorClass) {
-        armorRepo.remove(armorClass);
+    public void deleteById(Integer id) {
+        armorRepo.remove(id);
     }
 
 }

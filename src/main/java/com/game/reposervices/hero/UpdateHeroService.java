@@ -1,4 +1,4 @@
-package com.game.reposervices;
+package com.game.reposervices.hero;
 
 public class UpdateHeroService {
 

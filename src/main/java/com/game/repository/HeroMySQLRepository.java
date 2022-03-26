@@ -2,7 +2,6 @@ package com.game.repository;
 
 import com.game.repository.hero.Hero;
 import com.game.repository.hero.HeroRepository;
-import com.game.repository.hero.Knight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class HeroMySQLRepository implements HeroRepository {
@@ -41,27 +41,20 @@ public class HeroMySQLRepository implements HeroRepository {
     }
 
     @Override
-    public Hero findById(String heroName) {
-        return new Knight("Arthur");
+    public Optional<Hero> findById(String heroName) {
+        return Optional.ofNullable(jdbcTemplate.
+                queryForObject("SELECT * FROM heroes WHERE name=?",
+                        new BeanPropertyRowMapper<>(Hero.class), heroName));
     }
 
-
-
-//    public Optional<Hero> findById(String heroName) {
-//        var toReturn = (Hero) jdbcTemplate.queryForObject("SELECT * FROM heroes WHERE name=?",
-//                new Object[]{heroName}, new BeanPropertyRowMapper(Hero.class));
-//        return Optional.ofNullable(toReturn);
-//    }
-
-//    Row types to Generic
     @Override
     public List<Hero> findAll() {
-        return jdbcTemplate.query("SELECT * FROM heroes", new BeanPropertyRowMapper(Hero.class));
+        return jdbcTemplate.query("SELECT * FROM heroes", new BeanPropertyRowMapper<>(Hero.class));
     }
 
     @Override
     public void deleteById(String heroName) {
-
+        jdbcTemplate.update("DELETE FROM heroes WHERE name=?",  heroName);
     }
 
 }

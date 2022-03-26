@@ -1,30 +1,32 @@
 package com.game.repository.weapon;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class HashMapWeaponRepository implements WeaponRepository {
 
-    private final static Map<WeaponType, Weapon> weaponRepo = new HashMap<>();
+    private final static Map<Integer, Weapon> weaponRepo = new HashMap<>();
 
     @Override
     public void save(Weapon weapon) {
-        weaponRepo.put(weapon.getWeaponType(), weapon);
+        weaponRepo.put(weapon.getId(), weapon);
     }
 
     @Override
-    public Weapon findById(WeaponType weaponType) {
-        return weaponRepo.get(weaponType);
+    public Optional<Weapon> findById(Integer id) {
+        return Optional.ofNullable(weaponRepo.get(id));
     }
 
     @Override
-    public Iterable<Weapon> findAll() {
-        return weaponRepo.values();
+    public List<Weapon> findAll() {
+        return weaponRepo.values().stream().toList();
     }
 
     @Override
-    public void deleteById(WeaponType weaponType) {
-        weaponRepo.remove(weaponType);
+    public void deleteById(Integer id) {
+        weaponRepo.remove(id);
     }
 
 }

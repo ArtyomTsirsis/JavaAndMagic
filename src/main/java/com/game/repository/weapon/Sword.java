@@ -9,13 +9,13 @@ import lombok.ToString;
 public class Sword implements Weapon {
 
     private Integer id;
-    WeaponType weaponType = WeaponType.BOW;
-    HeroClass[] whoCanUse = {HeroClass.KNIGHT};
-    Integer durability = 100;
-    Integer physicalDamage = 70;
-    Integer magicalDamage = 0;
-    Integer level = 1;
-    Integer criticalHitChance = 1;
+    private WeaponType weaponType = WeaponType.BOW;
+    private HeroClass[] whoCanUse = {HeroClass.KNIGHT};
+    private Integer durability = 100;
+    private Integer physicalDamage = 70;
+    private Integer magicalDamage = 0;
+    private Integer level = 1;
+    private Integer criticalHitChance = 1;
 
     @Override
     public void increaseLevel() {

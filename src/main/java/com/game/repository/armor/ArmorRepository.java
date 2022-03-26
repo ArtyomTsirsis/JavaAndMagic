@@ -1,10 +1,13 @@
 package com.game.repository.armor;
 
+import java.util.List;
+import java.util.Optional;
+
 public interface ArmorRepository {
 
-    public void save(Armor armor);
-    public Armor findById(ArmorClass armorClass);
-    public Iterable<Armor> findAll();
-    public void deleteById(ArmorClass armorClass);
+    void save(Armor armor);
+    Optional<Armor> findById(Integer id);
+    List<Armor> findAll();
+    void deleteById(Integer id);
 
 }

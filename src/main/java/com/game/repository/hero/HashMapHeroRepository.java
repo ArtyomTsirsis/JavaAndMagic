@@ -3,6 +3,7 @@ package com.game.repository.hero;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 //@Repository
 public class HashMapHeroRepository implements HeroRepository {
@@ -15,8 +16,8 @@ public class HashMapHeroRepository implements HeroRepository {
     }
 
     @Override
-    public Hero findById(String heroName) {
-        return heroRepo.get(heroName);
+    public Optional<Hero> findById(String heroName) {
+        return Optional.ofNullable(heroRepo.get(heroName));
     }
 
     @Override

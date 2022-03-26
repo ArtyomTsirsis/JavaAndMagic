@@ -1,4 +1,4 @@
-package com.game.reposervices;
+package com.game.reposervices.hero;
 
 import com.game.repository.hero.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
