@@ -1,38 +1,34 @@
 package com.game.ui;
 
-import com.game.core.CreateHeroService;
-import com.game.core.DeleteByIdService;
-import com.game.core.ShowAllHeroService;
-import com.game.core.StartAdventureService;
-import com.game.repository.hero.HashMapHeroRepository;
+import com.game.reposervices.hero.CreateHeroService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+@Component
 public class MainMenu {
 
     private Map<Integer, UIAction> menuNumberToActionMap;
-    private HashMapHeroRepository repository;
+    @Autowired
+    private CreateHeroUIAction createHeroUIAction;
+    @Autowired
+    private StartAdventureUIAction startAdventureUIAction;
+    @Autowired
+    private ShowAllHeroUIAction showAllHeroUIAction;
+    @Autowired
+    private DeleteByIdUIAction deleteByIdUIAction;
 
-    public MainMenu(HashMapHeroRepository repository) {
-        this.repository = repository;
-
-        var createHeroService = new CreateHeroService(repository);
-        var showAllHeroService = new ShowAllHeroService(repository);
-        var deleteByIdService = new DeleteByIdService(repository);
-        var startAdventureService = new StartAdventureService(repository);
-
-        menuNumberToActionMap = new HashMap();
-        menuNumberToActionMap.put(1, new CreateHeroUIAction(createHeroService));
-        menuNumberToActionMap.put(2, new StartAdventureUIAction(startAdventureService, showAllHeroService));
-        menuNumberToActionMap.put(3, new ShowAllHeroUIAction(showAllHeroService));
-        menuNumberToActionMap.put(4, new DeleteByIdUIAction(showAllHeroService, deleteByIdService));
-
-
-    }
 
     public void run() {
+
+        menuNumberToActionMap =new HashMap();
+        menuNumberToActionMap.put(1,createHeroUIAction);
+        menuNumberToActionMap.put(2,startAdventureUIAction);
+        menuNumberToActionMap.put(3,showAllHeroUIAction);
+        menuNumberToActionMap.put(4,deleteByIdUIAction);
 
 
         System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
