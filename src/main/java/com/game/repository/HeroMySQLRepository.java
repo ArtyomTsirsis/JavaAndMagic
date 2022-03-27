@@ -3,6 +3,7 @@ package com.game.repository;
 import com.game.repository.hero.Hero;
 import com.game.repository.hero.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -42,8 +43,13 @@ public class HeroMySQLRepository implements HeroRepository {
 
     @Override
     public Optional<Hero> findById(String heroName) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject("SELECT * FROM heroes WHERE name=?",
-                new BeanPropertyRowMapper<>(Hero.class), heroName));
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject("SELECT * FROM heroes WHERE name=?",
+                    new BeanPropertyRowMapper<>(Hero.class), heroName));
+        }
+        catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     @Override

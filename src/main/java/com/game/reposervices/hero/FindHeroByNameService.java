@@ -22,7 +22,6 @@ public class FindHeroByNameService {
         Optional<Hero> hero = repository.findById(name);
         if (hero.isEmpty()) {
             throw new NoSuchObjectException(name);
-
         }
         return new FindHeroByIdResponse(converter.convertToDto(hero.get()));
 
