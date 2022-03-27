@@ -8,7 +8,8 @@ import lombok.Data;
 public class ConcreteHeroSkillShoot implements HeroSkill {
 
     private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
-    private final String name = "Стрельба";
+    private final String name = "Shoot";
+    private final String output = "Стрельба";
     private int criticalHitChance = 10;
     private int missChance = 0;
 

@@ -8,7 +8,8 @@ import lombok.Data;
 public class ConcreteHeroSkillFastAttack implements HeroSkill {
 
     private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
-    private final String name = "Быстрая атака";
+    private final String name = "FastAttack";
+    private final String output = "Быстрая атака";
     private int criticalHitChance = 0;
     private int missChance = 0;
 

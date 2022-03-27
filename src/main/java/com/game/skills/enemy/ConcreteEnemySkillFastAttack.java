@@ -1,7 +1,7 @@
 package com.game.skills.enemy;
 
+import com.game.dto.hero.HeroDTO;
 import com.game.repository.enemy.Enemy;
-import com.game.repository.hero.Hero;
 import lombok.Data;
 
 @Data
@@ -13,7 +13,7 @@ public class ConcreteEnemySkillFastAttack implements EnemySkill {
     private int missChance = 0;
 
     @Override
-    public String execute(Hero hero, Enemy enemy) {
+    public String execute(HeroDTO hero, Enemy enemy) {
         int criticalHitOrMissCoefficient = CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT
                 .getCriticalHitOrMissCoefficient(hero, enemy, this);
         int damage = ((enemy.getPhysicalDamage() - hero.getArmor().getPhysicalDefense()) +
@@ -25,13 +25,11 @@ public class ConcreteEnemySkillFastAttack implements EnemySkill {
             return "Вы получили урон " + damage +" ОЗ. Поражение!";
         }
         hero.setHealth(hero.getHealth() - damage);
-        switch (criticalHitOrMissCoefficient) {
-            case 0:
-                return "Промах!";
-            case 2:
-                return "Критическое попадание! Вы получили урон " + damage + " ОЗ.";
-        }
-        return "Вы получили урон " + damage + " ОЗ.";
+        return switch (criticalHitOrMissCoefficient) {
+            case 0 -> "Промах!";
+            case 2 -> "Критическое попадание! Вы получили урон " + damage + " ОЗ.";
+            default -> "Вы получили урон " + damage + " ОЗ.";
+        };
     }
 
 }
