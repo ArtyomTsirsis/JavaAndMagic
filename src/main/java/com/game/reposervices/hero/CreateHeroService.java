@@ -20,9 +20,9 @@ public class CreateHeroService {
     HeroDTOConverter converter;
 
     public CreateHeroResponse createHero(CreateHeroRequest request) throws KeyAlreadyExistsException {
-        if (repository.findById(request.getName()).isPresent()) {
-            throw new KeyAlreadyExistsException();
-        }
+//        if (repository.findById(request.getName()).isPresent()) {
+//            throw new KeyAlreadyExistsException();
+//        }
         Hero hero = HeroFactory.createHero(request.getHeroClass(), request.getName());
         repository.save(hero);
         return new CreateHeroResponse(converter.convertToDto(hero));
