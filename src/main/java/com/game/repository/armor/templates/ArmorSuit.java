@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class ArmorSuit extends Armor {
 
-    private Integer id;
+    private Integer armorID;
     private String owner;
     private ArmorClass armorClass = ArmorClass.ARMOR_SUIT;
     private Integer durability = 100;

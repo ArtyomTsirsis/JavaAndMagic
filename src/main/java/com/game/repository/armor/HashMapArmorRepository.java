@@ -11,7 +11,7 @@ public class HashMapArmorRepository implements ArmorRepository {
 
     @Override
     public void save(Armor armor) {
-        armorRepo.put(armor.getId(), armor);
+        armorRepo.put(armor.getArmorID(), armor);
     }
 
     @Override

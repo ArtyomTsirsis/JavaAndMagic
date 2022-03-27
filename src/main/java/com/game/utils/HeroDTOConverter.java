@@ -22,7 +22,7 @@ public class HeroDTOConverter {
         try {
             return new HeroDTO(hero.getHeroClass(), hero.getName(), hero.getHealth(), hero.getStrength(),
                     hero.getLevel(), hero.getDexterity(), findArmorByIDService.findByID(hero.getArmorID()).getArmor(),
-                    findWeaponByIDService.findByID(hero.getWeaponID()).getWeapon(), converter.decrypt(hero.getSkills()));
+                    findWeaponByIDService.findByID(hero.getWeaponID()).getWeapon(), converter.decrypt(hero.getSkillBook()));
         }
         catch (Exception e) {
             return new HeroDTO();

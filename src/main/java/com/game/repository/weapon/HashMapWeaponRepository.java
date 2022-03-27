@@ -11,7 +11,7 @@ public class HashMapWeaponRepository implements WeaponRepository {
 
     @Override
     public void save(Weapon weapon) {
-        weaponRepo.put(weapon.getId(), weapon);
+        weaponRepo.put(weapon.getWeaponID(), weapon);
     }
 
     @Override

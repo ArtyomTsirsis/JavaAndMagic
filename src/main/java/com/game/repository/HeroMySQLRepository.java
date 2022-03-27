@@ -35,7 +35,7 @@ public class HeroMySQLRepository implements HeroRepository {
             ps.setInt(6, hero.getDexterity());
             ps.setInt(7, hero.getWeaponID());
             ps.setInt(8, hero.getArmorID());
-            ps.setString(9, hero.getSkills());
+            ps.setString(9, hero.getSkillBook());
             return ps;
         });
     }

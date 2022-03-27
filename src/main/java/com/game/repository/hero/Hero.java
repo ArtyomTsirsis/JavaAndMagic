@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Hero {
 
-    private HeroClass HERO_CLASS;
+    private HeroClass heroClass;
     private String name;
     private Integer health;
     private Integer strength;
@@ -17,10 +17,10 @@ public class Hero {
     private Integer dexterity;
     private Integer armorID;
     private Integer weaponID;
-    private String skills;
+    private String skillBook;
 
     public HeroClass getHeroClass() {
-        return HERO_CLASS;
+        return heroClass;
     }
 
     public void setHealth(Integer health) {

@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class WOWeapon extends Weapon {
 
-    private Integer id = -1;
+    private Integer weaponID = -1;
     private String owner = "all";
     private WeaponType weaponType = WeaponType.WITHOUT_WEAPON;
     private Integer durability = 1;

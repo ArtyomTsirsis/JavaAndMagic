@@ -42,7 +42,7 @@ public class WeaponMySQLRepository implements WeaponRepository {
     @Override
     public Optional<Weapon> findById(Integer id) {
         return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM weapon WHERE id=?",
+                queryForObject("SELECT * FROM weapon WHERE weaponID=?",
                         new BeanPropertyRowMapper<>(Weapon.class), id));
     }
 

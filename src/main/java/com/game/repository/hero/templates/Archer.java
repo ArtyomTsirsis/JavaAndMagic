@@ -10,7 +10,7 @@ import lombok.NonNull;
 @Data
 public class Archer extends Hero {
 
-    private final static HeroClass HERO_CLASS = HeroClass.ARCHER;
+    private final static HeroClass heroClass = HeroClass.ARCHER;
     @NonNull
     private String name;
     private Integer health = 150;
@@ -19,11 +19,11 @@ public class Archer extends Hero {
     private Integer dexterity = 12;
     private Integer armorID = -1;
     private Integer weaponID = -1;
-    private String skills = "AttackWOWeapon, Shoot, Healing";
+    private String skillBook = "AttackWOWeapon, Shoot, Healing";
 
     @Override
     public HeroClass getHeroClass() {
-        return HERO_CLASS;
+        return heroClass;
     }
 
     @Override

@@ -39,7 +39,7 @@ public class ArmorMySQLRepository implements ArmorRepository {
     @Override
     public Optional<Armor> findById(Integer id) {
         return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM armor WHERE id=?",
+                queryForObject("SELECT * FROM armor WHERE armorID=?",
                         new BeanPropertyRowMapper<>(Armor.class), id));
     }
 

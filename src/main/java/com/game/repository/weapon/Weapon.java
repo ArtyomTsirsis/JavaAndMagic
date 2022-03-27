@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Weapon {
 
-    private Integer id;
+    private Integer weaponID;
     private String owner;
     private WeaponType weaponType;
     private Integer durability;

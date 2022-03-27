@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class MagicalShield extends Armor {
 
-    private Integer id;
+    private Integer armorID;
     private String owner;
     private ArmorClass armorClass = ArmorClass.MAGICAL_SHIELD;
     private Integer durability = 150;

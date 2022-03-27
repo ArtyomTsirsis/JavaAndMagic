@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @Data
 public class Axe extends Weapon {
 
-    private Integer id;
+    private Integer weaponID;
     private String owner;
     private WeaponType weaponType = WeaponType.AXE;
     private Integer durability = 50;
