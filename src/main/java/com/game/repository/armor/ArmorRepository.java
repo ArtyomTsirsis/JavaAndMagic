@@ -7,6 +7,7 @@ public interface ArmorRepository {
 
     void save(Armor armor);
     Optional<Armor> findById(Integer id);
+    List<Armor> findByOwner(String owner);
     List<Armor> findAll();
     void deleteById(Integer id);
 

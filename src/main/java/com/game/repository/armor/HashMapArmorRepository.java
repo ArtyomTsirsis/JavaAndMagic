@@ -20,6 +20,11 @@ public class HashMapArmorRepository implements ArmorRepository {
     }
 
     @Override
+    public List<Armor> findByOwner(String owner) {
+        return armorRepo.values().stream().filter(o -> owner.equals(o.getOwner())).toList();
+    }
+
+    @Override
     public List<Armor> findAll() {
         return armorRepo.values().stream().toList();
     }

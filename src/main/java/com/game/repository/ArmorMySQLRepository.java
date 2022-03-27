@@ -44,6 +44,10 @@ public class ArmorMySQLRepository implements ArmorRepository {
     }
 
     @Override
+    public List<Armor> findByOwner(String owner) {
+        return jdbcTemplate.query("SELECT * FROM armor", new BeanPropertyRowMapper<>(Armor.class));    }
+
+    @Override
     public List<Armor> findAll() {
         return jdbcTemplate.query("SELECT * FROM armor", new BeanPropertyRowMapper<>(Armor.class));
     }
