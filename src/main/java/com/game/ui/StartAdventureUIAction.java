@@ -1,23 +1,25 @@
 package com.game.ui;
 
-import com.game.core.ShowAllHeroService;
 import com.game.core.StartAdventureService;
+import com.game.reposervices.hero.FindAllHeroesService;
 import com.game.repository.hero.Hero;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 
 
 import java.util.Scanner;
 
+@Component
 public class StartAdventureUIAction implements UIAction {
 
 
+    @Autowired
     private StartAdventureService startAdventureService;
-    private ShowAllHeroService showAllHeroService;
-    private Hero hero;
+    @Autowired
+    private FindAllHeroesService showAllHeroService;
 
-    public StartAdventureUIAction(StartAdventureService startAdventureService, ShowAllHeroService showAllHeroService) {
-        this.startAdventureService = startAdventureService;
-        this.showAllHeroService = showAllHeroService;
-    }
+    private Hero hero;
 
     @Override
     public void execute() {
@@ -56,9 +58,7 @@ public class StartAdventureUIAction implements UIAction {
         Scanner sc = new Scanner(System.in);
         System.out.println("**************************************");
         System.out.println("Available heroes: ");
-        showAllHeroService.findAll().forEach(hero -> {
-            System.out.println("----> " + hero.getName() + " (" + hero.getHeroClass() + ")");
-        });
+        showAllHeroService.findAll();
         System.out.println();
         System.out.print("Please type a name: ");
         String name = sc.nextLine();

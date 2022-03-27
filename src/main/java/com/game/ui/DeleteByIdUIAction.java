@@ -2,19 +2,19 @@ package com.game.ui;
 
 import java.util.Scanner;
 
-import com.game.core.ShowAllHeroService;
-import com.game.core.DeleteByIdService;
+import com.game.reposervices.hero.DeleteHeroByNameService;
+import com.game.reposervices.hero.FindAllHeroesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DeleteByIdUIAction implements UIAction {
 
-    private ShowAllHeroService showAllHeroService;
-    private final DeleteByIdService deleteByIdService;
+    @Autowired
+    private FindAllHeroesService showAllHeroService;
+    @Autowired
+    private DeleteHeroByNameService deleteByIdService;
     String heroName;
-
-    public DeleteByIdUIAction(ShowAllHeroService showAllHeroService, DeleteByIdService deleteByIdService) {
-        this.showAllHeroService = showAllHeroService;
-        this.deleteByIdService = deleteByIdService;
-    }
 
     public void execute() {
 
@@ -22,9 +22,7 @@ public class DeleteByIdUIAction implements UIAction {
         System.out.flush();
 
         // вывод всех героев из базы данных:
-        showAllHeroService.findAll().forEach(hero -> {
-            System.out.println("Hero name: " + hero.getName());
-        });
+        showAllHeroService.findAll();
 
         // запрашиваем имя героя с консоли у пользолвателя
         Scanner sc = new Scanner(System.in);
@@ -32,7 +30,7 @@ public class DeleteByIdUIAction implements UIAction {
         heroName = sc.nextLine();
 
         // поиск героя в базе данных и удаление:
-        deleteByIdService.delete(heroName);
+        deleteByIdService.deleteByName(heroName);
 
         System.out.println("**************************************");
 
