@@ -26,4 +26,8 @@ public class Lance implements Weapon {
         this.durability--;
     }
 
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 }

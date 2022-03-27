@@ -17,4 +17,9 @@ public class WOArmor implements Armor {
     @Override
     public void decreaseDurability() {}
 
+    @Override
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 }

@@ -7,6 +7,7 @@ public interface WeaponRepository {
 
     void save(Weapon weapon);
     Optional<Weapon> findById(Integer id);
+    List<Weapon> findByOwner(String owner);
     List<Weapon> findAll();
     void deleteById(Integer id);
 

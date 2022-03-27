@@ -47,6 +47,11 @@ public class WeaponMySQLRepository implements WeaponRepository {
     }
 
     @Override
+    public List<Weapon> findByOwner(String owner) {
+        return jdbcTemplate.query("SELECT * FROM weapon", new BeanPropertyRowMapper<>(Weapon.class));
+    }
+
+    @Override
     public List<Weapon> findAll() {
         return jdbcTemplate.query("SELECT * FROM weapon", new BeanPropertyRowMapper<>(Weapon.class));
     }

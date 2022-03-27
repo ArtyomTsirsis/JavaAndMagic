@@ -4,6 +4,7 @@ public interface Weapon {
 
     Integer getId();
     String getOwner();
+    void setOwner(String owner);
     WeaponType getWeaponType();
     Integer getDurability();
     void setDurability(Integer durability);

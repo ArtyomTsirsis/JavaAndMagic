@@ -1,17 +1,13 @@
 package com.game.dto.armor;
 
 import com.game.dto.hero.HeroDTO;
-import com.game.repository.armor.ArmorClass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class CreateArmorRequest {
+public class FindArmorByOwnerRequest {
 
-    private ArmorClass armorClass;
     private HeroDTO hero;
 
 }

@@ -20,6 +20,11 @@ public class HashMapWeaponRepository implements WeaponRepository {
     }
 
     @Override
+    public List<Weapon> findByOwner(String owner) {
+        return weaponRepo.values().stream().filter(o -> owner.equals(o.getOwner())).toList();
+    }
+
+    @Override
     public List<Weapon> findAll() {
         return weaponRepo.values().stream().toList();
     }
