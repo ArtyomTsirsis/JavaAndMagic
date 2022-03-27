@@ -4,6 +4,7 @@ public interface Armor {
 
     Integer getId();
     String getOwner();
+    void setOwner(String owner);
     ArmorClass getArmorClass();
     Integer getDurability();
     void setDurability(Integer durability);

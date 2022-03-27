@@ -19,4 +19,9 @@ public class Shield implements Armor {
         this.durability--;
     }
 
+    @Override
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 }

@@ -22,4 +22,8 @@ public class WOWeapon implements Weapon {
     @Override
     public void decreaseDurability() {}
 
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 }
