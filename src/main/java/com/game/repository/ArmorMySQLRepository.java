@@ -39,13 +39,13 @@ public class ArmorMySQLRepository implements ArmorRepository {
     @Override
     public Optional<Armor> findById(Integer id) {
         return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM armor WHERE armorClass=?",
+                queryForObject("SELECT * FROM armor WHERE id=?",
                         new BeanPropertyRowMapper<>(Armor.class), id));
     }
 
     @Override
     public List<Armor> findByOwner(String owner) {
-        return jdbcTemplate.query("SELECT * FROM armor", new BeanPropertyRowMapper<>(Armor.class));    }
+        return jdbcTemplate.query("SELECT * FROM armor WHERE owner=?", new BeanPropertyRowMapper<>(Armor.class), owner);    }
 
     @Override
     public List<Armor> findAll() {

@@ -28,5 +28,4 @@ public class CreateHeroService {
         return new CreateHeroResponse(converter.convertToDto(hero));
     }
 
-
 }

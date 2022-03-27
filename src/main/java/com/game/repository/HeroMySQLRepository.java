@@ -42,9 +42,8 @@ public class HeroMySQLRepository implements HeroRepository {
 
     @Override
     public Optional<Hero> findById(String heroName) {
-        return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM heroes WHERE name=?",
-                        new BeanPropertyRowMapper<>(Hero.class), heroName));
+        return Optional.ofNullable(jdbcTemplate.queryForObject("SELECT * FROM heroes WHERE name=?",
+                new BeanPropertyRowMapper<>(Hero.class), heroName));
     }
 
     @Override
@@ -56,5 +55,6 @@ public class HeroMySQLRepository implements HeroRepository {
     public void deleteById(String heroName) {
         jdbcTemplate.update("DELETE FROM heroes WHERE name=?",  heroName);
     }
+
 
 }

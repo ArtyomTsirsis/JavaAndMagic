@@ -1,12 +1,14 @@
-package com.game.repository.hero;
+package com.game.repository.hero.templates;
 
+import com.game.repository.hero.Hero;
+import com.game.repository.hero.HeroClass;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Wizard implements Hero {
+public class Wizard extends Hero {
 
     private final static HeroClass HERO_CLASS = HeroClass.WIZARD;
     @NonNull
@@ -32,6 +34,11 @@ public class Wizard implements Hero {
     @Override
     public void increaseLevel() {
         level++;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return 0 < this.health;
     }
 
 }

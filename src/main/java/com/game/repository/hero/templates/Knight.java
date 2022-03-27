@@ -1,14 +1,16 @@
-package com.game.repository.hero;
+package com.game.repository.hero.templates;
 
+import com.game.repository.hero.Hero;
+import com.game.repository.hero.HeroClass;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Knight implements Hero {
+public class Knight extends Hero {
 
-    private final static HeroClass HERO_CLASS = HeroClass.KNIGHT;
+    private HeroClass HERO_CLASS = HeroClass.KNIGHT;
     @NonNull
     private String name;
     private Integer health = 400;
@@ -32,6 +34,11 @@ public class Knight implements Hero {
     @Override
     public void increaseLevel() {
         level++;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return 0 < this.health;
     }
 
 }

@@ -1,11 +1,13 @@
-package com.game.repository.weapon;
+package com.game.repository.weapon.templates;
 
+import com.game.repository.weapon.Weapon;
+import com.game.repository.weapon.WeaponType;
 import lombok.Data;
-import lombok.ToString;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@ToString
-public class Bow implements Weapon {
+public class Bow extends Weapon {
 
     private Integer id;
     private String owner;
@@ -23,11 +25,7 @@ public class Bow implements Weapon {
 
     @Override
     public void decreaseDurability() {
-        this.durability--;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
+        durability--;
     }
 
 }

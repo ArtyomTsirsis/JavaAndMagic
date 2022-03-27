@@ -1,5 +1,7 @@
 package com.game.repository.weapon;
 
+import com.game.repository.weapon.templates.*;
+
 public class WeaponFactory {
 
     public static Weapon createWeapon(WeaponType weaponType) {

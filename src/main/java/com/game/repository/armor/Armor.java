@@ -1,18 +1,23 @@
 package com.game.repository.armor;
 
-public interface Armor {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    Integer getId();
-    String getOwner();
-    void setOwner(String owner);
-    ArmorClass getArmorClass();
-    Integer getDurability();
-    void setDurability(Integer durability);
-    void decreaseDurability();
-    Integer getPhysicalDefense();
-    void setPhysicalDefense(Integer Defense);
-    Integer getMagicalDefense();
-    void setMagicalDefense(Integer defense);
-    String toString();
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Armor {
+
+    private Integer id;
+    private String owner;
+    private ArmorClass armorClass;
+    private Integer durability;
+    private Integer physicalDefense;
+    private Integer magicalDefense;
+
+    public void decreaseDurability() {
+        this.durability--;
+    }
 
 }
