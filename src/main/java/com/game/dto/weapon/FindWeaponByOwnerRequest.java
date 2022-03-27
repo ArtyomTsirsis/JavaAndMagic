@@ -1,12 +1,12 @@
 package com.game.dto.weapon;
 
 import com.game.dto.hero.HeroDTO;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 @Data
-@Component
-public class FindWeaponByHeroRequest {
+@AllArgsConstructor
+public class FindWeaponByOwnerRequest {
 
     private HeroDTO hero;
 
