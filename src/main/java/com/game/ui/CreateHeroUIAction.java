@@ -1,12 +1,15 @@
 package com.game.ui;
 
-import com.game.core.CreateHeroService;
+import com.game.dto.hero.CreateHeroRequest;
+import com.game.reposervices.hero.CreateHeroService;
 import com.game.repository.hero.HeroClass;
 import com.game.repository.hero.HeroFactory;
+import org.springframework.stereotype.Component;
 
 
 import java.util.Scanner;
 
+@Component
 public class CreateHeroUIAction implements UIAction {
 
     private CreateHeroService createHeroService;
@@ -48,8 +51,10 @@ public class CreateHeroUIAction implements UIAction {
 
         // сохранение его в базу данных
 
-        var hero = HeroFactory.createHero(heroClass, heroName);
-        createHeroService.create(hero);
+        var request = new CreateHeroRequest();
+        request.setHeroClass(heroClass);
+        request.setName(heroName);
+        createHeroService.createHero(request);
 
     }
 

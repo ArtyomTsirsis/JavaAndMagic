@@ -1,21 +1,24 @@
 package com.game.core;
 
+import com.game.repository.hero.HeroRepository;
 import com.game.ui.MoveForwardUIAction;
 import com.game.repository.enemy.Orc;
 import com.game.repository.hero.HashMapHeroRepository;
 import com.game.skills.hero.ConcreteHeroSkillFastAttack;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StartAdventureService {
 
 
     private String heroName;
-    private final HashMapHeroRepository repository;
+
+    @Autowired
+    private HeroRepository repository;
+
     private MoveForwardUIAction moveForwardUIAction = new MoveForwardUIAction();
     private ConcreteHeroSkillFastAttack concreteHeroSkillFastAttack = new ConcreteHeroSkillFastAttack();
-
-    public StartAdventureService(HashMapHeroRepository repository) {
-        this.repository = repository;
-    }
 
     public void moveForward(String heroName) {
         var hero = repository.findById(heroName);
@@ -31,7 +34,7 @@ public class StartAdventureService {
         var hp = orc.getHealth();
         System.out.println(hp);
 
-        concreteHeroSkillFastAttack.execute(hero, orc);
+//        concreteHeroSkillFastAttack.execute(hero, orc);
 
 
         var print = repository.findById(heroName);
@@ -48,7 +51,7 @@ public class StartAdventureService {
         var hp = orc.getHealth();
         System.out.println(hp);
 
-        concreteHeroSkillFastAttack.execute(hero, orc);
+//        concreteHeroSkillFastAttack.execute(hero, orc);
 
 
         var print = repository.findById(heroName);
@@ -65,7 +68,7 @@ public class StartAdventureService {
         var hp = orc.getHealth();
         System.out.println(hp);
 
-        concreteHeroSkillFastAttack.execute(hero, orc);
+//        concreteHeroSkillFastAttack.execute(hero, orc);
 
 
         var print = repository.findById(heroName);

@@ -1,14 +1,14 @@
 package com.game.ui;
 
-import com.game.core.ShowAllHeroService;
+import com.game.reposervices.hero.FindAllHeroesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShowAllHeroUIAction implements UIAction {
 
-    private ShowAllHeroService showAllHeroService;
-
-    public ShowAllHeroUIAction(ShowAllHeroService showAllHeroService) {
-        this.showAllHeroService = showAllHeroService;
-    }
+    @Autowired
+    private FindAllHeroesService showAllHeroService;
 
     public void execute() {
 
@@ -17,7 +17,7 @@ public class ShowAllHeroUIAction implements UIAction {
 
         // выводим на консоль результаты поиска
 
-        showAllHeroService.findAll().forEach(System.out::println);
+        showAllHeroService.findAll();
 
         System.out.println("**************************************");
 
