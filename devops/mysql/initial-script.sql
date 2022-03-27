@@ -3,8 +3,8 @@ USE javaAndMagic;
 
 CREATE TABLE IF NOT EXISTS weapon(
   weaponID INT AUTO_INCREMENT,
+  owner VARCHAR(20),
   weaponType ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD'),
-  whoCanUse ENUM('ALL', 'ARCHER', 'KNIGHT', 'THIEF', 'WIZARD'),
   durability INT,
   physicalDamage INT,
   magicalDamage INT,
@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS weapon(
 
 CREATE TABLE IF NOT EXISTS armor(
   armorID INT AUTO_INCREMENT,
+  owner VARCHAR(20),
   armorClass ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD'),
   durability INT,
   physicalDefense INT,

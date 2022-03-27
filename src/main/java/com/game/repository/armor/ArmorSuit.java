@@ -8,6 +8,7 @@ import lombok.ToString;
 public class ArmorSuit implements Armor {
 
     private Integer id;
+    private String owner;
     private ArmorClass armorClass = ArmorClass.ARMOR_SUIT;
     private Integer durability = 100;
     private Integer physicalDefense = 30;

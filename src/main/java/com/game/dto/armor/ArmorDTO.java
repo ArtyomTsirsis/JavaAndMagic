@@ -9,6 +9,7 @@ import lombok.Data;
 public class ArmorDTO {
 
     private Integer id;
+    private String owner;
     private ArmorClass armorClass;
     private Integer durability;
     private Integer physicalDefense;

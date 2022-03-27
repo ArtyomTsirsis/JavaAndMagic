@@ -1,6 +1,5 @@
 package com.game.repository.weapon;
 
-import com.game.repository.hero.HeroClass;
 import lombok.Data;
 import lombok.ToString;
 
@@ -9,8 +8,8 @@ import lombok.ToString;
 public class WOWeapon implements Weapon {
 
     private Integer id = -1;
+    private String owner;
     private WeaponType weaponType = WeaponType.WITHOUT_WEAPON;
-    private HeroClass[] whoCanUse = {HeroClass.ALL};
     private Integer durability = 1;
     private Integer physicalDamage = 0;
     private Integer magicalDamage = 0;

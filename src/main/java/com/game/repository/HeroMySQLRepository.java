@@ -24,7 +24,7 @@ public class HeroMySQLRepository implements HeroRepository {
     @Override
     public void save(Hero hero) {
         String query = "INSERT INTO heroes(name, heroClass, health, strength, level, dexterity, weaponID, armorID, skillBook) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, hero.getName());
@@ -33,8 +33,8 @@ public class HeroMySQLRepository implements HeroRepository {
             ps.setInt(4, hero.getStrength());
             ps.setInt(5, hero.getLevel());
             ps.setInt(6, hero.getDexterity());
-            ps.setInt(7, hero.getWeapon().getId());
-            ps.setInt(8, hero.getArmor().getId());
+            ps.setInt(7, hero.getWeaponID());
+            ps.setInt(8, hero.getArmorID());
             ps.setString(9, hero.getSkills());
             return ps;
         });

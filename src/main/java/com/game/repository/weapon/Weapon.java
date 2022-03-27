@@ -1,12 +1,10 @@
 package com.game.repository.weapon;
 
-import com.game.repository.hero.HeroClass;
-
 public interface Weapon {
 
     Integer getId();
+    String getOwner();
     WeaponType getWeaponType();
-    HeroClass[] getWhoCanUse();
     Integer getDurability();
     void setDurability(Integer durability);
     void decreaseDurability();
