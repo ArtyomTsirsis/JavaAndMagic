@@ -8,7 +8,8 @@ import lombok.Data;
 public class ConcreteHeroSkillStealthAttack implements HeroSkill {
 
     private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
-    private final String name = "Скрытная атака";
+    private final String name = "StealthAttack";
+    private final String output = "Скрытная атака";
     private int criticalHitChance = 30;
     private int missChance = -10;
 

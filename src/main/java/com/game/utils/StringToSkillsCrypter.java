@@ -18,4 +18,11 @@ public class StringToSkillsCrypter {
         return skills;
     }
 
+    public String encrypt(List<HeroSkill> decryptedSkills) {
+        StringBuilder sb = new StringBuilder();
+        decryptedSkills.forEach(o -> sb.insert(sb.length(), o.getName() + ","));
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
+    }
+
 }

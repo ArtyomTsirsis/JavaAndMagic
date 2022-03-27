@@ -1,6 +1,5 @@
 package com.game.dto.weapon;
 
-import com.game.repository.hero.HeroClass;
 import com.game.repository.weapon.WeaponType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +9,8 @@ import lombok.Data;
 public class WeaponDTO {
 
     private Integer id;
+    private String owner;
     private WeaponType weaponType;
-    private HeroClass[] whoCanUse;
     private Integer durability;
     private Integer physicalDamage;
     private Integer magicalDamage;

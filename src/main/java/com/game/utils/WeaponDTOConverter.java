@@ -12,7 +12,7 @@ public class WeaponDTOConverter {
     private StringToSkillsCrypter converter;
 
     public WeaponDTO convertToDto(Weapon weapon) {
-        return new WeaponDTO(weapon.getId(), weapon.getWeaponType(), weapon.getWhoCanUse(), weapon.getDurability(),
+        return new WeaponDTO(weapon.getId(), weapon.getOwner(), weapon.getWeaponType(), weapon.getDurability(),
                 weapon.getPhysicalDamage(), weapon.getMagicalDamage(), weapon.getLevel(), weapon.getCriticalHitChance());
     }
 

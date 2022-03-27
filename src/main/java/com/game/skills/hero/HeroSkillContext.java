@@ -1,7 +1,7 @@
 package com.game.skills.hero;
 
+import com.game.dto.hero.HeroDTO;
 import com.game.repository.enemy.Enemy;
-import com.game.repository.hero.Hero;
 
 public class HeroSkillContext {
 
@@ -15,7 +15,7 @@ public class HeroSkillContext {
 //        this.heroSkill = heroSkill;
 //    }
 
-    public String useSkill(Hero hero, Enemy enemy) {
+    public String useSkill(HeroDTO hero, Enemy enemy) {
         return heroSkill.execute(hero, enemy);
     }
 

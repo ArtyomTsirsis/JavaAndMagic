@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,12 +23,13 @@ public class WeaponMySQLRepository implements WeaponRepository {
 
     @Override
     public void save(Weapon weapon) {
-        String query = "INSERT INTO weapon(weaponType, whoCanUse, durability, physicalDamage, magicalDamage, level, criticalHitChance) " +
+        String query = "INSERT INTO weapon(weaponType, owner, durability, physicalDamage, magicalDamage, level, " +
+                " criticalHitChance) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, weapon.getWeaponType().toString());
-            ps.setString(2, Arrays.toString(weapon.getWhoCanUse()));
+            ps.setString(2, weapon.getOwner());
             ps.setInt(3, weapon.getDurability());
             ps.setInt(4, weapon.getPhysicalDamage());
             ps.setInt(5, weapon.getMagicalDamage());

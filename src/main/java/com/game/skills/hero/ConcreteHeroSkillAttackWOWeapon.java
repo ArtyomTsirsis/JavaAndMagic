@@ -8,7 +8,8 @@ import lombok.Data;
 public class ConcreteHeroSkillAttackWOWeapon implements HeroSkill {
 
     private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
-    private final String name = "Аттака без оружия";
+    private final String name = "AttackWOWeapon";
+    private final String output = "Аттака без оружия";
     private int criticalHitChance = 0;
     private int missChance = 0;
 

@@ -23,14 +23,15 @@ public class ArmorMySQLRepository implements ArmorRepository {
 
     @Override
     public void save(Armor armor) {
-        String query = "INSERT INTO armor(armorClass, durability, physicalDefense, magicalDefense) " +
-                "VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO armor(armorClass, owner, durability, physicalDefense, magicalDefense) " +
+                "VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, armor.getArmorClass().toString());
-            ps.setInt(2, armor.getDurability());
-            ps.setInt(3, armor.getPhysicalDefense());
-            ps.setInt(4, armor.getMagicalDefense());
+            ps.setString(2, armor.getOwner());
+            ps.setInt(3, armor.getDurability());
+            ps.setInt(4, armor.getPhysicalDefense());
+            ps.setInt(5, armor.getMagicalDefense());
             return ps;
         });
     }
