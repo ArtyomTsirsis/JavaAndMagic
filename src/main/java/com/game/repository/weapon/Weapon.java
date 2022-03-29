@@ -1,21 +1,29 @@
 package com.game.repository.weapon;
 
-public interface Weapon {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    Integer getId();
-    String getOwner();
-    void setOwner(String owner);
-    WeaponType getWeaponType();
-    Integer getDurability();
-    void setDurability(Integer durability);
-    void decreaseDurability();
-    Integer getPhysicalDamage();
-    void setPhysicalDamage(Integer damage);
-    Integer getMagicalDamage();
-    void setMagicalDamage(Integer damage);
-    Integer getLevel();
-    void increaseLevel();
-    Integer getCriticalHitChance();
-    String toString();
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Weapon {
+
+    private Integer weaponID;
+    private String owner;
+    private WeaponType weaponType;
+    private Integer durability;
+    private Integer physicalDamage;
+    private Integer magicalDamage;
+    private Integer level;
+    private Integer criticalHitChance;
+
+    public void increaseLevel() {
+        level++;
+    }
+
+    public void decreaseDurability() {
+        durability--;
+    }
 
 }

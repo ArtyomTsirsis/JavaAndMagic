@@ -1,13 +1,15 @@
-package com.game.repository.weapon;
+package com.game.repository.weapon.templates;
 
+import com.game.repository.weapon.Weapon;
+import com.game.repository.weapon.WeaponType;
 import lombok.Data;
-import lombok.ToString;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@ToString
-public class Axe implements Weapon {
+public class Axe extends Weapon {
 
-    private Integer id;
+    private Integer weaponID;
     private String owner;
     private WeaponType weaponType = WeaponType.AXE;
     private Integer durability = 50;
@@ -16,18 +18,12 @@ public class Axe implements Weapon {
     private Integer level = 1;
     private Integer criticalHitChance = 2;
 
-    @Override
     public void increaseLevel() {
         level++;
     }
 
-    @Override
     public void decreaseDurability() {
-        this.durability--;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
+        durability--;
     }
 
 }

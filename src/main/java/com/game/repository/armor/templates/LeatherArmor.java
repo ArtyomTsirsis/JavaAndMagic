@@ -1,13 +1,15 @@
-package com.game.repository.armor;
+package com.game.repository.armor.templates;
 
+import com.game.repository.armor.Armor;
+import com.game.repository.armor.ArmorClass;
 import lombok.Data;
-import lombok.ToString;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@ToString
-public class LeatherArmor implements Armor {
+public class LeatherArmor extends Armor {
 
-    private Integer id;
+    private Integer armorID;
     private String owner;
     private ArmorClass armorClass = ArmorClass.LEATHER_ARMOR;
     private Integer durability = 20;
@@ -17,11 +19,6 @@ public class LeatherArmor implements Armor {
     @Override
     public void decreaseDurability() {
         this.durability--;
-    }
-
-    @Override
-    public void setOwner(String owner) {
-        this.owner = owner;
     }
 
 }

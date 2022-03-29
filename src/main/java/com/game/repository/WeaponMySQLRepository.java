@@ -3,6 +3,7 @@ package com.game.repository;
 import com.game.repository.weapon.Weapon;
 import com.game.repository.weapon.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -41,14 +42,18 @@ public class WeaponMySQLRepository implements WeaponRepository {
 
     @Override
     public Optional<Weapon> findById(Integer id) {
-        return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM weapon WHERE name=?",
-                        new BeanPropertyRowMapper<>(Weapon.class), id));
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject("SELECT * FROM weapon WHERE weaponID=?",
+                    new BeanPropertyRowMapper<>(Weapon.class), id));
+        }
+        catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     @Override
     public List<Weapon> findByOwner(String owner) {
-        return jdbcTemplate.query("SELECT * FROM weapon", new BeanPropertyRowMapper<>(Weapon.class));
+        return jdbcTemplate.query("SELECT * FROM weapon WHERE owner=?", new BeanPropertyRowMapper<>(Weapon.class), owner);
     }
 
     @Override

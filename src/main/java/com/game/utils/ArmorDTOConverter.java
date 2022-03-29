@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class ArmorDTOConverter {
 
     public ArmorDTO convertToDto(Armor armor) {
-        return new ArmorDTO(armor.getId(), armor.getOwner(), armor.getArmorClass(), armor.getDurability(), armor.getPhysicalDefense(),
+        return new ArmorDTO(armor.getArmorID(), armor.getOwner(), armor.getArmorClass(), armor.getDurability(), armor.getPhysicalDefense(),
                 armor.getMagicalDefense());
     }
 

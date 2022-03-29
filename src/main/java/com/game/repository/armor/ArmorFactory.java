@@ -1,5 +1,7 @@
 package com.game.repository.armor;
 
+import com.game.repository.armor.templates.*;
+
 public class ArmorFactory {
 
     public static Armor createArmor(ArmorClass armorClass) {

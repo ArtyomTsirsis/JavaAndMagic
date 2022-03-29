@@ -3,6 +3,7 @@ package com.game.repository;
 import com.game.repository.armor.Armor;
 import com.game.repository.armor.ArmorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -38,14 +39,19 @@ public class ArmorMySQLRepository implements ArmorRepository {
 
     @Override
     public Optional<Armor> findById(Integer id) {
-        return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM armor WHERE armorClass=?",
-                        new BeanPropertyRowMapper<>(Armor.class), id));
+        try {
+            return Optional.ofNullable(jdbcTemplate.
+                    queryForObject("SELECT * FROM armor WHERE armorID=?",
+                            new BeanPropertyRowMapper<>(Armor.class), id));
+        }
+        catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     @Override
     public List<Armor> findByOwner(String owner) {
-        return jdbcTemplate.query("SELECT * FROM armor", new BeanPropertyRowMapper<>(Armor.class));    }
+        return jdbcTemplate.query("SELECT * FROM armor WHERE owner=?", new BeanPropertyRowMapper<>(Armor.class), owner);    }
 
     @Override
     public List<Armor> findAll() {

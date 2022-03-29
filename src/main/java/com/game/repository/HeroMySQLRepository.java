@@ -3,6 +3,7 @@ package com.game.repository;
 import com.game.repository.hero.Hero;
 import com.game.repository.hero.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -35,16 +36,20 @@ public class HeroMySQLRepository implements HeroRepository {
             ps.setInt(6, hero.getDexterity());
             ps.setInt(7, hero.getWeaponID());
             ps.setInt(8, hero.getArmorID());
-            ps.setString(9, hero.getSkills());
+            ps.setString(9, hero.getSkillBook());
             return ps;
         });
     }
 
     @Override
     public Optional<Hero> findById(String heroName) {
-        return Optional.ofNullable(jdbcTemplate.
-                queryForObject("SELECT * FROM heroes WHERE name=?",
-                        new BeanPropertyRowMapper<>(Hero.class), heroName));
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject("SELECT * FROM heroes WHERE name=?",
+                    new BeanPropertyRowMapper<>(Hero.class), heroName));
+        }
+        catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     @Override
@@ -56,5 +61,6 @@ public class HeroMySQLRepository implements HeroRepository {
     public void deleteById(String heroName) {
         jdbcTemplate.update("DELETE FROM heroes WHERE name=?",  heroName);
     }
+
 
 }
