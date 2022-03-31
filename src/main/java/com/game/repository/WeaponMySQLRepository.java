@@ -6,10 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Repository
@@ -23,12 +27,13 @@ public class WeaponMySQLRepository implements WeaponRepository {
     }
 
     @Override
-    public void save(Weapon weapon) {
+    public Weapon save(Weapon weapon) {
         String query = "INSERT INTO weapon(weaponType, owner, durability, physicalDamage, magicalDamage, level, " +
                 " criticalHitChance) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection.prepareStatement(query);
+            PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, weapon.getWeaponType().toString());
             ps.setString(2, weapon.getOwner());
             ps.setInt(3, weapon.getDurability());
@@ -37,7 +42,9 @@ public class WeaponMySQLRepository implements WeaponRepository {
             ps.setInt(6, weapon.getLevel());
             ps.setInt(7, weapon.getCriticalHitChance());
             return ps;
-        });
+        }, keyHolder);
+        weapon.setWeaponID(Objects.requireNonNull(keyHolder.getKey()).intValue());
+        return weapon;
     }
 
     @Override

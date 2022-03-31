@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface WeaponRepository {
 
-    void save(Weapon weapon);
+    Weapon save(Weapon weapon);
     Optional<Weapon> findById(Integer id);
     List<Weapon> findByOwner(String owner);
     List<Weapon> findAll();
