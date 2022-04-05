@@ -5,4 +5,5 @@ ENV MYSQL_DATABASE=javaAndMagic
 
 ENV MYSQL_PASSWORD=root
 
-COPY initial-script.sql /docker-entrypoint-initdb.d/
+COPY 000_initial-script.sql /docker-entrypoint-initdb.d/
+COPY 001_script.sql /docker-entrypoint-initdb.d/

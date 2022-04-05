@@ -10,8 +10,9 @@ public class HashMapWeaponRepository implements WeaponRepository {
     private final static Map<Integer, Weapon> weaponRepo = new HashMap<>();
 
     @Override
-    public void save(Weapon weapon) {
+    public Weapon save(Weapon weapon) {
         weaponRepo.put(weapon.getWeaponID(), weapon);
+        return weapon;
     }
 
     @Override

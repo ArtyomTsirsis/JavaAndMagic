@@ -10,8 +10,9 @@ public class HashMapArmorRepository implements ArmorRepository {
     private final static Map<Integer, Armor> armorRepo = new HashMap<>();
 
     @Override
-    public void save(Armor armor) {
+    public Armor save(Armor armor) {
         armorRepo.put(armor.getArmorID(), armor);
+        return armor;
     }
 
     @Override

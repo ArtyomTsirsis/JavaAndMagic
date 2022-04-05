@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface ArmorRepository {
 
-    void save(Armor armor);
+    Armor save(Armor armor);
     Optional<Armor> findById(Integer id);
     List<Armor> findByOwner(String owner);
     List<Armor> findAll();

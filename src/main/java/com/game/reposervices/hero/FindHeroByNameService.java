@@ -24,6 +24,5 @@ public class FindHeroByNameService {
             throw new NoSuchObjectException(name);
         }
         return new FindHeroByIdResponse(converter.convertToDto(hero.get()));
-
     }
 }

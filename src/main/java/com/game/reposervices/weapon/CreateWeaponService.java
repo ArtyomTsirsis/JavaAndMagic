@@ -20,8 +20,7 @@ public class CreateWeaponService {
     public CreateWeaponResponse createWeapon(CreateWeaponRequest request) {
         Weapon weapon = WeaponFactory.createWeapon(request.getWeaponType());
         weapon.setOwner(request.getHero().getName());
-        repository.save(weapon);
-        return new CreateWeaponResponse(converter.convertToDto(weapon));
+        return new CreateWeaponResponse(converter.convertToDto(repository.save(weapon)));
     }
 
 

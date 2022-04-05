@@ -20,8 +20,7 @@ public class CreateArmorService {
     public CreateArmorResponse createArmor(CreateArmorRequest request) {
         Armor armor = ArmorFactory.createArmor(request.getArmorClass());
         armor.setOwner(request.getHero().getName());
-        repository.save(armor);
-        return new CreateArmorResponse(converter.convertToDto(armor));
+        return new CreateArmorResponse(converter.convertToDto(repository.save(armor)));
     }
 
 

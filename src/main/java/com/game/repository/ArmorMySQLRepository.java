@@ -6,10 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Repository
@@ -23,18 +27,21 @@ public class ArmorMySQLRepository implements ArmorRepository {
     }
 
     @Override
-    public void save(Armor armor) {
+    public Armor save(Armor armor) {
         String query = "INSERT INTO armor(armorClass, owner, durability, physicalDefense, magicalDefense) " +
                 "VALUES (?, ?, ?, ?, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
-            PreparedStatement ps = connection.prepareStatement(query);
+            PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, armor.getArmorClass().toString());
             ps.setString(2, armor.getOwner());
             ps.setInt(3, armor.getDurability());
             ps.setInt(4, armor.getPhysicalDefense());
             ps.setInt(5, armor.getMagicalDefense());
             return ps;
-        });
+        }, keyHolder);
+        armor.setArmorID(Objects.requireNonNull(keyHolder.getKey()).intValue());
+        return armor;
     }
 
     @Override
