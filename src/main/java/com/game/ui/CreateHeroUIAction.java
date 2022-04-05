@@ -7,6 +7,7 @@ import com.game.repository.hero.HeroFactory;
 import org.springframework.stereotype.Component;
 
 
+import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.Scanner;
 
 @Component
@@ -54,8 +55,12 @@ public class CreateHeroUIAction implements UIAction {
         var request = new CreateHeroRequest();
         request.setHeroClass(heroClass);
         request.setName(heroName);
-        createHeroService.createHero(request);
-
+        try {
+            var response = createHeroService.createHero(request);
+            System.out.println("Received response: " + response.getHero().getName() + " Successfully created.");
+        } catch (KeyAlreadyExistsException ex) {
+            System.out.println("Received response: Hero with this name already exist!");
+        }
     }
 
 }
