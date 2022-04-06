@@ -41,9 +41,9 @@ public class DeleteByIdUIAction implements UIAction {
         try {
             var checkIfHeroExist = findHeroByNameService.findByName(heroName);
             deleteByIdService.deleteByName(heroName);
-            System.out.println("Received response: " + checkIfHeroExist.getHero().getName() + " Successfully removed!");
+            System.out.println("Received response: " + heroName + " Successfully removed!");
         } catch (NoSuchObjectException ex) {
-            System.out.println("Received response: Hero with this name doesn't exist!");
+            System.out.println("Received response: Hero " + heroName + " doesn't exist!");
         }
         System.out.println("**************************************");
 
