@@ -35,4 +35,9 @@ public class HashMapArmorRepository implements ArmorRepository {
         armorRepo.remove(id);
     }
 
+    @Override
+    public void deleteByOwner(String name) {
+        armorRepo.values().stream().filter(o -> o.getOwner().equals(name)).forEach(o -> armorRepo.remove(o.getArmorID()));
+    }
+
 }

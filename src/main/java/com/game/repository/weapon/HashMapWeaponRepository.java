@@ -35,4 +35,9 @@ public class HashMapWeaponRepository implements WeaponRepository {
         weaponRepo.remove(id);
     }
 
+    @Override
+    public void deleteByOwner(String name) {
+        weaponRepo.values().stream().filter(o -> o.getOwner().equals(name)).forEach(o -> weaponRepo.remove(o.getWeaponID()));
+    }
+
 }

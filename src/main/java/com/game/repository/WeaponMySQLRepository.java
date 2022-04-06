@@ -73,4 +73,9 @@ public class WeaponMySQLRepository implements WeaponRepository {
         jdbcTemplate.update("DELETE FROM weapon WHERE weaponType=?",  id);
     }
 
+    @Override
+    public void deleteByOwner(String name) {
+        jdbcTemplate.update("DELETE FROM weapon WHERE owner=?",  name);
+    }
+
 }

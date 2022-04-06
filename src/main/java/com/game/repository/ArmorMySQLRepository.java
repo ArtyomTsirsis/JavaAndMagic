@@ -69,4 +69,10 @@ public class ArmorMySQLRepository implements ArmorRepository {
     public void deleteById(Integer id) {
         jdbcTemplate.update("DELETE FROM armor WHERE armorClass=?",  id);
     }
+
+    @Override
+    public void deleteByOwner(String name) {
+        jdbcTemplate.update("DELETE FROM armor WHERE owner=?",  name);
+    }
+
 }
