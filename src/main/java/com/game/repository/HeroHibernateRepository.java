@@ -19,22 +19,23 @@ public class HeroHibernateRepository implements HeroRepository {
 
     @Override
     public void save(Hero hero) {
-
+        sessionFactory.getCurrentSession().persist(hero);
     }
 
     @Override
     public Optional<Hero> findById(String heroName) {
-        return Optional.empty();
+        Hero toReturn = sessionFactory.getCurrentSession().get(Hero.class, heroName);
+        return Optional.ofNullable(toReturn);
     }
 
     @Override
     public List<Hero> findAll() {
-        return null;
+        return sessionFactory.getCurrentSession().createQuery("SELECT * FROM heroes", Hero.class).getResultList();
     }
 
     @Override
     public void deleteById(String heroName) {
-
+        sessionFactory.getCurrentSession().remove(findById(heroName));
     }
 
 }
