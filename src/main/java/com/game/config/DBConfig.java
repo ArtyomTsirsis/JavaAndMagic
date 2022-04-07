@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan(basePackages = "com.game")
 @PropertySource("classpath:application.properties")
+@EnableTransactionManagement
 public class DBConfig {
 
     @Value("${database.url}")
@@ -42,8 +44,8 @@ public class DBConfig {
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setPackagesToScan(packageScan);
         Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty(ddl, ddl);
-        hibernateProperties.setProperty(dialect, dialect);
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", ddl);
+        hibernateProperties.setProperty("hibernate.dialect", dialect);
         sessionFactory.setHibernateProperties(hibernateProperties);
         sessionFactory.afterPropertiesSet();
         return sessionFactory.getObject();
