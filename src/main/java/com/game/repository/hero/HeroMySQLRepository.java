@@ -1,7 +1,5 @@
-package com.game.repository;
+package com.game.repository.hero;
 
-import com.game.repository.hero.Hero;
-import com.game.repository.hero.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

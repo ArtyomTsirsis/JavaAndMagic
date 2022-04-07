@@ -1,7 +1,5 @@
-package com.game.repository;
+package com.game.repository.weapon;
 
-import com.game.repository.weapon.Weapon;
-import com.game.repository.weapon.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
