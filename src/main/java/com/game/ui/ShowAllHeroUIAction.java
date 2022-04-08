@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class ShowAllHeroUIAction implements UIAction {
 
     @Autowired
-    private FindAllHeroesService showAllHeroService;
+    private FindAllHeroesService findAllHeroesService;
 
     public void execute() {
 
@@ -17,9 +17,11 @@ public class ShowAllHeroUIAction implements UIAction {
 
         // выводим на консоль результаты поиска
 
-        showAllHeroService.findAll();
-
+        var response = findAllHeroesService.findAll();
+        response.getHeroes().forEach(heroDTO -> System.out.println("Hero name: " + heroDTO.getName()));
         System.out.println("**************************************");
+
+
 
     }
 
