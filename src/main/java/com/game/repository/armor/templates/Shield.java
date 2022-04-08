@@ -16,9 +16,4 @@ public class Shield extends Armor {
     private Integer physicalDefense = 70;
     private Integer magicalDefense = 0;
 
-    @Override
-    public void decreaseDurability() {
-        this.durability--;
-    }
-
 }

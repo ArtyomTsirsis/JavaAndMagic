@@ -21,24 +21,4 @@ public class Thief extends Hero {
     private Integer weaponID = -1;
     private String skillBook = "FastAttack, StealthAttack, Healing";
 
-    @Override
-    public HeroClass getHeroClass() {
-        return heroClass;
-    }
-
-    @Override
-    public void setHealth(Integer health) {
-        this.health = health;
-    }
-
-    @Override
-    public void increaseLevel() {
-        level++;
-    }
-
-    @Override
-    public boolean isAlive() {
-        return 0 < this.health;
-    }
-
 }

@@ -1,15 +1,14 @@
 package com.game.repository.weapon;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Objects;
 
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -21,6 +20,7 @@ public class Weapon {
     @Column
     private String owner;
     @Column
+    @Enumerated(EnumType.STRING)
     private WeaponType weaponType;
     @Column
     private Integer durability;
@@ -39,6 +39,19 @@ public class Weapon {
 
     public void decreaseDurability() {
         durability--;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Weapon weapon = (Weapon) o;
+        return weaponID != null && Objects.equals(weaponID, weapon.weaponID);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 
 }

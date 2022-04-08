@@ -18,12 +18,4 @@ public class Axe extends Weapon {
     private Integer level = 1;
     private Integer criticalHitChance = 2;
 
-    public void increaseLevel() {
-        level++;
-    }
-
-    public void decreaseDurability() {
-        durability--;
-    }
-
 }
