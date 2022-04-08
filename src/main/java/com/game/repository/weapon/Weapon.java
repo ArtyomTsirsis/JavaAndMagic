@@ -19,7 +19,7 @@ public class Weapon {
     private Integer weaponID;
     @Column
     private String owner;
-    @Column
+    @Column(columnDefinition = "ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')")
     @Enumerated(EnumType.STRING)
     private WeaponType weaponType;
     @Column

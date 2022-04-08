@@ -17,7 +17,7 @@ public class Hero {
 
     @Id
     private String name;
-    @Column
+    @Column(columnDefinition = "ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')")
     @Enumerated(EnumType.STRING)
     private HeroClass heroClass;
     @Column

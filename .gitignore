@@ -22,3 +22,6 @@
 *.iws
 *.iml
 *.ipr
+
+### temp ###
+MainDemo.java

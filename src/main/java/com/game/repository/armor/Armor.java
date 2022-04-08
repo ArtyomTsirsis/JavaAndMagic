@@ -5,7 +5,6 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
-
 @Getter
 @Setter
 @ToString
@@ -19,7 +18,7 @@ public class Armor {
     private Integer armorID;
     @Column
     private String owner;
-    @Column
+    @Column(columnDefinition="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')")
     @Enumerated(EnumType.STRING)
     private ArmorClass armorClass;
     @Column
