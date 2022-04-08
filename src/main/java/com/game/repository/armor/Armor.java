@@ -5,6 +5,7 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -15,6 +16,7 @@ import java.util.Objects;
 public class Armor {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer armorID;
     @Column
     private String owner;
@@ -27,6 +29,15 @@ public class Armor {
     private Integer physicalDefense;
     @Column
     private Integer magicalDefense;
+
+    public Armor(Armor armor) {
+        this.armorID = armor.getArmorID();
+        this.owner = armor.getOwner();
+        this.armorClass = armor.getArmorClass();
+        this.durability = armor.getDurability();
+        this.physicalDefense = armor.getPhysicalDefense();
+        this.magicalDefense = armor.getMagicalDefense();
+    }
 
     public void decreaseDurability() {
         this.durability--;

@@ -16,6 +16,7 @@ import java.util.Objects;
 public class Weapon {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer weaponID;
     @Column
     private String owner;
@@ -32,6 +33,17 @@ public class Weapon {
     private Integer level;
     @Column
     private Integer criticalHitChance;
+
+    public Weapon(Weapon weapon) {
+        this.weaponID = weapon.getWeaponID();
+        this.owner = weapon.getOwner();
+        this.weaponType = weapon.getWeaponType();
+        this.durability = weapon.getDurability();
+        this.physicalDamage = weapon.physicalDamage;
+        this.magicalDamage = weapon.magicalDamage;
+        this.level = weapon.level;
+        this.criticalHitChance = weapon.criticalHitChance;
+    }
 
     public void increaseLevel() {
         level++;

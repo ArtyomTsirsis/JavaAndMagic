@@ -35,6 +35,18 @@ public class Hero {
     @Column
     private String skillBook;
 
+    public Hero(Hero hero) {
+        this.name = hero.getName();
+        this.heroClass = hero.getHeroClass();
+        this.health = hero.getHealth();
+        this.strength = hero.getStrength();
+        this.level = hero.getLevel();
+        this.dexterity = hero.getDexterity();
+        this.armorID = hero.getArmorID();
+        this.weaponID = hero.getWeaponID();
+        this.skillBook = hero.getSkillBook();
+    }
+
     public HeroClass getHeroClass() {
         return heroClass;
     }
