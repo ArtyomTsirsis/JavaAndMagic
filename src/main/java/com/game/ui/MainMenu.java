@@ -1,6 +1,5 @@
 package com.game.ui;
 
-import com.game.reposervices.hero.CreateHeroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,11 +23,11 @@ public class MainMenu {
 
     public void run() {
 
-        menuNumberToActionMap =new HashMap();
-        menuNumberToActionMap.put(1,createHeroUIAction);
-        menuNumberToActionMap.put(2,startAdventureUIAction);
-        menuNumberToActionMap.put(3,showAllHeroUIAction);
-        menuNumberToActionMap.put(4,deleteByIdUIAction);
+        menuNumberToActionMap = new HashMap();
+        menuNumberToActionMap.put(1, createHeroUIAction);
+        menuNumberToActionMap.put(2, startAdventureUIAction);
+        menuNumberToActionMap.put(3, showAllHeroUIAction);
+        menuNumberToActionMap.put(4, deleteByIdUIAction);
 
 
         System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +

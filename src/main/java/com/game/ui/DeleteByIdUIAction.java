@@ -1,9 +1,11 @@
 package com.game.ui;
 
+import java.rmi.NoSuchObjectException;
 import java.util.Scanner;
 
 import com.game.reposervices.hero.DeleteHeroByNameService;
 import com.game.reposervices.hero.FindAllHeroesService;
+import com.game.reposervices.hero.FindHeroByNameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +13,9 @@ import org.springframework.stereotype.Component;
 public class DeleteByIdUIAction implements UIAction {
 
     @Autowired
-    private FindAllHeroesService showAllHeroService;
+    private FindAllHeroesService findAllHeroesService;
+    @Autowired
+    private FindHeroByNameService findHeroByNameService;
     @Autowired
     private DeleteHeroByNameService deleteByIdService;
     String heroName;
@@ -22,7 +26,9 @@ public class DeleteByIdUIAction implements UIAction {
         System.out.flush();
 
         // вывод всех героев из базы данных:
-        showAllHeroService.findAll();
+        var response = findAllHeroesService.findAll();
+        response.getHeroes().forEach(heroDTO -> System.out.println("Hero name: " + heroDTO.getName()));
+        System.out.println("**************************************");
 
         // запрашиваем имя героя с консоли у пользолвателя
         Scanner sc = new Scanner(System.in);
@@ -30,12 +36,15 @@ public class DeleteByIdUIAction implements UIAction {
         heroName = sc.nextLine();
 
         // поиск героя в базе данных и удаление:
-        deleteByIdService.deleteByName(heroName);
-
+        try {
+            deleteByIdService.deleteByName(heroName);
+            System.out.println("Received response: " + heroName + " successfully removed!");
+        } catch (NoSuchObjectException ex) {
+            System.out.println("Received response: Hero " + heroName + " doesn't exist!");
+        }
         System.out.println("**************************************");
 
     }
-
 
 
 }
