@@ -9,8 +9,6 @@ import com.game.reposervices.hero.FindHeroByNameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.management.openmbean.KeyAlreadyExistsException;
-
 @Component
 public class DeleteByIdUIAction implements UIAction {
 
@@ -39,16 +37,14 @@ public class DeleteByIdUIAction implements UIAction {
 
         // поиск героя в базе данных и удаление:
         try {
-            var checkIfHeroExist = findHeroByNameService.findByName(heroName);
             deleteByIdService.deleteByName(heroName);
-            System.out.println("Received response: " + heroName + " Successfully removed!");
+            System.out.println("Received response: " + heroName + " successfully removed!");
         } catch (NoSuchObjectException ex) {
             System.out.println("Received response: Hero " + heroName + " doesn't exist!");
         }
         System.out.println("**************************************");
 
     }
-
 
 
 }
