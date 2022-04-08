@@ -1,22 +1,38 @@
 package com.game.repository.hero;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
-@Data
+import javax.persistence.*;
+import java.util.Objects;
+
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name="heroes")
 public class Hero {
 
-    private HeroClass heroClass;
+    @Id
     private String name;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private HeroClass heroClass;
+    @Column
     private Integer health;
+    @Column
     private Integer strength;
+    @Column
     private Integer level;
+    @Column
     private Integer dexterity;
+    @Column
     private Integer armorID;
+    @Column
     private Integer weaponID;
+    @Column
     private String skillBook;
 
     public HeroClass getHeroClass() {
@@ -33,6 +49,19 @@ public class Hero {
 
     public boolean isAlive() {
         return 0 < this.health;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Hero hero = (Hero) o;
+        return heroClass != null && Objects.equals(heroClass, hero.heroClass);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 
 }

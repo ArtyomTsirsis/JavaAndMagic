@@ -18,14 +18,4 @@ public class Bow extends Weapon {
     private Integer level = 1;
     private Integer criticalHitChance = 5;
 
-    @Override
-    public void increaseLevel() {
-        level++;
-    }
-
-    @Override
-    public void decreaseDurability() {
-        durability--;
-    }
-
 }

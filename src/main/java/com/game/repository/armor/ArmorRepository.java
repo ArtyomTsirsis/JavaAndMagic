@@ -10,5 +10,6 @@ public interface ArmorRepository {
     List<Armor> findByOwner(String owner);
     List<Armor> findAll();
     void deleteById(Integer id);
+    void deleteByOwner(String name);
 
 }

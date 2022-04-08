@@ -10,5 +10,6 @@ public interface WeaponRepository {
     List<Weapon> findByOwner(String owner);
     List<Weapon> findAll();
     void deleteById(Integer id);
+    void deleteByOwner(String name);
 
 }

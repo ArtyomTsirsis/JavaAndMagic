@@ -12,18 +12,10 @@ public class WOWeapon extends Weapon {
     private Integer weaponID = -1;
     private String owner = "all";
     private WeaponType weaponType = WeaponType.WITHOUT_WEAPON;
-    private Integer durability = 1;
+    private Integer durability = Integer.MAX_VALUE;
     private Integer physicalDamage = 0;
     private Integer magicalDamage = 0;
     private Integer level = 1;
     private Integer criticalHitChance = 0;
-
-    @Override
-    public void increaseLevel() {
-    }
-
-    @Override
-    public void decreaseDurability() {
-    }
 
 }

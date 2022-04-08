@@ -16,9 +16,4 @@ public class MagicalShield extends Armor {
     private Integer physicalDefense = 0;
     private Integer magicalDefense = 15;
 
-    @Override
-    public void decreaseDurability() {
-        this.durability--;
-    }
-
 }

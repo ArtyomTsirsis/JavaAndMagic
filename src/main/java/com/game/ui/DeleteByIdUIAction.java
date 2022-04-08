@@ -9,6 +9,8 @@ import com.game.reposervices.hero.FindHeroByNameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Scanner;
+
 @Component
 public class DeleteByIdUIAction implements UIAction {
 
@@ -36,6 +38,7 @@ public class DeleteByIdUIAction implements UIAction {
         heroName = sc.nextLine();
 
         // поиск героя в базе данных и удаление:
+
         try {
             deleteByIdService.deleteByName(heroName);
             System.out.println("Received response: " + heroName + " successfully removed!");

@@ -1,14 +1,11 @@
-package com.game.repository;
+package com.game.repository.weapon;
 
-import com.game.repository.weapon.Weapon;
-import com.game.repository.weapon.WeaponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -16,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@Repository
+//@Repository
 public class WeaponMySQLRepository implements WeaponRepository {
 
     private final JdbcTemplate jdbcTemplate;
@@ -71,6 +68,11 @@ public class WeaponMySQLRepository implements WeaponRepository {
     @Override
     public void deleteById(Integer id) {
         jdbcTemplate.update("DELETE FROM weapon WHERE weaponType=?",  id);
+    }
+
+    @Override
+    public void deleteByOwner(String name) {
+        jdbcTemplate.update("DELETE FROM weapon WHERE owner=?",  name);
     }
 
 }

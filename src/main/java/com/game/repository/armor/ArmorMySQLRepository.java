@@ -1,14 +1,11 @@
-package com.game.repository;
+package com.game.repository.armor;
 
-import com.game.repository.armor.Armor;
-import com.game.repository.armor.ArmorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -16,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-@Repository
+//@Repository
 public class ArmorMySQLRepository implements ArmorRepository {
 
     private final JdbcTemplate jdbcTemplate;
@@ -69,4 +66,10 @@ public class ArmorMySQLRepository implements ArmorRepository {
     public void deleteById(Integer id) {
         jdbcTemplate.update("DELETE FROM armor WHERE armorClass=?",  id);
     }
+
+    @Override
+    public void deleteByOwner(String name) {
+        jdbcTemplate.update("DELETE FROM armor WHERE owner=?",  name);
+    }
+
 }

@@ -16,9 +16,4 @@ public class LeatherArmor extends Armor {
     private Integer physicalDefense = 30;
     private Integer magicalDefense = 0;
 
-    @Override
-    public void decreaseDurability() {
-        this.durability--;
-    }
-
 }
