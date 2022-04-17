@@ -19,7 +19,7 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public Weapon save(Weapon weapon) {
-        sessionFactory.getCurrentSession().persist(weapon);
+        sessionFactory.getCurrentSession().persist(new Weapon(weapon));
         return weapon;
     }
 
@@ -36,12 +36,12 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public List<Weapon> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("SELECT * FROM weapon", Weapon.class).getResultList();
+        return sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM weapon", Weapon.class).getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession().remove(findById(id));
+        sessionFactory.getCurrentSession().delete(findById(id).get());
     }
 
     @Override

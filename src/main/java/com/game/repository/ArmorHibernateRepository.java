@@ -19,7 +19,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public Armor save(Armor armor) {
-        sessionFactory.getCurrentSession().persist(armor);
+        sessionFactory.getCurrentSession().persist(new Armor(armor));
         return armor;
     }
 
@@ -36,12 +36,12 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public List<Armor> findAll() {
-        return sessionFactory.getCurrentSession().createQuery("SELECT * FROM armor", Armor.class).getResultList();
+        return sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM armor", Armor.class).getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession().remove(findById(id));
+        sessionFactory.getCurrentSession().delete(findById(id).get());
     }
 
     @Override

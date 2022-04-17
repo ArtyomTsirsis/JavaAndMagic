@@ -16,10 +16,11 @@ import java.util.Objects;
 public class Armor {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer armorID;
     @Column
     private String owner;
-    @Column
+    @Column(columnDefinition="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')")
     @Enumerated(EnumType.STRING)
     private ArmorClass armorClass;
     @Column
@@ -28,6 +29,15 @@ public class Armor {
     private Integer physicalDefense;
     @Column
     private Integer magicalDefense;
+
+    public Armor(Armor armor) {
+        this.armorID = armor.getArmorID();
+        this.owner = armor.getOwner();
+        this.armorClass = armor.getArmorClass();
+        this.durability = armor.getDurability();
+        this.physicalDefense = armor.getPhysicalDefense();
+        this.magicalDefense = armor.getMagicalDefense();
+    }
 
     public void decreaseDurability() {
         this.durability--;

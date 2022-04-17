@@ -17,7 +17,7 @@ public class Hero {
 
     @Id
     private String name;
-    @Column
+    @Column(columnDefinition = "ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')")
     @Enumerated(EnumType.STRING)
     private HeroClass heroClass;
     @Column
@@ -34,6 +34,18 @@ public class Hero {
     private Integer weaponID;
     @Column
     private String skillBook;
+
+    public Hero(Hero hero) {
+        this.name = hero.getName();
+        this.heroClass = hero.getHeroClass();
+        this.health = hero.getHealth();
+        this.strength = hero.getStrength();
+        this.level = hero.getLevel();
+        this.dexterity = hero.getDexterity();
+        this.armorID = hero.getArmorID();
+        this.weaponID = hero.getWeaponID();
+        this.skillBook = hero.getSkillBook();
+    }
 
     public HeroClass getHeroClass() {
         return heroClass;
