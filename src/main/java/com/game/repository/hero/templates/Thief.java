@@ -10,7 +10,7 @@ import lombok.NonNull;
 @Data
 public class Thief extends Hero {
 
-    private final static HeroClass heroClass = HeroClass.THIEF;
+    private HeroClass heroClass = HeroClass.THIEF;
     @NonNull
     private String name;
     private Integer health = 250;
