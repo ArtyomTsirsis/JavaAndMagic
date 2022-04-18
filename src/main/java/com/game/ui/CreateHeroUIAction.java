@@ -4,6 +4,7 @@ import com.game.dto.hero.CreateHeroRequest;
 import com.game.reposervices.hero.CreateHeroService;
 import com.game.repository.hero.HeroClass;
 import com.game.repository.hero.HeroFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -13,13 +14,11 @@ import java.util.Scanner;
 @Component
 public class CreateHeroUIAction implements UIAction {
 
+    @Autowired
     private CreateHeroService createHeroService;
+
     private HeroClass heroClass;
     private String heroName;
-
-    public CreateHeroUIAction(CreateHeroService createHeroService) {
-        this.createHeroService = createHeroService;
-    }
 
     public void execute() {
 

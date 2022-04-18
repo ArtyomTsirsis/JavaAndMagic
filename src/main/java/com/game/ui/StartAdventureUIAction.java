@@ -27,7 +27,6 @@ public class StartAdventureUIAction implements UIAction {
 
         var scanner = new Scanner(System.in);
 
-
         while (true) {
             try {
 
@@ -43,9 +42,7 @@ public class StartAdventureUIAction implements UIAction {
                         "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
                         "                                                                                                                ░░░░░░                 ");
 
-                System.out.println("\033[H\033[2J");
-                System.out.flush();
-
+                System.out.println();
                 System.out.println("======================================================================================================================================");
                 System.out.println("|                                                        START ADVENTURE                                                             |");
                 System.out.println("======================================================================================================================================");
