@@ -39,13 +39,15 @@ public class ShowAllHeroUIAction implements UIAction {
                 System.out.println("======================================================================================================================================");
                 System.out.println("|                                                        ALL HEROES                                                                  |");
                 System.out.println("======================================================================================================================================");
-                System.out.println("|                                                                                                                                    |");
+                System.out.println("|`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,``,`,`,`,`,`,`,`,`,`,`,`|");
+                System.out.println("|`,`                                                                                                                              `,`|");
                 var response = findAllHeroesService.findAll();
-                response.getHeroes().forEach(heroDTO -> System.out.println("|                                                      Hero name: " + heroDTO.getName() + String
-                        .format("%1$" + (67 - heroDTO.getName().length()) + "s", border) + "|"));
-                System.out.println("|                                                                                                                                    |");
-                System.out.println("|                                                       0. BACK                                                                      |");
-                System.out.println("|                                                                                                                                    |");
+                response.getHeroes().forEach(heroDTO -> System.out.println("|`,`                                                   Hero name: " + heroDTO.getName() + String
+                        .format("%1$" + (64 - heroDTO.getName().length()) + "s", border) + "`,`|"));
+                System.out.println("|`,`                                                                                                                              `,`|");
+                System.out.println("|`,`                                                       0. BACK                                                                `,`|");
+                System.out.println("|`,`                                                                                                                              `,`|");
+                System.out.println("|`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,``,`,`,`,`,`,`,`,`,`,`,`|");
                 System.out.println("======================================================================================================================================");
                 System.out.print("Please make a choice ⮞ ");
 
