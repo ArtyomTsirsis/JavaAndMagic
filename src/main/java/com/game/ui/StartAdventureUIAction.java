@@ -59,7 +59,7 @@ public class StartAdventureUIAction implements UIAction {
 
                 if (selector == 0) {
                     System.out.println("**************************************");
-                    System.out.println("Have a nice day! Comeback later!");
+                    System.out.println("Back to MAIN MENU...");
                     break;
                 } else {
                     executeUIAction(selector);

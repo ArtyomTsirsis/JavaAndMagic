@@ -4,26 +4,65 @@ import com.game.reposervices.hero.FindAllHeroesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Scanner;
+
 @Component
 public class ShowAllHeroUIAction implements UIAction {
 
+    // UI Dependency
+    @Autowired
+    private StartAdventureUIAction startAdventureUIAction;
     @Autowired
     private FindAllHeroesService findAllHeroesService;
 
     public void execute() {
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
+        var border = new String(" ");
+        var scanner = new Scanner(System.in);
 
-        // выводим на консоль результаты поиска
+        while (true) {
+            try {
 
-        var response = findAllHeroesService.findAll();
-        response.getHeroes().forEach(heroDTO -> System.out.println("Hero name: " + heroDTO.getName()));
-        System.out.println("**************************************");
+                System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
+                        "      ░░███                                      ███░░░░░███                ░░███    ░░██████ ██████                     ░░░           \n" +
+                        "       ░███   ██████   █████ █████  ██████      ░███    ░███  ████████    ███████     ░███░█████░███   ██████    ███████ ████   ██████ \n" +
+                        "       ░███  ░░░░░███ ░░███ ░░███  ░░░░░███     ░███████████ ░░███░░███  ███░░███     ░███░░███ ░███  ░░░░░███  ███░░███░░███  ███░░███\n" +
+                        "       ░███   ███████  ░███  ░███   ███████     ░███░░░░░███  ░███ ░███ ░███ ░███     ░███ ░░░  ░███   ███████ ░███ ░███ ░███ ░███ ░░░ \n" +
+                        " ███   ░███  ███░░███  ░░███ ███   ███░░███     ░███    ░███  ░███ ░███ ░███ ░███     ░███      ░███  ███░░███ ░███ ░███ ░███ ░███  ███\n" +
+                        "░░████████  ░░████████  ░░█████   ░░████████    █████   █████ ████ █████░░████████    █████     █████░░████████░░███████ █████░░██████ \n" +
+                        " ░░░░░░░░    ░░░░░░░░    ░░░░░     ░░░░░░░░    ░░░░░   ░░░░░ ░░░░ ░░░░░  ░░░░░░░░    ░░░░░     ░░░░░  ░░░░░░░░  ░░░░░███░░░░░  ░░░░░░  \n" +
+                        "                                                                                                                ███ ░███               \n" +
+                        "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
+                        "                                                                                                                ░░░░░░                 ");
 
+                System.out.println();
+                System.out.println("======================================================================================================================================");
+                System.out.println("|                                                        ALL HEROES                                                                  |");
+                System.out.println("======================================================================================================================================");
+                System.out.println("|                                                                                                                                    |");
+                var response = findAllHeroesService.findAll();
+                response.getHeroes().forEach(heroDTO -> System.out.println("|                                                      Hero name: " + heroDTO.getName() + String
+                        .format("%1$" + (67 - heroDTO.getName().length()) + "s", border) + "|"));
+                System.out.println("|                                                                                                                                    |");
+                System.out.println("|                                                       0. BACK                                                                      |");
+                System.out.println("|                                                                                                                                    |");
+                System.out.println("======================================================================================================================================");
+                System.out.print("Please make a choice ⮞ ");
 
+                int selector = Integer.parseInt(scanner.nextLine());
+
+                if (selector == 0) {
+                    System.out.println("**************************************");
+                    System.out.println("Back to START ADVENTURE MENU...");
+                    break;
+                } else {
+                    System.out.println("Please select actions from the list, not like you: " + selector);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
-
 
 }
