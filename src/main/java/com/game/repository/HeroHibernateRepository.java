@@ -19,7 +19,7 @@ public class HeroHibernateRepository implements HeroRepository {
 
     @Override
     public void save(Hero hero) {
-        sessionFactory.getCurrentSession().persist(new Hero(hero));
+        sessionFactory.getCurrentSession().persist(hero);
     }
 
     @Override

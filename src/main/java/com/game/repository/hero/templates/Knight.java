@@ -17,8 +17,8 @@ public class Knight extends Hero {
     private Integer strength = 20;
     private Integer level = 1;
     private Integer dexterity = 10;
-    private Integer armorID = -1;
-    private Integer weaponID = -1;
+    private Integer armorID;
+    private Integer weaponID;
     private String skillBook = "FastAttack, PowerAttack, Healing";
 
 }
