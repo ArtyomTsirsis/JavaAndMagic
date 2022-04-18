@@ -19,7 +19,7 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public Weapon save(Weapon weapon) {
-        sessionFactory.getCurrentSession().persist(new Weapon(weapon));
+        sessionFactory.getCurrentSession().persist(weapon);
         return weapon;
     }
 

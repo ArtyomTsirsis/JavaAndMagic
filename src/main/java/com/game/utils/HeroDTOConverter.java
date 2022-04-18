@@ -17,7 +17,6 @@ public class HeroDTOConverter {
     @Autowired
     private FindArmorByIDService findArmorByIDService;
 
-
     public HeroDTO convertToDto(Hero hero) {
         try {
             return new HeroDTO(hero.getHeroClass(), hero.getName(), hero.getHealth(), hero.getStrength(),
@@ -25,9 +24,9 @@ public class HeroDTOConverter {
                     findWeaponByIDService.findByID(hero.getWeaponID()).getWeapon(), converter.decrypt(hero.getSkillBook()));
         }
         catch (Exception e) {
-            return new HeroDTO();
+            return new HeroDTO(hero.getHeroClass(), hero.getName(), hero.getHealth(), hero.getStrength(),
+                    hero.getLevel(), hero.getDexterity(), null, null, converter.decrypt(hero.getSkillBook()));
         }
-
     }
 
 }

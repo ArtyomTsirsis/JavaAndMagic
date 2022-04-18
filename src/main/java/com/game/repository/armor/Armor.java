@@ -39,10 +39,6 @@ public class Armor {
         this.magicalDefense = armor.getMagicalDefense();
     }
 
-    public void decreaseDurability() {
-        this.durability--;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

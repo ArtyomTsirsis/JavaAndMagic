@@ -39,18 +39,10 @@ public class Weapon {
         this.owner = weapon.getOwner();
         this.weaponType = weapon.getWeaponType();
         this.durability = weapon.getDurability();
-        this.physicalDamage = weapon.physicalDamage;
-        this.magicalDamage = weapon.magicalDamage;
-        this.level = weapon.level;
-        this.criticalHitChance = weapon.criticalHitChance;
-    }
-
-    public void increaseLevel() {
-        level++;
-    }
-
-    public void decreaseDurability() {
-        durability--;
+        this.physicalDamage = weapon.getPhysicalDamage();
+        this.magicalDamage = weapon.getMagicalDamage();
+        this.level = weapon.getLevel();
+        this.criticalHitChance = weapon.getCriticalHitChance();
     }
 
     @Override

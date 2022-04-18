@@ -11,7 +11,7 @@ public class Sword extends Weapon {
 
     private Integer weaponID;
     private String owner;
-    private WeaponType weaponType = WeaponType.BOW;
+    private WeaponType weaponType = WeaponType.SWORD;
     private Integer durability = 100;
     private Integer physicalDamage = 70;
     private Integer magicalDamage = 0;
