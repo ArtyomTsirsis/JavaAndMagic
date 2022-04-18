@@ -19,7 +19,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public Armor save(Armor armor) {
-        sessionFactory.getCurrentSession().persist(new Armor(armor));
+        sessionFactory.getCurrentSession().persist(armor);
         return armor;
     }
 

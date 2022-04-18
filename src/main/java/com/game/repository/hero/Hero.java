@@ -51,18 +51,6 @@ public class Hero {
         return heroClass;
     }
 
-    public void setHealth(Integer health) {
-        this.health = health;
-    }
-
-    public void increaseLevel() {
-        level++;
-    }
-
-    public boolean isAlive() {
-        return 0 < this.health;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -10,13 +10,12 @@ import org.springframework.stereotype.Component;
 public class HeroFactory {
 
     public static Hero createHero(HeroClass heroClass, String name) {
-        return switch (heroClass) {
+        return new Hero(switch (heroClass) {
             case ARCHER -> new Archer(name);
             case KNIGHT -> new Knight(name);
             case THIEF -> new Thief(name);
             case WIZARD -> new Wizard(name);
-            default -> null;
-        };
+        });
     }
 
 }
