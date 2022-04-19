@@ -16,8 +16,6 @@ public class StartAdventureUIAction implements UIAction {
     @Autowired
     private CreateHeroUIAction createHeroUIAction;
     @Autowired
-    private MainMenu mainMenu;
-    @Autowired
     private ShowAllHeroUIAction showAllHeroUIAction;
     @Autowired
     private DeleteByIdUIAction deleteByIdUIAction;
@@ -82,9 +80,6 @@ public class StartAdventureUIAction implements UIAction {
                     break;
                 case 3:
                     deleteByIdUIAction.execute();
-                    break;
-                case 4:
-                    mainMenu.run();
                     break;
             }
         } else {
