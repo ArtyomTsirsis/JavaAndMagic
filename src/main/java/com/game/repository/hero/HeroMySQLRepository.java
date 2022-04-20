@@ -20,7 +20,7 @@ public class HeroMySQLRepository implements HeroRepository {
     }
 
     @Override
-    public void save(Hero hero) {
+    public Hero save(Hero hero) {
         String query = "INSERT INTO heroes(name, heroClass, health, strength, level, dexterity, weaponID, armorID, skillBook) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(connection -> {
@@ -36,6 +36,7 @@ public class HeroMySQLRepository implements HeroRepository {
             ps.setString(9, hero.getSkillBook());
             return ps;
         });
+        return hero;
     }
 
     @Override

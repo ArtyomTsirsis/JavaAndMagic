@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface HeroRepository {
 
-    void save(Hero hero);
+    Hero save(Hero hero);
     Optional<Hero> findById(String heroName);
     List<Hero> findAll();
     void deleteById(String heroName);

@@ -11,8 +11,9 @@ public class HashMapHeroRepository implements HeroRepository {
     private final static Map<String, Hero> heroRepo = new HashMap<>();
 
     @Override
-    public void save(Hero hero) {
+    public Hero save(Hero hero) {
         heroRepo.put(hero.getName(), hero);
+        return hero;
     }
 
     @Override

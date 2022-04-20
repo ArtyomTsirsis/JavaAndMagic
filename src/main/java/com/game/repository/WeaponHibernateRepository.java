@@ -25,28 +25,36 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public Optional<Weapon> findById(Integer id) {
-        Weapon toReturn = sessionFactory.getCurrentSession().get(Weapon.class, id);
-        return Optional.ofNullable(toReturn);
+        return Optional.ofNullable(sessionFactory.getCurrentSession().get(Weapon.class, id));
     }
 
     @Override
     public List<Weapon> findByOwner(String owner) {
-        return sessionFactory.getCurrentSession().createQuery("SELECT * FROM weapon WHERE owner=" + owner, Weapon.class).getResultList();
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery(String.format("SELECT w FROM weapon w WHERE w.owner='%s'", owner), Weapon.class)
+                .getResultList();
     }
 
     @Override
     public List<Weapon> findAll() {
-        return sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM weapon", Weapon.class).getResultList();
+        return sessionFactory.getCurrentSession().
+                createNativeQuery("SELECT * FROM weapon", Weapon.class)
+                .getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession().delete(findById(id).get());
+        sessionFactory.getCurrentSession().
+                createQuery(String.format("DELETE weapon w WHERE w.weaponID='%s'", id)).
+                executeUpdate();
     }
 
     @Override
-    public void deleteByOwner(String name) {
-        sessionFactory.getCurrentSession().createQuery("DELETE FROM weapon WHERE owner=" + name);
+    public void deleteByOwner(String owner) {
+        sessionFactory.getCurrentSession()
+                .createQuery(String.format("DELETE weapon w WHERE w.owner='%s'", owner))
+                .executeUpdate();
     }
 
 }
