@@ -57,4 +57,9 @@ public class WeaponHibernateRepository implements WeaponRepository {
                 .executeUpdate();
     }
 
+    @Override
+    public void update(Weapon weapon) {
+        sessionFactory.getCurrentSession().update(weapon);
+    }
+
 }

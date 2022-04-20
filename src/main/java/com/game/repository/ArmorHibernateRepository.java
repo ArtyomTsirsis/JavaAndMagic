@@ -56,4 +56,9 @@ public class ArmorHibernateRepository implements ArmorRepository {
                 executeUpdate();
     }
 
+    @Override
+    public void update(Armor armor) {
+        sessionFactory.getCurrentSession().update(armor);
+    }
+
 }

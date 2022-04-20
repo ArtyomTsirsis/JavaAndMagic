@@ -29,4 +29,10 @@ public class HeroDTOConverter {
         }
     }
 
+    public Hero convertFromDto(HeroDTO hero) {
+        return new Hero(hero.getName(), hero.getHeroClass(), hero.getHealth(), hero.getStrength(),
+                hero.getLevel(), hero.getDexterity(), hero.getArmor().getId(),
+                hero.getWeapon().getId(), converter.encrypt(hero.getSkills()));
+    }
+
 }

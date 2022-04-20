@@ -31,4 +31,7 @@ public class HashMapHeroRepository implements HeroRepository {
         heroRepo.remove(heroName);
     }
 
+    public void update(Hero hero) {
+    }
+
 }

@@ -12,5 +12,10 @@ public class ArmorDTOConverter {
                 armor.getMagicalDefense());
     }
 
+    public Armor convertFromDto(ArmorDTO armor) {
+        return new Armor(armor.getId(), armor.getOwner(), armor.getArmorClass(), armor.getDurability(), armor.getPhysicalDefense(),
+                armor.getMagicalDefense());
+    }
+
 }
 

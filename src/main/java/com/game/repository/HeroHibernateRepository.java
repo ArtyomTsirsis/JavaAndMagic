@@ -44,4 +44,9 @@ public class HeroHibernateRepository implements HeroRepository {
                 executeUpdate();
     }
 
+    @Override
+    public void update(Hero hero) {
+        sessionFactory.getCurrentSession().update(hero);
+    }
+
 }
