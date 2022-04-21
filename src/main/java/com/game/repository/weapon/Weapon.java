@@ -11,8 +11,8 @@ import java.util.Objects;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="weapon")
+@Entity(name = "weapon")
+@Table(name = "weapon")
 public class Weapon {
 
     @Id

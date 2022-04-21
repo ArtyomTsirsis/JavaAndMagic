@@ -25,28 +25,40 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public Optional<Armor> findById(Integer id) {
-        Armor toReturn = sessionFactory.getCurrentSession().get(Armor.class, id);
-        return Optional.ofNullable(toReturn);
+        return Optional.ofNullable(sessionFactory.getCurrentSession().get(Armor.class, id));
     }
 
     @Override
     public List<Armor> findByOwner(String owner) {
-        return sessionFactory.getCurrentSession().createQuery("SELECT * FROM armor WHERE owner=" + owner, Armor.class).getResultList();
+        return sessionFactory.getCurrentSession()
+                .createQuery(String.format("SELECT a FROM armor a WHERE a.owner='%s'", owner), Armor.class)
+                .getResultList();
     }
 
     @Override
     public List<Armor> findAll() {
-        return sessionFactory.getCurrentSession().createNativeQuery("SELECT * FROM armor", Armor.class).getResultList();
+        return sessionFactory.getCurrentSession()
+                .createNativeQuery("SELECT * FROM armor", Armor.class)
+                .getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession().delete(findById(id).get());
+        sessionFactory.getCurrentSession().
+                createQuery(String.format("DELETE armor a WHERE a.armorID='%s'", id)).
+                executeUpdate();
     }
 
     @Override
     public void deleteByOwner(String name) {
-        sessionFactory.getCurrentSession().createQuery("DELETE FROM weapon WHERE owner=" + name);
+        sessionFactory.getCurrentSession().
+                createQuery(String.format("DELETE armor a WHERE a.owner='%s'", name)).
+                executeUpdate();
+    }
+
+    @Override
+    public void update(Armor armor) {
+        sessionFactory.getCurrentSession().update(armor);
     }
 
 }

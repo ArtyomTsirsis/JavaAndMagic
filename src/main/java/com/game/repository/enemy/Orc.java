@@ -4,10 +4,12 @@ import lombok.Data;
 import com.game.skills.enemy.ConcreteEnemySkillFastAttack;
 import com.game.skills.enemy.ConcreteEnemySkillPowerAttack;
 import com.game.skills.enemy.EnemySkill;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Data
+@Component
 public class Orc implements Enemy {
 
     private final static EnemyClass ENEMY_CLASS = EnemyClass.ORC;

@@ -16,5 +16,10 @@ public class WeaponDTOConverter {
                 weapon.getPhysicalDamage(), weapon.getMagicalDamage(), weapon.getLevel(), weapon.getCriticalHitChance());
     }
 
+    public Weapon convertFromDto(WeaponDTO weapon) {
+        return new Weapon(weapon.getId(), weapon.getOwner(), weapon.getWeaponType(), weapon.getDurability(),
+                weapon.getPhysicalDamage(), weapon.getMagicalDamage(), weapon.getLevel(), weapon.getCriticalHitChance());
+    }
+
 }
 

@@ -1,9 +1,11 @@
 package com.game.repository.enemy;
 
 import com.game.skills.enemy.EnemySkill;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface Enemy {
 
     EnemyClass getEnemyClass();

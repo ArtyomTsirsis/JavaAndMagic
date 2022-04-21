@@ -3,10 +3,12 @@ package com.game.repository.enemy;
 import lombok.Data;
 import com.game.skills.enemy.ConcreteEnemySkillFastAttack;
 import com.game.skills.enemy.EnemySkill;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Data
+@Component
 public class Spider implements Enemy {
 
     private final static EnemyClass ENEMY_CLASS = EnemyClass.SPIDER;
