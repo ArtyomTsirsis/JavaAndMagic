@@ -34,10 +34,14 @@ public class CreateHeroService {
             throw new KeyAlreadyExistsException();
         }
         Hero hero = HeroFactory.createHero(request.getHeroClass(), request.getName());
-        hero.setArmorID(createArmorService.createArmor(new CreateArmorRequest
-                (ArmorClass.WITHOUT_ARMOR, converter.convertToDto(hero))).getArmor().getId());
-        hero.setWeaponID(createWeaponService.createWeapon(new CreateWeaponRequest
-                (WeaponType.WITHOUT_WEAPON, converter.convertToDto(hero))).getWeapon().getId());
+        hero.setArmorID(createArmorService
+                .createArmor(new CreateArmorRequest(ArmorClass.WITHOUT_ARMOR, converter.convertToDto(hero)))
+                .getArmor()
+                .getId());
+        hero.setWeaponID(createWeaponService
+                .createWeapon(new CreateWeaponRequest(WeaponType.WITHOUT_WEAPON, converter.convertToDto(hero)))
+                .getWeapon()
+                .getId());
         repository.save(hero);
         return new CreateHeroResponse(converter.convertToDto(hero));
     }
