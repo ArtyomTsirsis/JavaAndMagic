@@ -1,6 +1,9 @@
 package com.game.ui;
 
 import java.rmi.NoSuchObjectException;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.game.reposervices.hero.DeleteHeroByNameService;
@@ -10,44 +13,149 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 @Component
 public class DeleteByIdUIAction implements UIAction {
 
+    // UI Dependency
     @Autowired
     private FindAllHeroesService findAllHeroesService;
     @Autowired
-    private FindHeroByNameService findHeroByNameService;
+    private CreateHeroUIAction createHeroUIAction;
     @Autowired
-    private DeleteHeroByNameService deleteByIdService;
-    String heroName;
+    private DeleteHeroByNameService deleteHeroByNameService;
+    @Autowired
+    private StartAdventureUIAction startAdventureUIAction;
 
     public void execute() {
 
-        System.out.println("\033[H\033[2J");
-        System.out.flush();
 
-        // вывод всех героев из базы данных:
-        var response = findAllHeroesService.findAll();
-        response.getHeroes().forEach(heroDTO -> System.out.println("Hero name: " + heroDTO.getName()));
-        System.out.println("**************************************");
+            var findAll = findAllHeroesService.findAll();
+            if (findAll.getHeroes().isEmpty()) {
+                emptyList();
+            } else {
+                getList();
+            }
+    }
 
-        // запрашиваем имя героя с консоли у пользолвателя
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter hero name, what you want to remove: ");
-        heroName = sc.nextLine();
+    public void emptyList() {
 
-        // поиск героя в базе данных и удаление:
+        var scanner = new Scanner(System.in);
 
-        try {
-            deleteByIdService.deleteByName(heroName);
-            System.out.println("Received response: " + heroName + " successfully removed!");
-        } catch (NoSuchObjectException ex) {
-            System.out.println("Received response: Hero " + heroName + " doesn't exist!");
+
+        while (true) {
+
+            System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
+                    "      ░░███                                      ███░░░░░███                ░░███    ░░██████ ██████                     ░░░           \n" +
+                    "       ░███   ██████   █████ █████  ██████      ░███    ░███  ████████    ███████     ░███░█████░███   ██████    ███████ ████   ██████ \n" +
+                    "       ░███  ░░░░░███ ░░███ ░░███  ░░░░░███     ░███████████ ░░███░░███  ███░░███     ░███░░███ ░███  ░░░░░███  ███░░███░░███  ███░░███\n" +
+                    "       ░███   ███████  ░███  ░███   ███████     ░███░░░░░███  ░███ ░███ ░███ ░███     ░███ ░░░  ░███   ███████ ░███ ░███ ░███ ░███ ░░░ \n" +
+                    " ███   ░███  ███░░███  ░░███ ███   ███░░███     ░███    ░███  ░███ ░███ ░███ ░███     ░███      ░███  ███░░███ ░███ ░███ ░███ ░███  ███\n" +
+                    "░░████████  ░░████████  ░░█████   ░░████████    █████   █████ ████ █████░░████████    █████     █████░░████████░░███████ █████░░██████ \n" +
+                    " ░░░░░░░░    ░░░░░░░░    ░░░░░     ░░░░░░░░    ░░░░░   ░░░░░ ░░░░ ░░░░░  ░░░░░░░░    ░░░░░     ░░░░░  ░░░░░░░░  ░░░░░███░░░░░  ░░░░░░  \n" +
+                    "                                                                                                                ███ ░███               \n" +
+                    "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
+                    "                                                                                                                ░░░░░░                 ");
+
+            System.out.println();
+            System.out.println("======================================================================================================================================");
+            System.out.println("|                                                          REMOVE HERO                                                               |");
+            System.out.println("======================================================================================================================================");
+            System.out.println("|`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,``,`,`,`,`,`,`,`,`,`,`,`|");
+            System.out.println("|`,`                 __.-/|                                                                                                       `,`|");
+            System.out.println("|`,`                 \\`o_O'                                                                                                       `,`|");
+            System.out.println("|`,`                  =( )=  +----------------------------+                                                                       `,`|");
+            System.out.println("|`,`                    U|   | OOOUPS...NOTHING TO REMOVE |                                                                       `,`|");
+            System.out.println("|`,`         / \\ / \\   / |   +----------------------------+                                                                       `,`|");
+            System.out.println("|`,`         ) /^\\) ^\\/ _)\\     |                                                                                                 `,`|");
+            System.out.println("|`,`         )   /^\\/   _) \\    |                                                                                                 `,`|");
+            System.out.println("|`,`         )   _ /  / _)  \\___|_                                                                                                `,`|");
+            System.out.println("|`,`    / \\  )/\\/ ||  | )_)\\___,|))                                                                                               `,`|");
+            System.out.println("|`,`   <  >      |(,,) )__)    |                                                                                                  `,`|");
+            System.out.println("|`,`    ||      /    \\)___)\\                                                                                                      `,`|");
+            System.out.println("|`,`    | \\____(      )___) )____                           0. BACK                                                               `,`|");
+            System.out.println("|`,`     \\______(_______;;;)__;;;)                                                                                                `,`|");
+            System.out.println("|`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,``,`,`,`,`,`,`,`,`,`,`,`|");
+            System.out.println("======================================================================================================================================");
+            System.out.print("Please make a choice ⮞ ");
+
+            int selector = Integer.parseInt(scanner.nextLine());
+
+            if (selector == 0) {
+                System.out.println("**************************************");
+                System.out.println("Back to START ADVENTURE MENU...");
+                break;
+            } else {
+                System.out.println("Please select actions from the list, not like you: " + selector);
+            }
         }
-        System.out.println("**************************************");
 
     }
 
 
+    public void getList() {
+
+        var border = new String(" ");
+        var scanner = new Scanner(System.in);
+
+        while (true) {
+            try {
+
+                var response = findAllHeroesService.findAll();
+                var heroList = response.getHeroes().toArray();
+                int length = heroList.length;
+                if (length == 0) {
+                    emptyList();
+                    break;
+                } else {
+                    System.out.println("       █████                                      █████████                  █████    ██████   ██████                     ███          \n" +
+                            "      ░░███                                      ███░░░░░███                ░░███    ░░██████ ██████                     ░░░           \n" +
+                            "       ░███   ██████   █████ █████  ██████      ░███    ░███  ████████    ███████     ░███░█████░███   ██████    ███████ ████   ██████ \n" +
+                            "       ░███  ░░░░░███ ░░███ ░░███  ░░░░░███     ░███████████ ░░███░░███  ███░░███     ░███░░███ ░███  ░░░░░███  ███░░███░░███  ███░░███\n" +
+                            "       ░███   ███████  ░███  ░███   ███████     ░███░░░░░███  ░███ ░███ ░███ ░███     ░███ ░░░  ░███   ███████ ░███ ░███ ░███ ░███ ░░░ \n" +
+                            " ███   ░███  ███░░███  ░░███ ███   ███░░███     ░███    ░███  ░███ ░███ ░███ ░███     ░███      ░███  ███░░███ ░███ ░███ ░███ ░███  ███\n" +
+                            "░░████████  ░░████████  ░░█████   ░░████████    █████   █████ ████ █████░░████████    █████     █████░░████████░░███████ █████░░██████ \n" +
+                            " ░░░░░░░░    ░░░░░░░░    ░░░░░     ░░░░░░░░    ░░░░░   ░░░░░ ░░░░ ░░░░░  ░░░░░░░░    ░░░░░     ░░░░░  ░░░░░░░░  ░░░░░███░░░░░  ░░░░░░  \n" +
+                            "                                                                                                                ███ ░███               \n" +
+                            "                                             Console microgame by ComboBreakers team.                          ░░██████                \n" +
+                            "                                                                                                                ░░░░░░                 ");
+
+                    System.out.println();
+                    System.out.println("======================================================================================================================================");
+                    System.out.println("|                                                        REMOVE HERO                                                                 |");
+                    System.out.println("======================================================================================================================================");
+                    System.out.println("|`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,``,`,`,`,`,`,`,`,`,`,`,`|");
+                    System.out.println("|`,`                                                                                                                              `,`|");
+                    System.out.println("|`,`                                            ENTER NUMBER TO REMOVE A HERO:                                                    `,`|");
+                    System.out.println("|`,`                                                                                                                              `,`|");
+                    IntStream.range(0, length)
+                            .forEach(index -> System.out.println("|`,`                                                   Hero name: " + (index + 1) + " is "
+                                    + response.getHeroes().get(index).getName()
+                                    + String.format("%1$" + (59 - response.getHeroes().get(index).getName().length()) + "s", border) + "`,`|"));
+                    System.out.println("|`,`                                                                                                                              `,`|");
+                    System.out.println("|`,`                                                       0. BACK                                                                `,`|");
+                    System.out.println("|`,`                                                                                                                              `,`|");
+                    System.out.println("|`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,`,``,`,`,`,`,`,`,`,`,`,`,`|");
+                    System.out.println("======================================================================================================================================");
+                    System.out.print("Please make a choice ⮞ ");
+                }
+
+                int selector = Integer.parseInt(scanner.nextLine());
+
+                if (selector == 0) {
+                    System.out.println("**************************************");
+                    System.out.println("Back to START ADVENTURE MENU...");
+                    break;
+                } else {
+                    var removedHero = response.getHeroes().get(selector - 1).getName();
+                    deleteHeroByNameService.deleteByName(removedHero);
+                    System.out.println("Received response: " + removedHero + " successfully removed!");
+                }
+            } catch (Exception e) {
+                System.out.println("Please select actions from the list!");
+            }
+        }
+    }
 }
+
