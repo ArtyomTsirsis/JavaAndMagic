@@ -39,9 +39,10 @@ public class HeroHibernateRepository implements HeroRepository {
 
     @Override
     public void deleteById(String heroName) {
-        sessionFactory.getCurrentSession().
-                createQuery(String.format("DELETE hero h WHERE h.name='%s'", heroName)).
-                executeUpdate();
+        sessionFactory.getCurrentSession()
+                .createQuery("DELETE hero h WHERE h.name=:param")
+                .setParameter("param", heroName)
+                .executeUpdate();
     }
 
     @Override
