@@ -31,7 +31,8 @@ public class ArmorHibernateRepository implements ArmorRepository {
     @Override
     public List<Armor> findByOwner(String owner) {
         return sessionFactory.getCurrentSession()
-                .createQuery(String.format("SELECT a FROM armor a WHERE a.owner='%s'", owner), Armor.class)
+                .createQuery("SELECT a FROM armor a WHERE a.owner=:param", Armor.class)
+                .setParameter("param", owner)
                 .getResultList();
     }
 
@@ -45,15 +46,17 @@ public class ArmorHibernateRepository implements ArmorRepository {
     @Override
     public void deleteById(Integer id) {
         sessionFactory.getCurrentSession().
-                createQuery(String.format("DELETE armor a WHERE a.armorID='%s'", id)).
-                executeUpdate();
+                createQuery("DELETE armor a WHERE a.armorID=:param")
+                .setParameter("param", id)
+                .executeUpdate();
     }
 
     @Override
-    public void deleteByOwner(String name) {
-        sessionFactory.getCurrentSession().
-                createQuery(String.format("DELETE armor a WHERE a.owner='%s'", name)).
-                executeUpdate();
+    public void deleteByOwner(String owner) {
+        sessionFactory.getCurrentSession()
+                .createQuery("SELECT a FROM armor a WHERE a.owner=:param")
+                .setParameter("param", owner)
+                .executeUpdate();
     }
 
     @Override

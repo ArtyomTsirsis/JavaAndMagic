@@ -30,9 +30,9 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public List<Weapon> findByOwner(String owner) {
-        return sessionFactory
-                .getCurrentSession()
-                .createQuery(String.format("SELECT w FROM weapon w WHERE w.owner='%s'", owner), Weapon.class)
+        return sessionFactory.getCurrentSession()
+                .createQuery("SELECT w FROM weapon w WHERE w.owner=:param", Weapon.class)
+                .setParameter("param", owner)
                 .getResultList();
     }
 
@@ -45,15 +45,17 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession().
-                createQuery(String.format("DELETE weapon w WHERE w.weaponID='%s'", id)).
-                executeUpdate();
+        sessionFactory.getCurrentSession()
+                .createQuery("DELETE weapon w WHERE w.weaponID=:param")
+                .setParameter("param", id)
+                .executeUpdate();
     }
 
     @Override
     public void deleteByOwner(String owner) {
         sessionFactory.getCurrentSession()
-                .createQuery(String.format("DELETE weapon w WHERE w.owner='%s'", owner))
+                .createQuery("DELETE weapon w WHERE w.owner=:param")
+                .setParameter("param", owner)
                 .executeUpdate();
     }
 
