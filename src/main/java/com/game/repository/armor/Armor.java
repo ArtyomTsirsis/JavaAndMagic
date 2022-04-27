@@ -20,14 +20,14 @@ public class Armor {
     private Integer armorID;
     @Column
     private String owner;
-    @Column(columnDefinition="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')")
+    @Column(name = "armor_class", columnDefinition = "ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')")
     @Enumerated(EnumType.STRING)
     private ArmorClass armorClass;
     @Column
     private Integer durability;
-    @Column
+    @Column(name = "physical_defense")
     private Integer physicalDefense;
-    @Column
+    @Column(name = "magical_defense")
     private Integer magicalDefense;
 
     public Armor(Armor armor) {

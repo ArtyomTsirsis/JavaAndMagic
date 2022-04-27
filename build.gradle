@@ -10,12 +10,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    testImplementation 'org.mockito:mockito-core:4.5.1'
-    testImplementation 'org.mockito:mockito-junit-jupiter:4.5.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.7'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.6.7'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.7'
     implementation 'org.springframework:spring-context:5.3.19'
     implementation 'org.springframework:spring-jdbc:5.3.19'
     implementation 'org.springframework:spring-tx:5.3.19'
@@ -25,7 +23,8 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.6.8.Final'
     implementation 'org.hibernate:hibernate-entitymanager:5.6.8.Final'
     implementation 'org.liquibase:liquibase-core:4.9.1'
-
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 test {

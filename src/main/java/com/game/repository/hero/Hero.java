@@ -17,7 +17,7 @@ public class Hero {
 
     @Id
     private String name;
-    @Column(columnDefinition = "ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')")
+    @Column(name = "hero_class", columnDefinition = "ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')")
     @Enumerated(EnumType.STRING)
     private HeroClass heroClass;
     @Column
@@ -32,7 +32,7 @@ public class Hero {
     private Integer armorID;
     @Column
     private Integer weaponID;
-    @Column
+    @Column(name = "skillBook")
     private String skillBook;
 
     public Hero(Hero hero) {

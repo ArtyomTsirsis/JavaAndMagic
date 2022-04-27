@@ -19,18 +19,18 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public Armor save(Armor armor) {
-        sessionFactory.getCurrentSession().persist(armor);
+        sessionFactory.openSession().persist(armor);
         return armor;
     }
 
     @Override
     public Optional<Armor> findById(Integer id) {
-        return Optional.ofNullable(sessionFactory.getCurrentSession().get(Armor.class, id));
+        return Optional.ofNullable(sessionFactory.openSession().get(Armor.class, id));
     }
 
     @Override
     public List<Armor> findByOwner(String owner) {
-        return sessionFactory.getCurrentSession()
+        return sessionFactory.openSession()
                 .createQuery("SELECT a FROM armor a WHERE a.owner=:param", Armor.class)
                 .setParameter("param", owner)
                 .getResultList();
@@ -38,14 +38,14 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public List<Armor> findAll() {
-        return sessionFactory.getCurrentSession()
+        return sessionFactory.openSession()
                 .createNativeQuery("SELECT * FROM armor", Armor.class)
                 .getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession().
+        sessionFactory.openSession().
                 createQuery("DELETE armor a WHERE a.armorID=:param")
                 .setParameter("param", id)
                 .executeUpdate();
@@ -53,7 +53,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public void deleteByOwner(String owner) {
-        sessionFactory.getCurrentSession()
+        sessionFactory.openSession()
                 .createQuery("SELECT a FROM armor a WHERE a.owner=:param")
                 .setParameter("param", owner)
                 .executeUpdate();
@@ -61,7 +61,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public void update(Armor armor) {
-        sessionFactory.getCurrentSession().update(armor);
+        sessionFactory.openSession().update(armor);
     }
 
 }

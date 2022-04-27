@@ -16,12 +16,12 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="owner" type="VARCHAR(20)"/>
-            <column name="weaponType" type="ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')"/>
+            <column name="weapon_type" type="ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')"/>
             <column name="durability" type="INT"/>
-            <column name="physicalDamage" type="INT"/>
-            <column name="magicalDamage" type="INT"/>
+            <column name="physical_damage" type="INT"/>
+            <column name="magical_damage" type="INT"/>
             <column name="level" type="INT"/>
-            <column name="criticalHitChance" type="INT"/>
+            <column name="critical_hit_chance" type="INT"/>
         </createTable>
     </changeSet>
 
@@ -36,10 +36,10 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="owner" type="VARCHAR(20)"/>
-            <column name="armorClass" type="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')"/>
+            <column name="armor_class" type="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')"/>
             <column name="durability" type="INT"/>
-            <column name="physicalDefense" type="INT"/>
-            <column name="magicalDefense" type="INT"/>
+            <column name="physical_defense" type="INT"/>
+            <column name="magical_defense" type="INT"/>
         </createTable>
     </changeSet>
 
@@ -53,15 +53,18 @@
             <column name="name" type="VARCHAR(20)">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="heroClass" type="ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')"/>
+            <column name="hero_class" type="ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')"/>
             <column name="health" type="INT"/>
             <column name="strength" type="INT"/>
             <column name="level" type="INT"/>
             <column name="dexterity" type="INT"/>
             <column name="weaponID" type="INT"/>
             <column name="armorID" type="INT"/>
-            <column name="skillBook" type="VARCHAR(200)"/>
+            <column name="skill_book" type="VARCHAR(200)"/>
         </createTable>
+    </changeSet>
+
+    <changeSet id="3.1" author="artjoms.cirsis">
         <addForeignKeyConstraint baseTableName="heroes"
                                  baseColumnNames="weaponID"
                                  constraintName="fk_heroes_weaponID"
