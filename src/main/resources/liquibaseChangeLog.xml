@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="1" author="artjoms.cirsis">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="weapon"/>
+            </not>
+        </preConditions>
+        <createTable tableName="weapon">
+            <column name="weaponID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="owner" type="VARCHAR(20)"/>
+            <column name="weaponType" type="ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')"/>
+            <column name="durability" type="INT"/>
+            <column name="physicalDamage" type="INT"/>
+            <column name="magicalDamage" type="INT"/>
+            <column name="level" type="INT"/>
+            <column name="criticalHitChance" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="artjoms.cirsis">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="armor"/>
+            </not>
+        </preConditions>
+        <createTable tableName="armor">
+            <column name="armorID" type="INT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="owner" type="VARCHAR(20)"/>
+            <column name="armorClass" type="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')"/>
+            <column name="durability" type="INT"/>
+            <column name="physicalDefense" type="INT"/>
+            <column name="magicalDefense" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="artjoms.cirsis">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="heroes"/>
+            </not>
+        </preConditions>
+        <createTable tableName="heroes">
+            <column name="name" type="VARCHAR(20)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="heroClass" type="ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')"/>
+            <column name="health" type="INT"/>
+            <column name="strength" type="INT"/>
+            <column name="level" type="INT"/>
+            <column name="dexterity" type="INT"/>
+            <column name="weaponID" type="INT"/>
+            <column name="armorID" type="INT"/>
+            <column name="skillBook" type="VARCHAR(200)"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="heroes"
+                                 baseColumnNames="weaponID"
+                                 constraintName="fk_heroes_weaponID"
+                                 referencedTableName="weapon"
+                                 referencedColumnNames="weaponID"/>
+        <addForeignKeyConstraint baseTableName="heroes"
+                                 baseColumnNames="armorID"
+                                 constraintName="fk_heroes_armorID"
+                                 referencedTableName="armor"
+                                 referencedColumnNames="armorID"/>
+    </changeSet>
+
+</databaseChangeLog>

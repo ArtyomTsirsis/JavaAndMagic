@@ -1,12 +1,10 @@
 package com.game.config;
 
-import org.hibernate.SessionFactory;
+import liquibase.integration.spring.SpringLiquibase;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -37,8 +35,13 @@ public class DBConfig {
     private String dialect;
     @Value("${hibernate.package.scan}")
     private String packageScan;
+    @Value("${liquibase.contexts}")
+    private String liquibaseContexts;
+    @Value("${liquibase.classpath}")
+    private String liquibaseClassPath;
 
     @Bean
+    @DependsOn("liquibase")
     public SessionFactory sessionFactory(DataSource dataSource) throws IOException {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
@@ -72,4 +75,16 @@ public class DBConfig {
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
+
+    @Bean
+    public SpringLiquibase liquibase(DataSource dataSource) {
+        var liquibase = new SpringLiquibase();
+        liquibase.setDataSource(dataSource);
+        liquibase.setContexts(liquibaseContexts);
+        liquibase.setChangeLog(liquibaseClassPath);
+        return liquibase;
+    }
+
 }
+
+
