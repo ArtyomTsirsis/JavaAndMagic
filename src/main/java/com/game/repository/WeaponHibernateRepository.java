@@ -19,18 +19,18 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public Weapon save(Weapon weapon) {
-        sessionFactory.getCurrentSession().persist(weapon);
+        sessionFactory.openSession().persist(weapon);
         return weapon;
     }
 
     @Override
     public Optional<Weapon> findById(Integer id) {
-        return Optional.ofNullable(sessionFactory.getCurrentSession().get(Weapon.class, id));
+        return Optional.ofNullable(sessionFactory.openSession().get(Weapon.class, id));
     }
 
     @Override
     public List<Weapon> findByOwner(String owner) {
-        return sessionFactory.getCurrentSession()
+        return sessionFactory.openSession()
                 .createQuery("SELECT w FROM weapon w WHERE w.owner=:param", Weapon.class)
                 .setParameter("param", owner)
                 .getResultList();
@@ -38,14 +38,14 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public List<Weapon> findAll() {
-        return sessionFactory.getCurrentSession().
+        return sessionFactory.openSession().
                 createNativeQuery("SELECT * FROM weapon", Weapon.class)
                 .getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.getCurrentSession()
+        sessionFactory.openSession()
                 .createQuery("DELETE weapon w WHERE w.weaponID=:param")
                 .setParameter("param", id)
                 .executeUpdate();
@@ -53,7 +53,7 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public void deleteByOwner(String owner) {
-        sessionFactory.getCurrentSession()
+        sessionFactory.openSession()
                 .createQuery("DELETE weapon w WHERE w.owner=:param")
                 .setParameter("param", owner)
                 .executeUpdate();
@@ -61,7 +61,7 @@ public class WeaponHibernateRepository implements WeaponRepository {
 
     @Override
     public void update(Weapon weapon) {
-        sessionFactory.getCurrentSession().update(weapon);
+        sessionFactory.openSession().update(weapon);
     }
 
 }

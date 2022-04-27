@@ -20,18 +20,18 @@ public class Weapon {
     private Integer weaponID;
     @Column
     private String owner;
-    @Column(columnDefinition = "ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')")
+    @Column(name = "weapon_type", columnDefinition = "ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')")
     @Enumerated(EnumType.STRING)
     private WeaponType weaponType;
     @Column
     private Integer durability;
-    @Column
+    @Column(name = "physical_damage")
     private Integer physicalDamage;
-    @Column
+    @Column(name = "magical_damage")
     private Integer magicalDamage;
     @Column
     private Integer level;
-    @Column
+    @Column(name = "critical_hit_chance")
     private Integer criticalHitChance;
 
     public Weapon(Weapon weapon) {

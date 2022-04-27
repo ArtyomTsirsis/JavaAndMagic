@@ -19,27 +19,27 @@ public class HeroHibernateRepository implements HeroRepository {
 
     @Override
     public Hero save(Hero hero) {
-        sessionFactory.getCurrentSession().persist(hero);
+        sessionFactory.openSession().persist(hero);
         return hero;
     }
 
     @Override
     public Optional<Hero> findById(String heroName) {
         return Optional.ofNullable(sessionFactory
-                .getCurrentSession()
+                .openSession()
                 .get(Hero.class, heroName));
     }
 
     @Override
     public List<Hero> findAll() {
-        return sessionFactory.getCurrentSession()
+        return sessionFactory.openSession()
                 .createNativeQuery("SELECT * FROM heroes", Hero.class)
                 .getResultList();
     }
 
     @Override
     public void deleteById(String heroName) {
-        sessionFactory.getCurrentSession()
+        sessionFactory.openSession()
                 .createQuery("DELETE hero h WHERE h.name=:param")
                 .setParameter("param", heroName)
                 .executeUpdate();
@@ -47,7 +47,7 @@ public class HeroHibernateRepository implements HeroRepository {
 
     @Override
     public void update(Hero hero) {
-        sessionFactory.getCurrentSession().update(hero);
+        sessionFactory.openSession().update(hero);
     }
 
 }
