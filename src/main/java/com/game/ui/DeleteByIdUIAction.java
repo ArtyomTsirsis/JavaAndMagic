@@ -25,8 +25,6 @@ public class DeleteByIdUIAction implements UIAction {
     private CreateHeroUIAction createHeroUIAction;
     @Autowired
     private DeleteHeroByNameService deleteHeroByNameService;
-    @Autowired
-    private StartAdventureUIAction startAdventureUIAction;
 
     public void execute() {
 
