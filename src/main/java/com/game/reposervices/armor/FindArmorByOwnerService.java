@@ -1,6 +1,5 @@
 package com.game.reposervices.armor;
 
-import com.game.dto.armor.FindArmorByOwnerRequest;
 import com.game.dto.armor.FindArmorByOwnerResponse;
 import com.game.repository.armor.ArmorRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +11,8 @@ public class FindArmorByOwnerService {
 
     private final ArmorRepository repository;
 
-    public FindArmorByOwnerResponse findByOwner(FindArmorByOwnerRequest request) {
-        return new FindArmorByOwnerResponse(repository.findByOwner(request.getHero().getName()));
+    public FindArmorByOwnerResponse findByOwner(String owner) {
+        return new FindArmorByOwnerResponse(repository.findByOwner(owner));
     }
 
 }

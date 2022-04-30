@@ -5,8 +5,8 @@ import com.game.repository.armor.ArmorRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,7 +54,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
     @Override
     public void deleteByOwner(String owner) {
         sessionFactory.getCurrentSession()
-                .createQuery("SELECT a FROM armor a WHERE a.owner=:param")
+                .createQuery("DELETE armor a WHERE a.owner=:param")
                 .setParameter("param", owner)
                 .executeUpdate();
     }

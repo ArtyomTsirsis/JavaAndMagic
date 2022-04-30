@@ -1,6 +1,5 @@
 package com.game.reposervices.weapon;
 
-import com.game.dto.weapon.FindWeaponByOwnerRequest;
 import com.game.dto.weapon.FindWeaponByOwnerResponse;
 import com.game.repository.weapon.WeaponRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +11,8 @@ public class FindWeaponByOwnerService {
 
     private final WeaponRepository repository;
 
-    public FindWeaponByOwnerResponse findByOwner(FindWeaponByOwnerRequest request) {
-        return new FindWeaponByOwnerResponse(repository.findByOwner(request.getHero().getName()));
+    public FindWeaponByOwnerResponse findByOwner(String owner) {
+        return new FindWeaponByOwnerResponse(repository.findByOwner(owner));
     }
 
 }
