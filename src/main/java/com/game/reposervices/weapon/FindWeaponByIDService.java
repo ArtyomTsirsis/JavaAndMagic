@@ -4,19 +4,18 @@ import com.game.dto.weapon.FindWeaponByIdResponse;
 import com.game.repository.weapon.Weapon;
 import com.game.repository.weapon.WeaponRepository;
 import com.game.utils.WeaponDTOConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.rmi.NoSuchObjectException;
 import java.util.Optional;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class FindWeaponByIDService {
 
-    @Autowired
-    private WeaponRepository repository;
-    @Autowired
-    private WeaponDTOConverter converter;
+    private final WeaponRepository repository;
+    private final WeaponDTOConverter converter;
 
     public FindWeaponByIdResponse findByID(Integer id) throws NoSuchObjectException {
         Optional<Weapon> weapon = repository.findById(id);

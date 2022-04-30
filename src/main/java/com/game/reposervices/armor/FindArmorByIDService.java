@@ -4,19 +4,18 @@ import com.game.dto.armor.FindArmorByIdResponse;
 import com.game.repository.armor.Armor;
 import com.game.repository.armor.ArmorRepository;
 import com.game.utils.ArmorDTOConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.rmi.NoSuchObjectException;
 import java.util.Optional;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class FindArmorByIDService {
 
-    @Autowired
-    private ArmorRepository repository;
-    @Autowired
-    private ArmorDTOConverter converter;
+    private final ArmorRepository repository;
+    private final ArmorDTOConverter converter;
 
     public FindArmorByIdResponse findByID(Integer id) throws NoSuchObjectException {
         Optional<Armor> armor = repository.findById(id);

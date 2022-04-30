@@ -3,16 +3,15 @@ package com.game.reposervices.weapon;
 import com.game.dto.weapon.UpdateWeaponRequest;
 import com.game.repository.weapon.WeaponRepository;
 import com.game.utils.WeaponDTOConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class UpdateWeaponService {
 
-    @Autowired
-    private WeaponRepository repository;
-    @Autowired
-    private WeaponDTOConverter converter;
+    private final WeaponRepository repository;
+    private final WeaponDTOConverter converter;
 
     public void update(UpdateWeaponRequest request) {
         if(repository.findById(request.getUpdatedWeaponDTO().getId()).isPresent()) {

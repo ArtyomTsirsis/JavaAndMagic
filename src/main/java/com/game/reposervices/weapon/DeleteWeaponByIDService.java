@@ -1,16 +1,16 @@
 package com.game.reposervices.weapon;
 
 import com.game.repository.weapon.WeaponRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.rmi.NoSuchObjectException;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class DeleteWeaponByIDService {
 
-    @Autowired
-    private WeaponRepository repository;
+    private final WeaponRepository repository;
 
     public void deleteByID(Integer id) throws NoSuchObjectException {
         if (repository.findById(id).isEmpty()) {
