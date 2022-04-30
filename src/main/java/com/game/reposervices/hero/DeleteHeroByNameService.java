@@ -5,6 +5,7 @@ import com.game.reposervices.weapon.DeleteWeaponByOwnerService;
 import com.game.repository.hero.HeroRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.rmi.NoSuchObjectException;
 
@@ -16,6 +17,7 @@ public class DeleteHeroByNameService {
     private final DeleteArmorByOwnerService deleteArmorByOwnerService;
     private final DeleteWeaponByOwnerService deleteWeaponByOwnerService;
 
+    @Transactional
     public void deleteByName(String name) throws NoSuchObjectException {
         if (repository.findById(name).isEmpty()) {
             throw new NoSuchObjectException(name);
