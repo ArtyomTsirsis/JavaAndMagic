@@ -3,16 +3,15 @@ package com.game.reposervices.weapon;
 import com.game.dto.weapon.FindAllWeaponResponse;
 import com.game.repository.weapon.WeaponRepository;
 import com.game.utils.WeaponDTOConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class FindAllWeaponService {
 
-    @Autowired
-    private WeaponRepository repository;
-    @Autowired
-    private WeaponDTOConverter converter;
+    private final WeaponRepository repository;
+    private final WeaponDTOConverter converter;
 
     public FindAllWeaponResponse findAll() {
         return new FindAllWeaponResponse(repository.findAll().stream().map(converter::convertToDto).toList());

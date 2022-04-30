@@ -3,43 +3,38 @@ package com.game.utils;
 import com.game.dto.armor.ArmorDTO;
 import com.game.dto.hero.HeroDTO;
 import com.game.dto.weapon.WeaponDTO;
-import com.game.reposervices.armor.FindArmorByIDService;
-import com.game.reposervices.weapon.FindWeaponByIDService;
+import com.game.repository.armor.Armor;
 import com.game.repository.hero.Hero;
+import com.game.repository.weapon.Weapon;
 import com.game.skills.hero.HeroSkill;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class HeroDTOConverter {
 
-    @Autowired
-    private StringToSkillsCrypter converter;
-    @Autowired
-    private FindWeaponByIDService findWeaponByIDService;
-    @Autowired
-    private FindArmorByIDService findArmorByIDService;
+    private final StringToSkillsCrypter converter;
+    private final ArmorDTOConverter armorDTOConverter;
+    private final WeaponDTOConverter weaponDTOConverter;
 
     public HeroDTO convertToDto(Hero hero) {
-        ArmorDTO armor = null;
-        WeaponDTO weapon = null;
+        ArmorDTO armor = armorDTOConverter.convertToDto(hero.getArmor());
+        WeaponDTO weapon = weaponDTOConverter.convertToDto(hero.getWeapon());
         List<HeroSkill> decryptedSkills = converter.decrypt(hero.getSkillBook());
-        try {
-            armor = findArmorByIDService.findByID(hero.getArmorID()).getArmor();
-            weapon = findWeaponByIDService.findByID(hero.getWeaponID()).getWeapon();
-        } catch (Exception ignored) {}
         return new HeroDTO(hero.getHeroClass(), hero.getName(), hero.getHealth(), hero.getStrength(),
                 hero.getLevel(), hero.getDexterity(), armor,
                 weapon, decryptedSkills);
     }
 
     public Hero convertFromDto(HeroDTO hero) {
+        Armor armor = armorDTOConverter.convertFromDto(hero.getArmor());
+        Weapon weapon = weaponDTOConverter.convertFromDto(hero.getWeapon());
         String encryptedSkills = converter.encrypt(hero.getSkills());
         return new Hero(hero.getName(), hero.getHeroClass(), hero.getHealth(), hero.getStrength(),
-                hero.getLevel(), hero.getDexterity(), hero.getArmor().getId(),
-                hero.getWeapon().getId(), encryptedSkills);
+                hero.getLevel(), hero.getDexterity(), armor, weapon, encryptedSkills);
     }
 
 }

@@ -3,16 +3,15 @@ package com.game.reposervices.armor;
 import com.game.dto.armor.UpdateArmorRequest;
 import com.game.repository.armor.ArmorRepository;
 import com.game.utils.ArmorDTOConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class UpdateArmorService {
 
-    @Autowired
-    private ArmorRepository repository;
-    @Autowired
-    private ArmorDTOConverter converter;
+    private final ArmorRepository repository;
+    private final ArmorDTOConverter converter;
 
     public void update(UpdateArmorRequest request) {
         if(repository.findById(request.getUpdatedArmorDTO().getId()).isPresent()) {

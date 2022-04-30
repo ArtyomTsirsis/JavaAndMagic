@@ -3,14 +3,14 @@ package com.game.reposervices.weapon;
 import com.game.dto.weapon.FindWeaponByOwnerRequest;
 import com.game.dto.weapon.FindWeaponByOwnerResponse;
 import com.game.repository.weapon.WeaponRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class FindWeaponByOwnerService {
 
-    @Autowired
-    private WeaponRepository repository;
+    private final WeaponRepository repository;
 
     public FindWeaponByOwnerResponse findByOwner(FindWeaponByOwnerRequest request) {
         return new FindWeaponByOwnerResponse(repository.findByOwner(request.getHero().getName()));

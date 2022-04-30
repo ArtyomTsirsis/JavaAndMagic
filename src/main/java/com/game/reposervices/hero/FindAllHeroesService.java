@@ -1,18 +1,17 @@
 package com.game.reposervices.hero;
 
-import com.game.utils.HeroDTOConverter;
 import com.game.dto.hero.FindAllHeroesResponse;
 import com.game.repository.hero.HeroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import com.game.utils.HeroDTOConverter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class FindAllHeroesService {
 
-    @Autowired
-    private HeroRepository repository;
-    @Autowired
-    private HeroDTOConverter converter;
+    private final HeroRepository repository;
+    private final HeroDTOConverter converter;
 
     public FindAllHeroesResponse findAll() {
         return new FindAllHeroesResponse(repository.findAll().stream().map(converter::convertToDto).toList());

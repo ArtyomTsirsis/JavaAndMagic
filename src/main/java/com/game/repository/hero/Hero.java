@@ -1,5 +1,7 @@
 package com.game.repository.hero;
 
+import com.game.repository.armor.Armor;
+import com.game.repository.weapon.Weapon;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -11,7 +13,7 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Entity(name = "hero")
+@Entity(name="hero")
 @Table(name="heroes")
 public class Hero {
 
@@ -28,11 +30,13 @@ public class Hero {
     private Integer level;
     @Column
     private Integer dexterity;
-    @Column
-    private Integer armorID;
-    @Column
-    private Integer weaponID;
-    @Column(name = "skillBook")
+    @OneToOne
+    @JoinColumn(name = "armorID", referencedColumnName = "armorID")
+    private Armor armor;
+    @OneToOne
+    @JoinColumn(name = "weaponID", referencedColumnName = "weaponID")
+    private Weapon weapon;
+    @Column(name = "skill_book")
     private String skillBook;
 
     public Hero(Hero hero) {
@@ -42,9 +46,9 @@ public class Hero {
         this.strength = hero.getStrength();
         this.level = hero.getLevel();
         this.dexterity = hero.getDexterity();
-        this.armorID = hero.getArmorID();
-        this.weaponID = hero.getWeaponID();
         this.skillBook = hero.getSkillBook();
+        this.weapon = hero.getWeapon();
+        this.armor = hero.getArmor();
     }
 
     public HeroClass getHeroClass() {

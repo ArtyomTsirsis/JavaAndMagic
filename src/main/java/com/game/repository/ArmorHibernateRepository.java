@@ -2,8 +2,8 @@ package com.game.repository;
 
 import com.game.repository.armor.Armor;
 import com.game.repository.armor.ArmorRepository;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -11,26 +11,26 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@RequiredArgsConstructor
 @Transactional
 public class ArmorHibernateRepository implements ArmorRepository {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Override
     public Armor save(Armor armor) {
-        sessionFactory.openSession().persist(armor);
+        sessionFactory.getCurrentSession().save(armor);
         return armor;
     }
 
     @Override
     public Optional<Armor> findById(Integer id) {
-        return Optional.ofNullable(sessionFactory.openSession().get(Armor.class, id));
+        return Optional.ofNullable(sessionFactory.getCurrentSession().get(Armor.class, id));
     }
 
     @Override
     public List<Armor> findByOwner(String owner) {
-        return sessionFactory.openSession()
+        return sessionFactory.getCurrentSession()
                 .createQuery("SELECT a FROM armor a WHERE a.owner=:param", Armor.class)
                 .setParameter("param", owner)
                 .getResultList();
@@ -38,14 +38,14 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public List<Armor> findAll() {
-        return sessionFactory.openSession()
+        return sessionFactory.getCurrentSession()
                 .createNativeQuery("SELECT * FROM armor", Armor.class)
                 .getResultList();
     }
 
     @Override
     public void deleteById(Integer id) {
-        sessionFactory.openSession().
+        sessionFactory.getCurrentSession().
                 createQuery("DELETE armor a WHERE a.armorID=:param")
                 .setParameter("param", id)
                 .executeUpdate();
@@ -53,7 +53,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public void deleteByOwner(String owner) {
-        sessionFactory.openSession()
+        sessionFactory.getCurrentSession()
                 .createQuery("SELECT a FROM armor a WHERE a.owner=:param")
                 .setParameter("param", owner)
                 .executeUpdate();
@@ -61,7 +61,7 @@ public class ArmorHibernateRepository implements ArmorRepository {
 
     @Override
     public void update(Armor armor) {
-        sessionFactory.openSession().update(armor);
+        sessionFactory.getCurrentSession().update(armor);
     }
 
 }

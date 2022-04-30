@@ -3,16 +3,15 @@ package com.game.reposervices.armor;
 import com.game.dto.armor.FindAllArmorResponse;
 import com.game.repository.armor.ArmorRepository;
 import com.game.utils.ArmorDTOConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
+@RequiredArgsConstructor
 public class FindAllArmorService {
 
-    @Autowired
-    private ArmorRepository repository;
-    @Autowired
-    private ArmorDTOConverter converter;
+    private final ArmorRepository repository;
+    private final ArmorDTOConverter converter;
 
     public FindAllArmorResponse findAll() {
         return new FindAllArmorResponse(repository.findAll().stream().map(converter::convertToDto).toList());
