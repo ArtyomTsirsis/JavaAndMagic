@@ -38,13 +38,13 @@ public class UIController {
     }
 
     @GetMapping("/createHero")
-    public String createTaskView(Model model) {
+    public String createHeroView(Model model) {
         model.addAttribute("hero", new CreateHeroRequest());
         return "createHero";
     }
 
     @PostMapping("/createHero")
-    public String createTask(@ModelAttribute CreateHeroRequest request) {
+    public String createHero(@ModelAttribute CreateHeroRequest request) {
         createHeroService.createHero(request);
         return "redirect:/allHeroes";
     }
