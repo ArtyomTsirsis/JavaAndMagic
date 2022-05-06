@@ -7,7 +7,6 @@ import com.game.reposervices.hero.CreateHeroService;
 import com.game.reposervices.hero.DeleteHeroByNameService;
 import com.game.reposervices.hero.FindAllHeroesService;
 import com.game.reposervices.hero.FindHeroByNameService;
-import com.game.repository.enemy.Enemy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,11 +40,6 @@ public class HeroController {
     @GetMapping(value = "/")
     public FindAllHeroesResponse findAllHeroes() {
         return findAllHeroesService.findAll();
-    }
-
-    @GetMapping(value = "/enemy")
-    public Enemy getEnemy(@RequestBody Enemy enemy) {
-        return enemy;
     }
 
 }
