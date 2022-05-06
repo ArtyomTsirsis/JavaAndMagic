@@ -8,7 +8,7 @@ import lombok.Data;
 public class ConcreteHeroSkillFireDamage implements HeroSkill {
 
     private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
-    private final String name = "fireDamage";
+    private final String name = "FireDamage";
     private final String output = "Атака огнем";
     private int criticalHitChance = 0;
     private int missChance = -5;

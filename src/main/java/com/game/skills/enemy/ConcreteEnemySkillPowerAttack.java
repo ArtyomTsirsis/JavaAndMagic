@@ -8,7 +8,7 @@ import lombok.Data;
 public class ConcreteEnemySkillPowerAttack implements EnemySkill {
 
     private static final EnemyCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new EnemyCriticalHitOrMissCalculator();
-    private final String name = "Мощная атака";
+    private final String name = "PowerAttack";
     private int criticalHitChance = 5;
     private int missChance = 7;
 
