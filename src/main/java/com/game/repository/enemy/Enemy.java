@@ -11,7 +11,7 @@ import java.util.List;
 public interface Enemy {
 
     @JsonCreator
-    public static Enemy create(@JsonProperty("ENEMY_CLASS") EnemyClass enemyClass,
+    public static Enemy create(@JsonProperty("enemyClass") EnemyClass enemyClass,
                                @JsonProperty("health") Integer health) {
         Enemy enemy = switch (enemyClass) {
             case ORC -> new Orc();
