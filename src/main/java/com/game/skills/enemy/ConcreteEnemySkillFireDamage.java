@@ -8,7 +8,7 @@ import lombok.Data;
 public class ConcreteEnemySkillFireDamage implements EnemySkill {
 
     private static final EnemyCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new EnemyCriticalHitOrMissCalculator();
-    private final String name = "Атака огнем";
+    private final String name = "FireDamage";
     private int criticalHitChance = 0;
     private int missChance = -7;
 
