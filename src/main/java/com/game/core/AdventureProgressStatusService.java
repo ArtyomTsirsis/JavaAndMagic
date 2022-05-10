@@ -1,0 +1,21 @@
+package com.game.core;
+
+import com.game.dto.hero.HeroDTO;
+import com.game.repository.enemy.Enemy;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AdventureProgressStatusService {
+
+    private HeroDTO hero;
+    private String move;
+    private Boolean fightChoice;
+    private Enemy enemy;
+
+}
