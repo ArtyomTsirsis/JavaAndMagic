@@ -13,7 +13,8 @@ public interface HeroRepository extends JpaRepository<Hero, String> {
 
     void deleteById(String heroName);
     @Modifying
-    @Query("UPDATE hero u SET health = :#{#h.health}, armorID = :#{#h.armorID}, weaponID = :#{#h.weaponID} WHERE name = :#{#h.name}")
+    @Query("UPDATE hero u SET health = :#{#h.health}, level = :#{#h.level}, armorID = :#{#h.armorID}" +
+            ", weaponID = :#{#h.weaponID} WHERE name = :#{#h.name}")
     void update(@Param("h") Hero hero);
 
 }
