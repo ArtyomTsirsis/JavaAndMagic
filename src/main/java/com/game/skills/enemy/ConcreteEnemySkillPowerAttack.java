@@ -25,7 +25,7 @@ public class ConcreteEnemySkillPowerAttack implements EnemySkill {
             hero.setHealth(0);
             return "Вы получили урон " + damage +" ОЗ. Поражение!";
         }
-        enemy.setHealth(enemy.getHealth() - damage);
+        hero.setHealth(enemy.getHealth() - damage);
         return switch (criticalHitOrMissCoefficient) {
             case 0 -> "Промах!";
             case 2 -> "Критическое попадание! Вы получили урон " + damage + " ОЗ.";
