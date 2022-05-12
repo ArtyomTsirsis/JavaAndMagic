@@ -9,10 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class StringToSkillsCrypter {
+public class StringToSkillsDecoder {
 
     public List<HeroSkill> decrypt(String encryptedSkills) {
-        String[] decryptedSkills = encryptedSkills.split(", ");
+        String[] decryptedSkills = encryptedSkills.split(",");
         List<HeroSkill> skills = new ArrayList<>();
         Arrays.stream(decryptedSkills).toList().forEach(o -> skills.add(HeroSkillFactory.createSkill(o)));
         return skills;
