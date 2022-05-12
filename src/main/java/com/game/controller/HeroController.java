@@ -23,7 +23,7 @@ public class HeroController {
     private final FindAllHeroesService findAllHeroesService;
     private final DeleteHeroByNameService deleteHeroByNameService;
 
-    @PutMapping(value = "/")
+    @PostMapping(value = "/")
     public void createHero(@RequestBody CreateHeroRequest request) {
         createHeroService.createHero(request);
     }

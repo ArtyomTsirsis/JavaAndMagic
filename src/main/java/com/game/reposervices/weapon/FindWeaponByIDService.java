@@ -24,6 +24,5 @@ public class FindWeaponByIDService {
 
         }
         return new FindWeaponByIdResponse(converter.convertToDto(weapon.get()));
-
     }
 }

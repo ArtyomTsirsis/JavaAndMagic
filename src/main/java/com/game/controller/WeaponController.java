@@ -17,7 +17,7 @@ public class WeaponController {
     private final FindWeaponByOwnerService findWeaponByOwnerService;
     private final DeleteWeaponByOwnerService deleteWeaponByOwnerService;
 
-    @PutMapping(value = "/")
+    @PostMapping(value = "/")
     public void createArmor(@RequestBody CreateWeaponRequest request) {
         createWeaponService.createWeapon(request);
     }

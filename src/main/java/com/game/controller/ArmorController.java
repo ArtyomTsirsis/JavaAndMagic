@@ -17,7 +17,7 @@ public class ArmorController {
     private final FindArmorByOwnerService findArmorByOwnerService;
     private final DeleteArmorByOwnerService deleteArmorByOwnerService;
 
-    @PutMapping(value = "/")
+    @PostMapping(value = "/")
     public void createArmor(@RequestBody CreateArmorRequest request) {
         createArmorService.createArmor(request);
     }
