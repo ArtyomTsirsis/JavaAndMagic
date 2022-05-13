@@ -19,10 +19,10 @@ import java.util.List;
 @NoArgsConstructor
 public class HeroDTO {
 
-    private HeroClass heroClass;
     @NotBlank
     @Size(min = 3, max = 20)
     private String name;
+    private HeroClass heroClass;
     @Range(min = 0)
     private Integer health;
     private Integer strength;

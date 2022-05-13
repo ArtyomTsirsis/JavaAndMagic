@@ -24,7 +24,7 @@ public class HeroDTOConverter {
         ArmorDTO armor = armorDTOConverter.convertToDto(hero.getArmor());
         WeaponDTO weapon = weaponDTOConverter.convertToDto(hero.getWeapon());
         List<HeroSkill> decryptedSkills = decoder.decrypt(hero.getSkillBook());
-        return new HeroDTO(hero.getHeroClass(), hero.getName(), hero.getHealth(), hero.getStrength(),
+        return new HeroDTO(hero.getName(), hero.getHeroClass(), hero.getHealth(), hero.getStrength(),
                 hero.getLevel(), hero.getDexterity(), armor,
                 weapon, decryptedSkills);
     }
