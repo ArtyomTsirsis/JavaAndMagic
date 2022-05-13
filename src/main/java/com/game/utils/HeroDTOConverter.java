@@ -16,14 +16,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HeroDTOConverter {
 
-    private final StringToSkillsCrypter converter;
+    private final StringToSkillsDecoder decoder;
     private final ArmorDTOConverter armorDTOConverter;
     private final WeaponDTOConverter weaponDTOConverter;
 
     public HeroDTO convertToDto(Hero hero) {
         ArmorDTO armor = armorDTOConverter.convertToDto(hero.getArmor());
         WeaponDTO weapon = weaponDTOConverter.convertToDto(hero.getWeapon());
-        List<HeroSkill> decryptedSkills = converter.decrypt(hero.getSkillBook());
+        List<HeroSkill> decryptedSkills = decoder.decrypt(hero.getSkillBook());
         return new HeroDTO(hero.getHeroClass(), hero.getName(), hero.getHealth(), hero.getStrength(),
                 hero.getLevel(), hero.getDexterity(), armor,
                 weapon, decryptedSkills);
@@ -32,7 +32,7 @@ public class HeroDTOConverter {
     public Hero convertFromDto(HeroDTO hero) {
         Armor armor = armorDTOConverter.convertFromDto(hero.getArmor());
         Weapon weapon = weaponDTOConverter.convertFromDto(hero.getWeapon());
-        String encryptedSkills = converter.encrypt(hero.getSkills());
+        String encryptedSkills = decoder.encrypt(hero.getSkills());
         return new Hero(hero.getName(), hero.getHeroClass(), hero.getHealth(), hero.getStrength(),
                 hero.getLevel(), hero.getDexterity(), armor, weapon, encryptedSkills);
     }

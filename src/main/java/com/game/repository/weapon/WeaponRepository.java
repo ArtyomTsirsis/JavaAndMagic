@@ -1,16 +1,23 @@
 package com.game.repository.weapon;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
-import java.util.Optional;
 
-public interface WeaponRepository {
+@Repository
+@Transactional
+public interface WeaponRepository extends JpaRepository<Weapon, Integer> {
 
-    Weapon save(Weapon weapon);
-    Optional<Weapon> findById(Integer id);
     List<Weapon> findByOwner(String owner);
-    List<Weapon> findAll();
     void deleteById(Integer id);
     void deleteByOwner(String name);
-    void update(Weapon weapon);
+    @Modifying
+    @Query("UPDATE weapon u SET durability = :#{#w.durability}, level = :#{#w.level} WHERE weaponID = :#{#w.weaponID}")
+    void update(@Param("w") Weapon weapon);
 
 }

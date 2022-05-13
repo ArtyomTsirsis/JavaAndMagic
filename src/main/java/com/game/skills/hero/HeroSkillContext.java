@@ -11,10 +11,6 @@ public class HeroSkillContext {
         this.heroSkill = HeroSkillFactory.createSkill(heroSkill);
     }
 
-//    public void setSkill(HeroSkill heroSkill) {
-//        this.heroSkill = heroSkill;
-//    }
-
     public String useSkill(HeroDTO hero, Enemy enemy) {
         return heroSkill.execute(hero, enemy);
     }

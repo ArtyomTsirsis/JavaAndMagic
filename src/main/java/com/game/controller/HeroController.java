@@ -10,6 +10,7 @@ import com.game.reposervices.hero.FindHeroByNameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.rmi.NoSuchObjectException;
 
 @RestController
@@ -22,8 +23,8 @@ public class HeroController {
     private final FindAllHeroesService findAllHeroesService;
     private final DeleteHeroByNameService deleteHeroByNameService;
 
-    @PutMapping(value = "/")
-    public void createHero(@RequestBody CreateHeroRequest request) {
+    @PostMapping(value = "/")
+    public void createHero(@RequestBody  @Valid CreateHeroRequest request) {
         createHeroService.createHero(request);
     }
 
