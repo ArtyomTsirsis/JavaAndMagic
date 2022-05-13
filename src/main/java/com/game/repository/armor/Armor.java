@@ -1,7 +1,6 @@
 package com.game.repository.armor;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -42,14 +41,13 @@ public class Armor {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Armor armor = (Armor) o;
-        return armorID != null && Objects.equals(armorID, armor.armorID);
+        if (!(o instanceof Armor armor)) return false;
+        return Objects.equals(getArmorID(), armor.getArmorID()) && Objects.equals(getOwner(), armor.getOwner()) && getArmorClass() == armor.getArmorClass() && Objects.equals(getDurability(), armor.getDurability()) && Objects.equals(getPhysicalDefense(), armor.getPhysicalDefense()) && Objects.equals(getMagicalDefense(), armor.getMagicalDefense());
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(getArmorID(), getOwner(), getArmorClass(), getDurability(), getPhysicalDefense(), getMagicalDefense());
     }
 
 }

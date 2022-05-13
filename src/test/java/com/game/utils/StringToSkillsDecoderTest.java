@@ -5,15 +5,12 @@ import com.game.skills.hero.ConcreteHeroSkillHealing;
 import com.game.skills.hero.ConcreteHeroSkillStealthAttack;
 import com.game.skills.hero.HeroSkill;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@ExtendWith(MockitoExtension.class)
 class StringToSkillsDecoderTest {
 
     private final StringToSkillsDecoder decoder = new StringToSkillsDecoder();
