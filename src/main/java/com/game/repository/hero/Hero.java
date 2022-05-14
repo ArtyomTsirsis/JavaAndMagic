@@ -3,7 +3,6 @@ package com.game.repository.hero;
 import com.game.repository.armor.Armor;
 import com.game.repository.weapon.Weapon;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -58,14 +57,13 @@ public class Hero {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Hero hero = (Hero) o;
-        return heroClass != null && Objects.equals(heroClass, hero.heroClass);
+        if (!(o instanceof Hero hero)) return false;
+        return Objects.equals(getName(), hero.getName()) && getHeroClass() == hero.getHeroClass() && Objects.equals(getHealth(), hero.getHealth()) && Objects.equals(getStrength(), hero.getStrength()) && Objects.equals(getLevel(), hero.getLevel()) && Objects.equals(getDexterity(), hero.getDexterity()) && Objects.equals(getArmor(), hero.getArmor()) && Objects.equals(getWeapon(), hero.getWeapon()) && Objects.equals(getSkillBook(), hero.getSkillBook());
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(getName(), getHeroClass(), getHealth(), getStrength(), getLevel(), getDexterity(), getArmor(), getWeapon(), getSkillBook());
     }
 
 }
