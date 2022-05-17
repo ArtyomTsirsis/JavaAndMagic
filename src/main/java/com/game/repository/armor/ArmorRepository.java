@@ -1,16 +1,23 @@
 package com.game.repository.armor;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
-import java.util.Optional;
 
-public interface ArmorRepository {
+@Repository
+@Transactional
+public interface ArmorRepository extends JpaRepository<Armor, Integer> {
 
-    Armor save(Armor armor);
-    Optional<Armor> findById(Integer id);
     List<Armor> findByOwner(String owner);
-    List<Armor> findAll();
     void deleteById(Integer id);
     void deleteByOwner(String name);
-    void update(Armor armor);
+    @Modifying
+    @Query("UPDATE armor u SET durability = :#{#a.durability} WHERE armorID = :#{#a.armorID}")
+    void update(@Param("a") Armor armor);
 
 }

@@ -14,7 +14,7 @@ import com.game.skills.hero.ConcreteHeroSkillFireDamage;
 import com.game.skills.hero.HeroSkill;
 import com.game.utils.ArmorDTOConverter;
 import com.game.utils.HeroDTOConverter;
-import com.game.utils.StringToSkillsCrypter;
+import com.game.utils.StringToSkillsDecoder;
 import com.game.utils.WeaponDTOConverter;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +28,7 @@ public class BattleServiceTest {
 
     private final BattleService battleService = new BattleService();
     private final HeroDTOConverter heroDTOConverter = new HeroDTOConverter(
-            new StringToSkillsCrypter(),
+            new StringToSkillsDecoder(),
             new ArmorDTOConverter(),
             new WeaponDTOConverter()
     );

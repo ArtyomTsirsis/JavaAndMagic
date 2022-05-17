@@ -8,6 +8,8 @@ import com.game.reposervices.armor.FindArmorByOwnerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/armor")
 @RequiredArgsConstructor
@@ -17,8 +19,8 @@ public class ArmorController {
     private final FindArmorByOwnerService findArmorByOwnerService;
     private final DeleteArmorByOwnerService deleteArmorByOwnerService;
 
-    @PutMapping(value = "/")
-    public void createArmor(@RequestBody CreateArmorRequest request) {
+    @PostMapping(value = "/")
+    public void createArmor(@RequestBody @Valid CreateArmorRequest request) {
         createArmorService.createArmor(request);
     }
 

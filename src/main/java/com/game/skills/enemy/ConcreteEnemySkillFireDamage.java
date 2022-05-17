@@ -21,6 +21,7 @@ public class ConcreteEnemySkillFireDamage implements EnemySkill {
         if (0 >= damage) {
             return "Вы отразил атаку";
         } else if (damage >= enemy.getHealth()) {
+            hero.setHealth(0);
             return "Вы получили урон " + damage +" ОЗ. Поражение!";
         }
         hero.setHealth(enemy.getHealth() - damage);

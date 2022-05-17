@@ -24,6 +24,7 @@ public class ConcreteHeroSkillFireDamage implements HeroSkill {
         if (0 >= damage) {
             return "Враг отразил атаку";
         } else if (damage >= enemy.getHealth()) {
+            enemy.setHealth(0);
             return "Вы нанесли урон " + damage +" ОЗ. Победа!";
         }
         enemy.setHealth(enemy.getHealth() - damage);

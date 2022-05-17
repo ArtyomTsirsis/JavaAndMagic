@@ -1,7 +1,6 @@
 package com.game.repository.weapon;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -48,14 +47,13 @@ public class Weapon {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Weapon weapon = (Weapon) o;
-        return weaponID != null && Objects.equals(weaponID, weapon.weaponID);
+        if (!(o instanceof Weapon weapon)) return false;
+        return Objects.equals(getWeaponID(), weapon.getWeaponID()) && Objects.equals(getOwner(), weapon.getOwner()) && getWeaponType() == weapon.getWeaponType() && Objects.equals(getDurability(), weapon.getDurability()) && Objects.equals(getPhysicalDamage(), weapon.getPhysicalDamage()) && Objects.equals(getMagicalDamage(), weapon.getMagicalDamage()) && Objects.equals(getLevel(), weapon.getLevel()) && Objects.equals(getCriticalHitChance(), weapon.getCriticalHitChance());
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(getWeaponID(), getOwner(), getWeaponType(), getDurability(), getPhysicalDamage(), getMagicalDamage(), getLevel(), getCriticalHitChance());
     }
 
 }

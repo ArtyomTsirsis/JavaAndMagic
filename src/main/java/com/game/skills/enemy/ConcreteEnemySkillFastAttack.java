@@ -22,6 +22,7 @@ public class ConcreteEnemySkillFastAttack implements EnemySkill {
         if (0 >= damage) {
             return "Вы отразили атаку";
         } else if (damage >= enemy.getHealth()) {
+            hero.setHealth(0);
             return "Вы получили урон " + damage +" ОЗ. Поражение!";
         }
         hero.setHealth(hero.getHealth() - damage);
