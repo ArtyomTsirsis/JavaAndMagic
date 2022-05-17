@@ -23,24 +23,23 @@ public class AdventureController {
     @Autowired
     private AdventureServiceCollectorsDataAndMakeABattle adventureServiceCollectorsDataAndMakeABattle;
 
-    @PutMapping("/chapter1")
-    public AdventureResponse startAdventureChapter1(@RequestBody AdventureRequest request) {
-        return startAdventureService.startAdventureChapter1(request);
-    }
-
-    @PutMapping("/chapter2")
-    public AdventureResponse startAdventureChapter2(@RequestBody AdventureRequest request) {
-        return startAdventureService.startAdventureChapter2(request);
-    }
-
-    @PutMapping("/chapter3")
-    public AdventureResponse startAdventureChapter3(@RequestBody AdventureRequest request) {
-        return startAdventureService.startAdventureChapter3(request);
-    }
-
-    @PutMapping("/chapter4")
-    public AdventureResponse startAdventureChapter4(@RequestBody AdventureRequest request) {
-        return startAdventureService.startAdventureChapter4(request);
+    @PutMapping("/chapter/{id}")
+    public AdventureResponse startAdventureChapter1(@PathVariable("id") Integer id, @RequestBody AdventureRequest request) {
+        var chapterId = id;
+        switch (chapterId) {
+            case 1 -> startAdventureService.startAdventureChapter1(request);
+            case 2 -> startAdventureService.startAdventureChapter2(request);
+            case 3 -> startAdventureService.startAdventureChapter3(request);
+            case 4 -> startAdventureService.startAdventureChapter4(request);
+        }
+        var response = new AdventureResponse();
+        response.setHero(request.getHero());
+        response.setMove(request.getMove());
+        response.setFightChoice(request.getFightChoice());
+        response.setEnemy(request.getEnemy());
+        response.setHeroSkill(request.getHeroSkill());
+        response.setEnemySkill(request.getEnemySkill());
+        return response;
     }
 
     @PutMapping("/chapter5TheFight")
