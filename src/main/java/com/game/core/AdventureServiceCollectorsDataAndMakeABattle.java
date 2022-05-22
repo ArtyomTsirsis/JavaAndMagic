@@ -25,6 +25,7 @@ public class AdventureServiceCollectorsDataAndMakeABattle {
         request.setEnemy(adventureProgressStatusService.getEnemy());
         request.setHeroSkill(adventureProgressStatusService.getHeroSkill());
         request.setEnemySkill(adventureProgressStatusService.getEnemySkill());
+        System.out.println("BATTLE BEGIN!");
         return battleService.startBattle(request);
     }
 }

@@ -7,12 +7,12 @@ import com.game.skills.hero.HeroSkill;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 @AllArgsConstructor
 @NoArgsConstructor
-public class StartAdventureService {
+public class Chapter4 {
 
     @Autowired
     AdventureProgressStatusService adventureProgressStatusService;
@@ -24,67 +24,7 @@ public class StartAdventureService {
     private HeroSkill heroSkill;
     private EnemySkill enemySkill;
 
-    public AdventureResponse startAdventureChapter1 (AdventureRequest request) {
-        if (startAdventureHeroIsEmpty()) {
-            System.out.println("YOU ARE CONTINUE THE ADVENTURE");
-            var response = new AdventureResponse();
-            response.setHero(adventureProgressStatusService.getHero());
-            return response;
-        } else {
-            System.out.println("NEW ADVENTURE BEGIN!");
-            var response = new AdventureResponse();
-            hero = request.getHero();
-            adventureProgressStatusService.setHero(hero);
-            response.setHero(hero);
-            return response;
-        }
-    }
-
-    public AdventureResponse startAdventureChapter2 (AdventureRequest request) {
-        if (startAdventureHeroIsEmpty() && startAdventureSelectedMoveIsEmpty()) {
-            System.out.println("YOU ARE CONTINUE THE CHAPTER2");
-            var response = new AdventureResponse();
-            response.setHero(adventureProgressStatusService.getHero());
-            response.setMove(adventureProgressStatusService.getMove());
-            return response;
-        } else {
-            System.out.println("CHAPTER2 BEGIN!");
-            var response = new AdventureResponse();
-            move = request.getMove();
-            hero = request.getHero();
-            adventureProgressStatusService.setHero(hero);
-            adventureProgressStatusService.setMove(move);
-            response.setHero(hero);
-            response.setMove(move);
-            return response;
-        }
-    }
-
-    public AdventureResponse startAdventureChapter3 (AdventureRequest request) {
-        if (startAdventureHeroIsEmpty() && startAdventureSelectedMoveIsEmpty() && startAdventureFightChoiceIsEmpty()) {
-            System.out.println("YOU ARE CONTINUE THE CHAPTER3");
-            var response = new AdventureResponse();
-            response.setHero(adventureProgressStatusService.getHero());
-            response.setMove(adventureProgressStatusService.getMove());
-            response.setFightChoice(adventureProgressStatusService.getFightChoice());
-            return response;
-        } else {
-            System.out.println("CHAPTER3 BEGIN!");
-            var response = new AdventureResponse();
-            move = request.getMove();
-            hero = request.getHero();
-            fightChoice = request.getFightChoice();
-            adventureProgressStatusService.setHero(hero);
-            adventureProgressStatusService.setMove(move);
-            adventureProgressStatusService.setFightChoice(fightChoice);
-            response.setHero(hero);
-            response.setMove(move);
-            response.setFightChoice(fightChoice);
-            return response;
-        }
-    }
-
-    public AdventureResponse startAdventureChapter4 (AdventureRequest request) {
+    public AdventureResponse startAdventure(AdventureRequest request) {
         if (startAdventureHeroIsEmpty() && startAdventureSelectedMoveIsEmpty() && startAdventureFightChoiceIsEmpty() && startAdventureEnemyOnTheWayIsEmpty()) {
             System.out.println("YOU ARE CONTINUE THE CHAPTER4");
             var response = new AdventureResponse();
@@ -151,5 +91,4 @@ public class StartAdventureService {
             return false;
         }
     }
-
 }
