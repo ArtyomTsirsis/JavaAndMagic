@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./index.css" />
+
+  <title>All Heroes</title>
+</head>
+<body>
+<header>
+  All Heroes what we have:
+</header>
+<form>
+  <table >
+    <thead>
+    <tr>
+      <th align="left"> Name </th>
+      <th align="left"> Hero Class </th>
+      <th align="left"> Action </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${heroes.empty}">
+      <td colspan="2"> NO ONE IS HERE, HMM VERY STRANGE...</td>
+    </tr>
+    <tr th:each="hero : ${heroes}">
+      <td><span th:text="${hero.name}"></span></td>
+      <td><span th:text="${hero.heroClass}"></span></td>
+      <td><a th:href="@{/delete(name=${hero.name})}" class="trash-btn"><i class="fas fa-trash-restore"></i></a></td>
+    </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+
+</html>

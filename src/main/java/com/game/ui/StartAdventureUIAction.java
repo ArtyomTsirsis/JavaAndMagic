@@ -72,15 +72,9 @@ public class StartAdventureUIAction implements UIAction {
     private void executeUIAction(int selector) {
         if (selector != 0) {
             switch (selector) {
-                case 1:
-                    createHeroUIAction.execute();
-                    break;
-                case 2:
-                    showAllHeroUIAction.execute();
-                    break;
-                case 3:
-                    deleteByIdUIAction.execute();
-                    break;
+                case 1 -> createHeroUIAction.execute();
+                case 2 -> showAllHeroUIAction.execute();
+                case 3 -> deleteByIdUIAction.execute();
             }
         } else {
             System.out.println("Please select actions from the list, not like you: " + selector);
