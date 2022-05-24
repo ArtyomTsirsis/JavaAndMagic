@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./index.css" />
+
+    <title>Create Hero</title>
+</head>
+<body>
+<header>
+    Create a new Hero:
+</header>
+<form action="#" th:action="@{/createHero}" th:object="${hero}" method="post">
+    <p>
+        <br><input type="text" placeholder="Enter Hero Name:" th:field="*{name}" /></br>
+        <br><select th:field="*{heroClass}">
+            <option value="WIZARD">WIZARD</option>
+            <option value="KNIGHT">KNIGHT</option>
+            <option value="ARCHER">ARCHER</option>
+            <option value="THIEF">THIEF</option>
+        </select></br>
+
+        <br>
+        <button type="submit" class="complete-btn" value="Submit">CREATE</button>
+        </br>
+        <br>
+    </p>
+</form>
+</body>
+
+</html>

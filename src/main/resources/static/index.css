@@ -11,13 +11,73 @@ body {
     min-height: 100vh;
 }
 
-header {
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+header{
     font-size: 1.5rem;
 }
 
-header {
+header, form {
     min-height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+form input, form button, select {
+    outline: none;
+    padding: 0.5rem;
+    font-size: 2rem;
+    border:none;
+    background: white;
+}
+
+
+form button {
+    color: #d88771;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #d88771;
+    color: white;
+}
+
+.trash-btn, .complete-btn {
+
+    outline: none;
+    background: none;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+
+}
+
+.trash-btn:hover {
+    background: none;
+    color: rgba(226, 26, 26, 0.856);
+    transition: all 0.3s ease;
+}
+
+.complete-btn {
+    background: #6d624e;
+}
+.complete-btn:hover {
+    background: #312c2b;
+    color: white;
+    transition: all 0.3s ease;
+
 }
