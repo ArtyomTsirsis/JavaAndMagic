@@ -1,4 +1,4 @@
-package com.game.reposervices.battle;
+package com.game.core.battle;
 
 import com.game.core.battle.BattleService;
 import com.game.dto.battle.BattleRequest;
