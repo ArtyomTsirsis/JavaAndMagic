@@ -24,22 +24,6 @@ public interface Enemy {
 
     void setSkills(List<EnemySkill> skills);
 
-//
-//    @JsonTypeInfo(
-//            use = JsonTypeInfo.Id.NAME,
-//            property = "name",
-//            defaultImpl = ConcreteHeroSkillAttackWOWeapon.class
-//    )
-//    @JsonSubTypes({
-//            @JsonSubTypes.Type(value = ConcreteHeroSkillFastAttack.class, name = "FastAttack"),
-//            @JsonSubTypes.Type(value = ConcreteHeroSkillPowerAttack.class, name = "PowerAttack"),
-//            @JsonSubTypes.Type(value = ConcreteHeroSkillFireDamage.class, name = "FireDamage"),
-//            @JsonSubTypes.Type(value = ConcreteHeroSkillShoot.class, name = "Shoot"),
-//            @JsonSubTypes.Type(value = ConcreteHeroSkillStealthAttack.class, name = "StealthAttack"),
-//            @JsonSubTypes.Type(value = ConcreteHeroSkillHealing.class, name = "Healing"),
-//    })
-
-
     EnemyClass getEnemyClass();
     Integer getHealth();
     void setHealth(Integer health);
