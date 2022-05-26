@@ -22,6 +22,8 @@ public interface Enemy {
         return enemy;
     }
 
+    void setSkills(List<EnemySkill> skills);
+
     EnemyClass getEnemyClass();
     Integer getHealth();
     void setHealth(Integer health);

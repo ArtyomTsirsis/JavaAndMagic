@@ -1,8 +1,5 @@
 package com.game.ui;
 
-import com.game.core.StartAdventureService;
-import com.game.reposervices.hero.FindAllHeroesService;
-import com.game.repository.hero.Hero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
