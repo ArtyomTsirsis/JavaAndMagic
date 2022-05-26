@@ -3,8 +3,8 @@ package com.game.controller;
 import com.game.dto.battle.BattleRequest;
 import com.game.dto.battle.BattleResponse;
 import com.game.dto.battle.CreateEnemyResponse;
-import com.game.reposervices.battle.BattleService;
-import com.game.reposervices.battle.RandomEnemyGeneratorService;
+import com.game.core.battle.BattleService;
+import com.game.core.battle.RandomEnemyGeneratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

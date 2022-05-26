@@ -1,5 +1,6 @@
 package com.game.reposervices.battle;
 
+import com.game.core.battle.BattleService;
 import com.game.dto.battle.BattleRequest;
 import com.game.dto.hero.HeroDTO;
 import com.game.repository.armor.ArmorFactory;

@@ -1,4 +1,4 @@
-package com.game.core;
+package com.game.core.adventure;
 
 import com.game.dto.hero.HeroDTO;
 import com.game.repository.enemy.Enemy;

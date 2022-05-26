@@ -1,4 +1,4 @@
-package com.game.core;
+package com.game.core.adventure;
 
 import com.game.dto.hero.HeroDTO;
 import com.game.repository.enemy.Enemy;
@@ -7,11 +7,13 @@ import com.game.skills.hero.HeroSkill;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class AdventureRequest {
+@NoArgsConstructor
+public class AdventureProgressStatusService {
 
     private HeroDTO hero;
     private String move;

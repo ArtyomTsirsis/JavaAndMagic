@@ -1,4 +1,4 @@
-package com.game.core;
+package com.game.core.adventure;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
