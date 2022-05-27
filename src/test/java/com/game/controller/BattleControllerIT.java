@@ -65,10 +65,9 @@ class BattleControllerIT {
                                 "criticalHitChance": 0,
                                 "broken": false
                             },
-                            "skills": [
+                           "skills": [
                                 {
                                     "name": "FastAttack",
-                                    "output": "Р‘С‹СЃС‚СЂР°СЏ Р°С‚Р°РєР°",
                                     "criticalHitChance": 0,
                                     "missChance": 0
                                 },
@@ -101,9 +100,8 @@ class BattleControllerIT {
                 "heroSkill":
                                 {
                                     "name": "FireDamage",
-                                    "output": "РђС‚Р°РєР° РѕРіРЅРµРј",
                                     "criticalHitChance": 0,
-                                    "missChance": -5
+                                    "missChance": 0
                                 },
                 "enemySkill":\s
                             {
