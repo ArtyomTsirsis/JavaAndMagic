@@ -21,4 +21,5 @@ public class RandomEnemyGeneratorService {
             default -> EnemyFactory.createEnemy(SPIDER);
         };
     }
+
 }

@@ -9,4 +9,5 @@ import lombok.Data;
 public class CreateEnemyResponse {
 
     private Enemy enemy;
+
 }

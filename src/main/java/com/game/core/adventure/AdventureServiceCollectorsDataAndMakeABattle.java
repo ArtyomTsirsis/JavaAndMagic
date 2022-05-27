@@ -28,4 +28,5 @@ public class AdventureServiceCollectorsDataAndMakeABattle {
         System.out.println("BATTLE BEGIN!");
         return battleService.startBattle(request);
     }
+
 }

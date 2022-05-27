@@ -1,6 +1,5 @@
 package com.game.core.adventure;
 
-
 import com.game.dto.hero.HeroDTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -40,4 +39,5 @@ public class Chapter1 {
             return false;
         }
     }
+
 }

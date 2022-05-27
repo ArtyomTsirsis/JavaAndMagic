@@ -13,4 +13,5 @@ public class BattleResponse {
     private Enemy enemy;
     private String heroSkillStatus;
     private String enemySkillStatus;
+
 }
