@@ -14,7 +14,7 @@ public class MagicStaff extends Weapon {
     private WeaponType weaponType = WeaponType.MAGIC_STAFF;
     private Integer durability = 30;
     private Integer physicalDamage = 0;
-    private Integer magicalDamage = 50;
+    private Integer magicalDamage = 100;
     private Integer level = 1;
     private Integer criticalHitChance = 1;
 

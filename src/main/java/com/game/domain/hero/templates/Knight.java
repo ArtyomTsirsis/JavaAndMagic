@@ -14,7 +14,7 @@ public class Knight extends Hero {
     @NonNull
     private String name;
     private Integer health = 400;
-    private Integer strength = 20;
+    private Integer strength = 25;
     private Integer level = 1;
     private Integer dexterity = 10;
     private Integer armorID;

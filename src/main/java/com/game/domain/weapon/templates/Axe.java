@@ -13,7 +13,7 @@ public class Axe extends Weapon {
     private String owner;
     private WeaponType weaponType = WeaponType.AXE;
     private Integer durability = 50;
-    private Integer physicalDamage = 100;
+    private Integer physicalDamage = 150;
     private Integer magicalDamage = 0;
     private Integer level = 1;
     private Integer criticalHitChance = 2;

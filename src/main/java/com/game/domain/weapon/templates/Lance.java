@@ -13,8 +13,8 @@ public class Lance extends Weapon {
     private String owner;
     private WeaponType weaponType = WeaponType.LANCE;
     private Integer durability = 100;
-    private Integer physicalDamage = 20;
-    private Integer magicalDamage = 20;
+    private Integer physicalDamage = 40;
+    private Integer magicalDamage = 40;
     private Integer level = 1;
     private Integer criticalHitChance = 8;
 
