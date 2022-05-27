@@ -21,7 +21,7 @@ public class ConcreteHeroSkillShoot implements HeroSkill {
                 hero.getWeapon().getLevel() - enemy.getMagicalDefense()))) * criticalHitOrMissCoefficient;
         hero.increaseLevel();
         hero.getWeapon().increaseLevel();
-        if (0 >= damage) {
+        if (0 >= damage && criticalHitOrMissCoefficient != 0) {
             return "Enemy has blocked your Attack";
         } else if (damage >= enemy.getHealth()) {
             enemy.setHealth(0);

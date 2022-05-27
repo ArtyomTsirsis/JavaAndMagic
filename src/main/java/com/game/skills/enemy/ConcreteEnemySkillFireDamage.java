@@ -18,7 +18,7 @@ public class ConcreteEnemySkillFireDamage implements EnemySkill {
                 getCriticalHitOrMissCoefficient(hero, enemy, this);
         int damage = (enemy.getMagicalDamage() - hero.getArmor().getMagicalDefense()) * criticalHitOrMissCoefficient;
         hero.increaseLevel();
-        if (0 >= damage) {
+        if (0 >= damage && criticalHitOrMissCoefficient != 0) {
             return "You've blocked Attack";
         } else if (damage >= enemy.getHealth()) {
             hero.setHealth(0);
