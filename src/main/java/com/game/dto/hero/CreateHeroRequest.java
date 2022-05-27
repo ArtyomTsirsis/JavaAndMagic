@@ -1,6 +1,6 @@
 package com.game.dto.hero;
 
-import com.game.repository.hero.HeroClass;
+import com.game.domain.hero.HeroClass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

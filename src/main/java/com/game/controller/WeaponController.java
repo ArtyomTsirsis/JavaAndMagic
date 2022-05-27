@@ -2,9 +2,9 @@ package com.game.controller;
 
 import com.game.dto.weapon.CreateWeaponRequest;
 import com.game.dto.weapon.FindWeaponByOwnerResponse;
-import com.game.reposervices.weapon.CreateWeaponService;
-import com.game.reposervices.weapon.DeleteWeaponByOwnerService;
-import com.game.reposervices.weapon.FindWeaponByOwnerService;
+import com.game.core.repo.weapon.CreateWeaponService;
+import com.game.core.repo.weapon.DeleteWeaponByOwnerService;
+import com.game.core.repo.weapon.FindWeaponByOwnerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

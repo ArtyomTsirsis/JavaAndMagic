@@ -2,7 +2,7 @@ package com.game.dto.hero;
 
 import com.game.dto.armor.ArmorDTO;
 import com.game.dto.weapon.WeaponDTO;
-import com.game.repository.hero.HeroClass;
+import com.game.domain.hero.HeroClass;
 import com.game.skills.hero.HeroSkill;
 import lombok.AllArgsConstructor;
 import lombok.Data;

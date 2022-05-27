@@ -1,8 +1,8 @@
 package com.game.utils;
 
 import com.game.dto.weapon.WeaponDTO;
-import com.game.repository.weapon.Weapon;
-import com.game.repository.weapon.WeaponType;
+import com.game.domain.weapon.Weapon;
+import com.game.domain.weapon.WeaponType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

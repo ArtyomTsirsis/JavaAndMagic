@@ -1,7 +1,7 @@
 package com.game.skills.hero;
 
 import com.game.dto.hero.HeroDTO;
-import com.game.repository.enemy.Enemy;
+import com.game.domain.enemy.Enemy;
 
 public class HeroSkillContext {
 

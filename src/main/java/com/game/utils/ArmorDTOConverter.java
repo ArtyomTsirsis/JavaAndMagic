@@ -1,7 +1,7 @@
 package com.game.utils;
 
 import com.game.dto.armor.ArmorDTO;
-import com.game.repository.armor.Armor;
+import com.game.domain.armor.Armor;
 import org.springframework.stereotype.Component;
 
 @Component

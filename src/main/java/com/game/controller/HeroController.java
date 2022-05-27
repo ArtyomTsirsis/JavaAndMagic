@@ -3,10 +3,10 @@ package com.game.controller;
 import com.game.dto.hero.CreateHeroRequest;
 import com.game.dto.hero.FindAllHeroesResponse;
 import com.game.dto.hero.FindHeroByIdResponse;
-import com.game.reposervices.hero.CreateHeroService;
-import com.game.reposervices.hero.DeleteHeroByNameService;
-import com.game.reposervices.hero.FindAllHeroesService;
-import com.game.reposervices.hero.FindHeroByNameService;
+import com.game.core.repo.hero.CreateHeroService;
+import com.game.core.repo.hero.DeleteHeroByNameService;
+import com.game.core.repo.hero.FindAllHeroesService;
+import com.game.core.repo.hero.FindHeroByNameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

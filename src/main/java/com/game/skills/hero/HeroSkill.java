@@ -3,7 +3,7 @@ package com.game.skills.hero;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.game.dto.hero.HeroDTO;
-import com.game.repository.enemy.Enemy;
+import com.game.domain.enemy.Enemy;
 
 public interface HeroSkill {
 

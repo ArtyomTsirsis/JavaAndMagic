@@ -1,7 +1,7 @@
 package com.game.utils;
 
 import com.game.dto.weapon.WeaponDTO;
-import com.game.repository.weapon.Weapon;
+import com.game.domain.weapon.Weapon;
 import org.springframework.stereotype.Component;
 
 @Component
