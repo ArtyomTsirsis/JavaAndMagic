@@ -1,4 +1,4 @@
-package com.game.core.adventure;
+package com.game.dto.adventure;
 
 import com.game.dto.hero.HeroDTO;
 import com.game.domain.enemy.Enemy;
@@ -9,9 +9,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class AdventureRequest {
+@NoArgsConstructor
+
+public class AdventureResponse {
 
     private HeroDTO hero;
     private String move;

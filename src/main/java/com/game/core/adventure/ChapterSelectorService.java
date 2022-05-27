@@ -1,5 +1,7 @@
 package com.game.core.adventure;
 
+import com.game.dto.adventure.AdventureRequest;
+import com.game.dto.adventure.AdventureResponse;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

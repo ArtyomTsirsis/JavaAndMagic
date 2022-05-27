@@ -1,5 +1,7 @@
 package com.game.core.adventure;
 
+import com.game.dto.adventure.AdventureRequest;
+import com.game.dto.adventure.AdventureResponse;
 import com.game.dto.hero.HeroDTO;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class Chapter1 {
 
     @Autowired
-    AdventureProgressStatusService adventureProgressStatusService;
+    AdventureProgressStatusContext adventureProgressStatusContext;
 
     private HeroDTO hero;
 
@@ -20,20 +22,20 @@ public class Chapter1 {
         if (startAdventureHeroIsEmpty()) {
             System.out.println("YOU ARE CONTINUE THE ADVENTURE");
             var response = new AdventureResponse();
-            response.setHero(adventureProgressStatusService.getHero());
+            response.setHero(adventureProgressStatusContext.getHero());
             return response;
         } else {
             System.out.println("NEW ADVENTURE BEGIN!");
             var response = new AdventureResponse();
             hero = request.getHero();
-            adventureProgressStatusService.setHero(hero);
+            adventureProgressStatusContext.setHero(hero);
             response.setHero(hero);
             return response;
         }
     }
 
     private boolean startAdventureHeroIsEmpty() {
-        if (adventureProgressStatusService.getHero() != null) {
+        if (adventureProgressStatusContext.getHero() != null) {
             return true;
         } else {
             return false;

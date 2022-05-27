@@ -7,12 +7,13 @@ import com.game.skills.hero.HeroSkill;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class AdventureResponse {
+public class AdventureProgressStatusContext {
 
     private HeroDTO hero;
     private String move;

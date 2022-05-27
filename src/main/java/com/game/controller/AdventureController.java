@@ -1,7 +1,7 @@
 package com.game.controller;
 
-import com.game.core.adventure.AdventureRequest;
-import com.game.core.adventure.AdventureResponse;
+import com.game.dto.adventure.AdventureRequest;
+import com.game.dto.adventure.AdventureResponse;
 import com.game.core.adventure.AdventureServiceCollectorsDataAndMakeABattle;
 import com.game.core.adventure.ChapterSelectorService;
 import com.game.dto.battle.BattleResponse;
