@@ -19,7 +19,7 @@ public class ConcreteEnemySkillPowerAttack implements EnemySkill {
         int damage = ((enemy.getPhysicalDamage() - hero.getArmor().getPhysicalDefense()) +
                 (enemy.getMagicalDamage() - hero.getArmor().getMagicalDefense())) * criticalHitOrMissCoefficient * 2;
         hero.increaseLevel();
-        if (0 >= damage) {
+        if (0 >= damage && criticalHitOrMissCoefficient != 0) {
             return "You've blocked Attack";
         } else if (damage >= enemy.getHealth()) {
             hero.setHealth(0);

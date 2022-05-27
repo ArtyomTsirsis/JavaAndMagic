@@ -19,7 +19,7 @@ public class ConcreteHeroSkillAttackWOWeapon implements HeroSkill {
         int damage = hero.getStrength() * hero.getLevel() * criticalHitOrMissCoefficient;
         hero.increaseLevel();
         hero.getWeapon().increaseLevel();
-        if (0 >= damage) {
+        if (0 >= damage && criticalHitOrMissCoefficient != 0) {
             return "Enemy has blocked your Attack";
         } else if (damage >= enemy.getHealth()) {
             enemy.setHealth(0);
