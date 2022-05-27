@@ -1,8 +1,8 @@
 package com.game.utils;
 
 import com.game.dto.armor.ArmorDTO;
-import com.game.repository.armor.Armor;
-import com.game.repository.armor.ArmorClass;
+import com.game.domain.armor.Armor;
+import com.game.domain.armor.ArmorClass;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

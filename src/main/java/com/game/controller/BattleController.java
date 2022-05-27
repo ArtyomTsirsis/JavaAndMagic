@@ -16,7 +16,6 @@ public class BattleController {
     private final BattleService battleService;
     private final RandomEnemyGeneratorService enemyGeneratorService;
 
-
     @PutMapping
     public BattleResponse startBattle(@RequestBody BattleRequest request) {
         return battleService.startBattle(request);
@@ -26,6 +25,5 @@ public class BattleController {
     public CreateEnemyResponse generateEnemy() {
         return new CreateEnemyResponse(enemyGeneratorService.generateEnemy());
     }
-
 
 }

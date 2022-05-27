@@ -1,6 +1,6 @@
 package com.game.dto.armor;
 
-import com.game.repository.armor.ArmorClass;
+import com.game.domain.armor.ArmorClass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

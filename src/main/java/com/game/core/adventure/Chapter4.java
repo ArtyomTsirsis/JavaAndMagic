@@ -1,7 +1,9 @@
 package com.game.core.adventure;
 
+import com.game.dto.adventure.AdventureRequest;
+import com.game.dto.adventure.AdventureResponse;
 import com.game.dto.hero.HeroDTO;
-import com.game.repository.enemy.Enemy;
+import com.game.domain.enemy.Enemy;
 import com.game.skills.enemy.EnemySkill;
 import com.game.skills.hero.HeroSkill;
 import lombok.AllArgsConstructor;
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class Chapter4 {
 
     @Autowired
-    AdventureProgressStatusService adventureProgressStatusService;
+    AdventureProgressStatusContext adventureProgressStatusContext;
 
     private HeroDTO hero;
     private String move;
@@ -28,12 +30,12 @@ public class Chapter4 {
         if (startAdventureHeroIsEmpty() && startAdventureSelectedMoveIsEmpty() && startAdventureFightChoiceIsEmpty() && startAdventureEnemyOnTheWayIsEmpty()) {
             System.out.println("YOU ARE CONTINUE THE CHAPTER4");
             var response = new AdventureResponse();
-            response.setHero(adventureProgressStatusService.getHero());
-            response.setMove(adventureProgressStatusService.getMove());
-            response.setFightChoice(adventureProgressStatusService.getFightChoice());
-            response.setEnemy(adventureProgressStatusService.getEnemy());
-            response.setHeroSkill(adventureProgressStatusService.getHeroSkill());
-            response.setEnemySkill(adventureProgressStatusService.getEnemySkill());
+            response.setHero(adventureProgressStatusContext.getHero());
+            response.setMove(adventureProgressStatusContext.getMove());
+            response.setFightChoice(adventureProgressStatusContext.getFightChoice());
+            response.setEnemy(adventureProgressStatusContext.getEnemy());
+            response.setHeroSkill(adventureProgressStatusContext.getHeroSkill());
+            response.setEnemySkill(adventureProgressStatusContext.getEnemySkill());
             return response;
         } else {
             System.out.println("CHAPTER4 BEGIN!");
@@ -44,12 +46,12 @@ public class Chapter4 {
             fightChoice = request.getFightChoice();
             heroSkill = request.getHeroSkill();
             enemySkill = request.getEnemySkill();
-            adventureProgressStatusService.setHero(hero);
-            adventureProgressStatusService.setMove(move);
-            adventureProgressStatusService.setFightChoice(fightChoice);
-            adventureProgressStatusService.setEnemy(enemy);
-            adventureProgressStatusService.setHeroSkill(heroSkill);
-            adventureProgressStatusService.setEnemySkill(enemySkill);
+            adventureProgressStatusContext.setHero(hero);
+            adventureProgressStatusContext.setMove(move);
+            adventureProgressStatusContext.setFightChoice(fightChoice);
+            adventureProgressStatusContext.setEnemy(enemy);
+            adventureProgressStatusContext.setHeroSkill(heroSkill);
+            adventureProgressStatusContext.setEnemySkill(enemySkill);
             response.setHero(hero);
             response.setMove(move);
             response.setFightChoice(fightChoice);
@@ -61,7 +63,7 @@ public class Chapter4 {
     }
 
     private boolean startAdventureHeroIsEmpty() {
-        if (adventureProgressStatusService.getHero() != null) {
+        if (adventureProgressStatusContext.getHero() != null) {
             return true;
         } else {
             return false;
@@ -69,7 +71,7 @@ public class Chapter4 {
     }
 
     private boolean startAdventureSelectedMoveIsEmpty() {
-        if (adventureProgressStatusService.getMove() != null) {
+        if (adventureProgressStatusContext.getMove() != null) {
             return true;
         } else {
             return false;
@@ -77,7 +79,7 @@ public class Chapter4 {
     }
 
     private boolean startAdventureFightChoiceIsEmpty() {
-        if (adventureProgressStatusService.getFightChoice() != null) {
+        if (adventureProgressStatusContext.getFightChoice() != null) {
             return true;
         } else {
             return false;
@@ -85,10 +87,11 @@ public class Chapter4 {
     }
 
     private boolean startAdventureEnemyOnTheWayIsEmpty() {
-        if (adventureProgressStatusService.getEnemy() != null) {
+        if (adventureProgressStatusContext.getEnemy() != null) {
             return true;
         } else {
             return false;
         }
     }
+
 }

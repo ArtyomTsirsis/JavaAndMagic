@@ -14,18 +14,19 @@ import org.springframework.stereotype.Service;
 public class AdventureServiceCollectorsDataAndMakeABattle {
 
     @Autowired
-    private AdventureProgressStatusService adventureProgressStatusService;
+    private AdventureProgressStatusContext adventureProgressStatusContext;
 
     @Autowired
     private BattleService battleService;
 
     public BattleResponse battleStart() {
         var request = new BattleRequest();
-        request.setHero(adventureProgressStatusService.getHero());
-        request.setEnemy(adventureProgressStatusService.getEnemy());
-        request.setHeroSkill(adventureProgressStatusService.getHeroSkill());
-        request.setEnemySkill(adventureProgressStatusService.getEnemySkill());
+        request.setHero(adventureProgressStatusContext.getHero());
+        request.setEnemy(adventureProgressStatusContext.getEnemy());
+        request.setHeroSkill(adventureProgressStatusContext.getHeroSkill());
+        request.setEnemySkill(adventureProgressStatusContext.getEnemySkill());
         System.out.println("BATTLE BEGIN!");
         return battleService.startBattle(request);
     }
+
 }

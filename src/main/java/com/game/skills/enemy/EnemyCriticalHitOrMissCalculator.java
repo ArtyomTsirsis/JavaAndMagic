@@ -1,7 +1,7 @@
 package com.game.skills.enemy;
 
 import com.game.dto.hero.HeroDTO;
-import com.game.repository.enemy.Enemy;
+import com.game.domain.enemy.Enemy;
 
 import java.util.Random;
 

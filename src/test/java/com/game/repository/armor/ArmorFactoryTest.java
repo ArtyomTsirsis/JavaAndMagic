@@ -1,7 +1,10 @@
 package com.game.repository.armor;
 
-import com.game.repository.armor.templates.Shield;
-import com.game.repository.armor.templates.WOArmor;
+import com.game.domain.armor.Armor;
+import com.game.domain.armor.ArmorClass;
+import com.game.domain.armor.ArmorFactory;
+import com.game.domain.armor.templates.Shield;
+import com.game.domain.armor.templates.WOArmor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

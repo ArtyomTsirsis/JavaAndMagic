@@ -1,7 +1,10 @@
 package com.game.repository.hero;
 
-import com.game.repository.hero.templates.Archer;
-import com.game.repository.hero.templates.Knight;
+import com.game.domain.hero.Hero;
+import com.game.domain.hero.HeroClass;
+import com.game.domain.hero.HeroFactory;
+import com.game.domain.hero.templates.Archer;
+import com.game.domain.hero.templates.Knight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

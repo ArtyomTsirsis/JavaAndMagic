@@ -1,9 +1,9 @@
 package com.game.controller.ui;
 
 import com.game.dto.hero.CreateHeroRequest;
-import com.game.reposervices.hero.CreateHeroService;
-import com.game.reposervices.hero.DeleteHeroByNameService;
-import com.game.reposervices.hero.FindAllHeroesService;
+import com.game.core.repo.hero.CreateHeroService;
+import com.game.core.repo.hero.DeleteHeroByNameService;
+import com.game.core.repo.hero.FindAllHeroesService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,10 @@
 package com.game.repository.weapon;
 
-import com.game.repository.weapon.templates.Bow;
-import com.game.repository.weapon.templates.Sword;
+import com.game.domain.weapon.Weapon;
+import com.game.domain.weapon.WeaponFactory;
+import com.game.domain.weapon.WeaponType;
+import com.game.domain.weapon.templates.Bow;
+import com.game.domain.weapon.templates.Sword;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,14 +1,13 @@
 package com.game.core.battle;
 
-import com.game.core.battle.BattleService;
 import com.game.dto.battle.BattleRequest;
 import com.game.dto.hero.HeroDTO;
-import com.game.repository.armor.ArmorFactory;
-import com.game.repository.enemy.Enemy;
-import com.game.repository.enemy.Orc;
-import com.game.repository.hero.Hero;
-import com.game.repository.hero.HeroFactory;
-import com.game.repository.weapon.WeaponFactory;
+import com.game.domain.armor.ArmorFactory;
+import com.game.domain.enemy.Enemy;
+import com.game.domain.enemy.Orc;
+import com.game.domain.hero.Hero;
+import com.game.domain.hero.HeroFactory;
+import com.game.domain.weapon.WeaponFactory;
 import com.game.skills.enemy.ConcreteEnemySkillPowerAttack;
 import com.game.skills.enemy.EnemySkill;
 import com.game.skills.hero.ConcreteHeroSkillFireDamage;
@@ -19,9 +18,9 @@ import com.game.utils.StringToSkillsDecoder;
 import com.game.utils.WeaponDTOConverter;
 import org.junit.jupiter.api.Test;
 
-import static com.game.repository.armor.ArmorClass.WITHOUT_ARMOR;
-import static com.game.repository.hero.HeroClass.WIZARD;
-import static com.game.repository.weapon.WeaponType.WITHOUT_WEAPON;
+import static com.game.domain.armor.ArmorClass.WITHOUT_ARMOR;
+import static com.game.domain.hero.HeroClass.WIZARD;
+import static com.game.domain.weapon.WeaponType.WITHOUT_WEAPON;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 

@@ -1,8 +1,9 @@
 package com.game.reposervices.hero;
 
-import com.game.reposervices.armor.CreateArmorService;
-import com.game.reposervices.weapon.CreateWeaponService;
-import com.game.repository.hero.HeroRepository;
+import com.game.core.repo.armor.CreateArmorService;
+import com.game.core.repo.hero.CreateHeroService;
+import com.game.core.repo.weapon.CreateWeaponService;
+import com.game.repository.HeroRepository;
 import com.game.utils.HeroDTOConverter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

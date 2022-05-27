@@ -2,9 +2,9 @@ package com.game.controller;
 
 import com.game.dto.armor.CreateArmorRequest;
 import com.game.dto.armor.FindArmorByOwnerResponse;
-import com.game.reposervices.armor.CreateArmorService;
-import com.game.reposervices.armor.DeleteArmorByOwnerService;
-import com.game.reposervices.armor.FindArmorByOwnerService;
+import com.game.core.repo.armor.CreateArmorService;
+import com.game.core.repo.armor.DeleteArmorByOwnerService;
+import com.game.core.repo.armor.FindArmorByOwnerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

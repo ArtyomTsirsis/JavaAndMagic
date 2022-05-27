@@ -17,5 +17,4 @@ public class BattleService {
         return new BattleResponse(hero, enemy, heroSkillStatus, enemySkillStatus);
     }
 
-
 }

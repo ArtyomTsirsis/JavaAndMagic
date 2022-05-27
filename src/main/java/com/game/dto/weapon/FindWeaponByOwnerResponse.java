@@ -1,6 +1,6 @@
 package com.game.dto.weapon;
 
-import com.game.repository.weapon.Weapon;
+import com.game.domain.weapon.Weapon;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

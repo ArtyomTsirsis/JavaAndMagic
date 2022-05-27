@@ -1,12 +1,12 @@
 package com.game.core.battle;
 
-import com.game.repository.enemy.Enemy;
-import com.game.repository.enemy.EnemyFactory;
+import com.game.domain.enemy.Enemy;
+import com.game.domain.enemy.EnemyFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
-import static com.game.repository.enemy.EnemyClass.*;
+import static com.game.domain.enemy.EnemyClass.*;
 
 @Service
 public class RandomEnemyGeneratorService {
@@ -21,4 +21,5 @@ public class RandomEnemyGeneratorService {
             default -> EnemyFactory.createEnemy(SPIDER);
         };
     }
+
 }
