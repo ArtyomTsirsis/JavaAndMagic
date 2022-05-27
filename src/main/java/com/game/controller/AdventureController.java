@@ -1,8 +1,11 @@
 package com.game.controller;
 
-import com.game.core.*;
+import com.game.core.adventure.AdventureRequest;
+import com.game.core.adventure.AdventureResponse;
+import com.game.core.adventure.AdventureServiceCollectorsDataAndMakeABattle;
+import com.game.core.adventure.ChapterSelectorService;
 import com.game.dto.battle.BattleResponse;
-import com.game.reposervices.battle.BattleService;
+import com.game.core.battle.BattleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

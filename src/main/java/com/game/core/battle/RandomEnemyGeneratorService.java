@@ -1,4 +1,4 @@
-package com.game.reposervices.battle;
+package com.game.core.battle;
 
 import com.game.repository.enemy.Enemy;
 import com.game.repository.enemy.EnemyFactory;

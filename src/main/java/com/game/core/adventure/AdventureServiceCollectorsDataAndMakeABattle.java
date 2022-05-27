@@ -1,8 +1,8 @@
-package com.game.core;
+package com.game.core.adventure;
 
 import com.game.dto.battle.BattleRequest;
 import com.game.dto.battle.BattleResponse;
-import com.game.reposervices.battle.BattleService;
+import com.game.core.battle.BattleService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
