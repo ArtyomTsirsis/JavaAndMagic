@@ -28,6 +28,7 @@ public class HeroDTO {
     private Integer strength;
     @Range(min = 1, max = 100)
     private Integer level;
+    @Range(min = 0, max = 20)
     private Integer dexterity;
     @NotNull
     private ArmorDTO armor;
