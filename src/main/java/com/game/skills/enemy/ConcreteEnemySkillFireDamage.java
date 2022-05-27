@@ -19,16 +19,16 @@ public class ConcreteEnemySkillFireDamage implements EnemySkill {
         int damage = (enemy.getMagicalDamage() - hero.getArmor().getMagicalDefense()) * criticalHitOrMissCoefficient;
         hero.increaseLevel();
         if (0 >= damage) {
-            return "Вы отразил атаку";
+            return "You've blocked Attack";
         } else if (damage >= enemy.getHealth()) {
             hero.setHealth(0);
-            return "Вы получили урон " + damage +" ОЗ. Поражение!";
+            return "You've got damage " + damage + " HP. Defeat!";
         }
-        hero.setHealth(enemy.getHealth() - damage);
+        hero.setHealth(hero.getHealth() - damage);
         return switch (criticalHitOrMissCoefficient) {
-            case 0 -> "Промах!";
-            case 2 -> "Критическое попадание! Вы получили урон " + damage + " ОЗ.";
-            default -> "Вы получили урон " + damage + " ОЗ.";
+            case 0 -> "Miss!";
+            case 2 -> "Critical Damage! You've got damage " + damage + " HP.";
+            default -> "You've got damage " + damage + " HP.";
         };
     }
 
