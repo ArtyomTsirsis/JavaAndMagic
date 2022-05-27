@@ -9,7 +9,6 @@ public class ConcreteHeroSkillHealing implements HeroSkill {
 
     private static final HeroCriticalHitOrMissCalculator CRITICAL_HIT_OR_MISS_CALCULATOR_CONTEXT = new HeroCriticalHitOrMissCalculator();
     private final String name = "Healing";
-    private final String output = "Лечение";
     private int criticalHitChance = 0;
     private int missChance = 0;
 
@@ -17,7 +16,7 @@ public class ConcreteHeroSkillHealing implements HeroSkill {
     public String execute(HeroDTO hero, Enemy enemy) {
         int heal = 10 * hero.getLevel() + 50;
         hero.setHealth(hero.getHealth() + heal);
-        return "Вы восстановили " + heal + " ОЗ.";
+        return "You've recovered " + heal + " HP.";
     }
 
 }
