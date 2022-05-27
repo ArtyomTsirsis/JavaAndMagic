@@ -35,82 +35,84 @@ class BattleControllerIT {
     }
 
     private String startBattleJSON() {
-        return "{\n" +
-                " \"hero\": \n" +
-                "        {\n" +
-                "            \"heroClass\": \"KNIGHT\",\n" +
-                "            \"name\": \"Drago\",\n" +
-                "            \"health\": 400,\n" +
-                "            \"strength\": 20,\n" +
-                "            \"level\": 1,\n" +
-                "            \"dexterity\": 10,\n" +
-                "            \"armor\": {\n" +
-                "                \"id\": 1,\n" +
-                "                \"owner\": \"Drago\",\n" +
-                "                \"armorClass\": \"WITHOUT_ARMOR\",\n" +
-                "                \"durability\": 2147483647,\n" +
-                "                \"physicalDefense\": 0,\n" +
-                "                \"magicalDefense\": 0,\n" +
-                "                \"broken\": false\n" +
-                "            },\n" +
-                "            \"weapon\": {\n" +
-                "                \"id\": 1,\n" +
-                "                \"owner\": \"Drago\",\n" +
-                "                \"weaponType\": \"WITHOUT_WEAPON\",\n" +
-                "                \"durability\": 2147483647,\n" +
-                "                \"physicalDamage\": 0,\n" +
-                "                \"magicalDamage\": 0,\n" +
-                "                \"level\": 1,\n" +
-                "                \"criticalHitChance\": 0,\n" +
-                "                \"broken\": false\n" +
-                "            },\n" +
-                "            \"skills\": [\n" +
-                "                {\n" +
-                "                    \"name\": \"FastAttack\",\n" +
-                "                    \"output\": \"Р‘С‹СЃС‚СЂР°СЏ Р°С‚Р°РєР°\",\n" +
-                "                    \"criticalHitChance\": 0,\n" +
-                "                    \"missChance\": 0\n" +
-                "                },\n" +
-                "                null,\n" +
-                "                null\n" +
-                "            ],\n" +
-                "            \"alive\": true\n" +
-                "        },\n" +
-                "\"enemy\": {\n" +
-                "        \"health\": 500,\n" +
-                "        \"dexterity\": 5,\n" +
-                "        \"physicalDamage\": 150,\n" +
-                "        \"magicalDamage\": 0,\n" +
-                "        \"physicalDefense\": 40,\n" +
-                "        \"magicalDefense\": 0,\n" +
-                "        \"skills\": [\n" +
-                "            {\n" +
-                "                \"name\": \"FastAttack\",\n" +
-                "                \"criticalHitChance\": 0,\n" +
-                "                \"missChance\": 0\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"name\": \"PowerAttack\",\n" +
-                "                \"criticalHitChance\": 5,\n" +
-                "                \"missChance\": 7\n" +
-                "            }\n" +
-                "        ],\n" +
-                "        \"enemyClass\": \"ORC\" \n" +
-                "    },\n" +
-                "\"heroSkill\":\n" +
-                "                {\n" +
-                "                    \"name\": \"FireDamage\",\n" +
-                "                    \"output\": \"РђС‚Р°РєР° РѕРіРЅРµРј\",\n" +
-                "                    \"criticalHitChance\": 0,\n" +
-                "                    \"missChance\": -5\n" +
-                "                },\n" +
-                "\"enemySkill\": \n" +
-                "            {\n" +
-                "                \"name\": \"FastAttack\",\n" +
-                "                \"criticalHitChance\": 0,\n" +
-                "                \"missChance\": 0\n" +
-                "            }\n" +
-                "  \n" +
-                "}";
+        return """
+                {
+                 "hero":\s
+                        {
+                            "heroClass": "KNIGHT",
+                            "name": "Drago",
+                            "health": 400,
+                            "strength": 20,
+                            "level": 1,
+                            "dexterity": 10,
+                            "armor": {
+                                "id": 1,
+                                "owner": "Drago",
+                                "armorClass": "WITHOUT_ARMOR",
+                                "durability": 2147483647,
+                                "physicalDefense": 0,
+                                "magicalDefense": 0,
+                                "broken": false
+                            },
+                            "weapon": {
+                                "id": 1,
+                                "owner": "Drago",
+                                "weaponType": "WITHOUT_WEAPON",
+                                "durability": 2147483647,
+                                "physicalDamage": 0,
+                                "magicalDamage": 0,
+                                "level": 1,
+                                "criticalHitChance": 0,
+                                "broken": false
+                            },
+                            "skills": [
+                                {
+                                    "name": "FastAttack",
+                                    "output": "Р‘С‹СЃС‚СЂР°СЏ Р°С‚Р°РєР°",
+                                    "criticalHitChance": 0,
+                                    "missChance": 0
+                                },
+                                null,
+                                null
+                            ],
+                            "alive": true
+                        },
+                "enemy": {
+                        "health": 500,
+                        "dexterity": 5,
+                        "physicalDamage": 150,
+                        "magicalDamage": 0,
+                        "physicalDefense": 40,
+                        "magicalDefense": 0,
+                        "skills": [
+                            {
+                                "name": "FastAttack",
+                                "criticalHitChance": 0,
+                                "missChance": 0
+                            },
+                            {
+                                "name": "PowerAttack",
+                                "criticalHitChance": 5,
+                                "missChance": 7
+                            }
+                        ],
+                        "enemyClass": "ORC"\s
+                    },
+                "heroSkill":
+                                {
+                                    "name": "FireDamage",
+                                    "output": "РђС‚Р°РєР° РѕРіРЅРµРј",
+                                    "criticalHitChance": 0,
+                                    "missChance": -5
+                                },
+                "enemySkill":\s
+                            {
+                                "name": "FastAttack",
+                                "criticalHitChance": 0,
+                                "missChance": 0
+                            }
+                 \s
+                }""";
+
     }
 }
