@@ -15,7 +15,7 @@ import java.util.Optional;
 public class FindArmorByIDService {
 
     private final ArmorRepository repository;
-    private final ArmorDTOConverter converter = new ArmorDTOConverter();
+    private final ArmorDTOConverter converter;
 
     public FindArmorByIdResponse findByID(Integer id) throws NoSuchObjectException {
         Optional<Armor> armor = repository.findById(id);

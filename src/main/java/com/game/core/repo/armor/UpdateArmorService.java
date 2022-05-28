@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class UpdateArmorService {
 
     private final ArmorRepository repository;
-    private final ArmorDTOConverter converter = new ArmorDTOConverter();
+    private final ArmorDTOConverter converter;
 
     public void update(UpdateArmorRequest request) {
         if(repository.findById(request.getUpdatedArmorDTO().getId()).isPresent()) {

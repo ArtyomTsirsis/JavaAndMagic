@@ -2,6 +2,7 @@ package com.game.core.repo.armor;
 
 import com.game.domain.armor.Armor;
 import com.game.domain.armor.ArmorClass;
+import com.game.dto.armor.ArmorDTO;
 import com.game.dto.armor.CreateArmorRequest;
 import com.game.dto.armor.CreateArmorResponse;
 import com.game.dto.hero.HeroDTO;
@@ -26,11 +27,12 @@ class CreateArmorServiceTest {
 
     @InjectMocks
     private CreateArmorService service;
-
-    private final ArmorDTOConverter converter = new ArmorDTOConverter();
+    @Mock
+    private ArmorDTOConverter converter;
 
     @Test
     void shouldCreateArmor() {
+        when(converter.convertToDto(entity(any()))).thenReturn(armorDTO(1));
         when(repository.save(entity(null))).thenReturn(entity(1));
         var result = service.createArmor(createArmorRequest());
         verify(repository).save(any());
@@ -54,6 +56,18 @@ class CreateArmorServiceTest {
         armor.setArmorClass(ArmorClass.LEATHER_ARMOR);
         armor.setOwner("TestName");
         return armor;
+    }
+
+    private ArmorDTO armorDTO(Integer id) {
+        var armorDTO = new ArmorDTO();
+        armorDTO.setDurability(20);
+        armorDTO.setPhysicalDefense(30);
+        armorDTO.setMagicalDefense(0);
+        armorDTO.setId(id);
+        armorDTO.setArmorClass(ArmorClass.LEATHER_ARMOR);
+        armorDTO.setOwner("TestName");
+        return armorDTO;
+
     }
 
 }
