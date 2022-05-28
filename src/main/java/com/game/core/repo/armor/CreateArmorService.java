@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class CreateArmorService {
 
     private final ArmorRepository repository;
-    private final ArmorDTOConverter converter;
+    private final ArmorDTOConverter converter = new ArmorDTOConverter();
 
     public CreateArmorResponse createArmor(CreateArmorRequest request) {
         Armor armor = ArmorFactory.createArmor(request.getArmorClass());
