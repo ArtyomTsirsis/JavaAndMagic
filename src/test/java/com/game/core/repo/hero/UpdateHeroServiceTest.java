@@ -29,7 +29,7 @@ class UpdateHeroServiceTest {
     private UpdateHeroService heroService;
 
     @Test
-    void shouldFindHeroByName() {
+    void shouldUpdateHero() {
         when(repository.findById("TEST NAME")).thenReturn(Optional.of(hero()));
         when(converter.convertFromDto(heroDTO())).thenReturn(hero());
         heroService.update(request());
