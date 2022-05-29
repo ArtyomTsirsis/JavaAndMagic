@@ -22,11 +22,11 @@ class UpdateArmorServiceTest {
     @Mock
     private ArmorRepository repository;
 
-    @InjectMocks
-    private UpdateArmorService service;
-
     @Mock
     private ArmorDTOConverter converter;
+
+    @InjectMocks
+    private UpdateArmorService service;
 
     @Test
     void shouldUpdateArmor() {

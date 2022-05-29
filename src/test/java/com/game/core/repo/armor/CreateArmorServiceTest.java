@@ -25,10 +25,11 @@ class CreateArmorServiceTest {
     @Mock
     private ArmorRepository repository;
 
-    @InjectMocks
-    private CreateArmorService service;
     @Mock
     private ArmorDTOConverter converter;
+
+    @InjectMocks
+    private CreateArmorService service;
 
     @Test
     void shouldCreateArmor() {
