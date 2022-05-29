@@ -25,11 +25,11 @@ class FindWeaponByIDServiceTest {
     @Mock
     private WeaponRepository repository;
 
-    @InjectMocks
-    private FindWeaponByIDService service;
-
     @Mock
     private WeaponDTOConverter converter;
+
+    @InjectMocks
+    private FindWeaponByIDService service;
 
     @Test
     void shouldFindArmorByID() throws NoSuchObjectException {

@@ -26,12 +26,11 @@ class CreateWeaponServiceTest {
     @Mock
     private WeaponRepository repository;
 
-    @InjectMocks
-    private CreateWeaponService service;
-
     @Mock
     private WeaponDTOConverter converter;
 
+    @InjectMocks
+    private CreateWeaponService service;
 
     @Test
     void shouldCreateArmor() {
