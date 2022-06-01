@@ -1,12 +1,13 @@
 package com.game.controller;
 
-import com.game.dto.hero.CreateHeroRequest;
-import com.game.dto.hero.FindAllHeroesResponse;
-import com.game.dto.hero.FindHeroByIdResponse;
 import com.game.core.repo.hero.CreateHeroService;
 import com.game.core.repo.hero.DeleteHeroByNameService;
 import com.game.core.repo.hero.FindAllHeroesService;
 import com.game.core.repo.hero.FindHeroByNameService;
+import com.game.dto.hero.CreateHeroRequest;
+import com.game.dto.hero.CreateHeroResponse;
+import com.game.dto.hero.FindAllHeroesResponse;
+import com.game.dto.hero.FindHeroByIdResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,8 @@ public class HeroController {
     private final DeleteHeroByNameService deleteHeroByNameService;
 
     @PostMapping(value = "/")
-    public void createHero(@RequestBody  @Valid CreateHeroRequest request) {
-        createHeroService.createHero(request);
+    public CreateHeroResponse createHero(@RequestBody @Valid CreateHeroRequest request) {
+        return createHeroService.createHero(request);
     }
 
     @GetMapping(value = "/{name}")

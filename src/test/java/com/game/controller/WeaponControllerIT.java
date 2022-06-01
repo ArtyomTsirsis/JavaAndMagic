@@ -27,41 +27,41 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @TestExecutionListeners(listeners = {DependencyInjectionTestExecutionListener.class, DbUnitTestExecutionListener.class},
         mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS)
-public class ArmorControllerIT {
+class WeaponControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    @DatabaseSetup(value = "classpath:dbunit/create-armor-dataset.xml")
-    @ExpectedDatabase(value = "classpath:dbunit/create-armor-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
-    @DatabaseTearDown(value = "classpath:dbunit/create-armor-teardown.xml", type = DatabaseOperation.DELETE_ALL)
-    void shouldCreateArmor() throws Exception {
-        mockMvc.perform(post("/armor/")
+    @DatabaseSetup(value = "classpath:dbunit/create-weapon-dataset.xml")
+    @ExpectedDatabase(value = "classpath:dbunit/create-weapon-expected.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
+    @DatabaseTearDown(value = "classpath:dbunit/create-weapon-teardown.xml", type = DatabaseOperation.DELETE_ALL)
+    void shouldCreateWeapon() throws Exception {
+        mockMvc.perform(post("/weapon/")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(createArmorJSON()))
+                        .content(createWeaponJSON()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.armor.id").value("1"))
-                .andExpect(jsonPath("$.armor.owner").value("Drago"));
-
+                .andExpect(jsonPath("$.weapon.id").value("1"))
+                .andExpect(jsonPath("$.weapon.owner").value("Drago"));
     }
 
     @Test
-    @DatabaseSetup(value = "classpath:dbunit/find-armor-dataset.xml")
-    @DatabaseTearDown(value = "classpath:dbunit/find-armor-dataset.xml")
-    void shouldFindArmorByOwner() throws Exception {
-        mockMvc.perform(get("/armor/Drago")
+    @DatabaseSetup(value = "classpath:dbunit/find-weapon-dataset.xml")
+    @DatabaseTearDown(value = "classpath:dbunit/find-weapon-dataset.xml")
+    void shouldFindWeaponByOwner() throws Exception {
+        mockMvc.perform(get("/weapon/Drago")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(createArmorJSON()))
+                        .content(createWeaponJSON()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.armor").isArray())
-                .andExpect(jsonPath("$.armor.length()").value("1"));
+                .andExpect(jsonPath("$.weapons").isArray())
+                .andExpect(jsonPath("$.weapons.length()").value("1"));
     }
 
-    private String createArmorJSON() {
+
+    private String createWeaponJSON() {
         return """
                 {
-                    "armorClass": "WITHOUT_ARMOR",
+                    "weaponType": "WITHOUT_WEAPON",
                     "hero":\s
                         {
                             "heroClass": "KNIGHT",
@@ -104,6 +104,4 @@ public class ArmorControllerIT {
 
                 }""";
     }
-
-
 }
