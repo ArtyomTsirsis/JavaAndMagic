@@ -16,7 +16,7 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="owner" type="VARCHAR(20)"/>
-            <column name="weapon_type" type="ENUM('WITHOUT_WEAPON', 'AXE', 'BOW', 'LANCE', 'MAGIC_STAFF', 'SWORD')"/>
+            <column name="weapon_type" type="VARCHAR(111)"/>
             <column name="durability" type="INT"/>
             <column name="physical_damage" type="INT"/>
             <column name="magical_damage" type="INT"/>
@@ -36,7 +36,7 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="owner" type="VARCHAR(20)"/>
-            <column name="armor_class" type="ENUM('WITHOUT_ARMOR', 'ARMOR_SUIT', 'LEATHER_ARMOR', 'MAGICAL_SHIELD', 'SHIELD')"/>
+            <column name="armor_class" type="VARCHAR(111)"/>
             <column name="durability" type="INT"/>
             <column name="physical_defense" type="INT"/>
             <column name="magical_defense" type="INT"/>
@@ -53,7 +53,7 @@
             <column name="name" type="VARCHAR(20)">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="hero_class" type="ENUM('ARCHER', 'KNIGHT', 'THIEF', 'WIZARD')"/>
+            <column name="hero_class" type="VARCHAR(111)"/>
             <column name="health" type="INT"/>
             <column name="strength" type="INT"/>
             <column name="level" type="INT"/>
