@@ -1,0 +1,28 @@
+<dataset reset_sequences="weapon_sequence">
+    <weapon weaponID="1"
+            owner="Drago"
+            weapon_type="WITHOUT_WEAPON"
+            durability="2147483647"
+            physical_damage="0"
+            magical_damage="0"
+            level="1"
+            critical_hit_chance="0"
+    />
+    <armor armorID="1"
+           owner="Drago"
+           armor_class="WITHOUT_ARMOR"
+           durability="2147483647"
+           physical_defense="0"
+           magical_defense="0"
+    />
+    <heroes name="Drago"
+            hero_class="KNIGHT"
+            health="400"
+            strength="20"
+            level="1"
+            dexterity="10"
+            weaponID="1"
+            armorID="1"
+            skill_book="FastAttack, PowerAttack, Healing"
+    />
+</dataset>

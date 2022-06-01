@@ -1,10 +1,10 @@
 package com.game.controller;
 
-import com.game.dto.weapon.CreateWeaponRequest;
-import com.game.dto.weapon.FindWeaponByOwnerResponse;
 import com.game.core.repo.weapon.CreateWeaponService;
-import com.game.core.repo.weapon.DeleteWeaponByOwnerService;
 import com.game.core.repo.weapon.FindWeaponByOwnerService;
+import com.game.dto.weapon.CreateWeaponRequest;
+import com.game.dto.weapon.CreateWeaponResponse;
+import com.game.dto.weapon.FindWeaponByOwnerResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,21 +17,16 @@ public class WeaponController {
 
     private final CreateWeaponService createWeaponService;
     private final FindWeaponByOwnerService findWeaponByOwnerService;
-    private final DeleteWeaponByOwnerService deleteWeaponByOwnerService;
 
     @PostMapping(value = "/")
-    public void createArmor(@RequestBody @Valid CreateWeaponRequest request) {
-        createWeaponService.createWeapon(request);
+    public CreateWeaponResponse createWeapon(@RequestBody @Valid CreateWeaponRequest request) {
+        return createWeaponService.createWeapon(request);
     }
 
     @GetMapping(value = "/{owner}")
-    public FindWeaponByOwnerResponse getArmor(@PathVariable String owner) {
+    public FindWeaponByOwnerResponse getWeaponByOwner(@PathVariable String owner) {
         return findWeaponByOwnerService.findByOwner(owner);
     }
 
-    @DeleteMapping(value = "/{owner}")
-    public void deleteArmor(@PathVariable String owner) {
-        deleteWeaponByOwnerService.deleteByOwner(owner);
-    }
 
 }
