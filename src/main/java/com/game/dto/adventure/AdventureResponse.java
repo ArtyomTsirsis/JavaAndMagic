@@ -20,5 +20,8 @@ public class AdventureResponse {
     private Enemy enemy;
     private HeroSkill heroSkill;
     private EnemySkill enemySkill;
+    private String adventureDescription;
+    private String heroSkillStatus;
+    private String enemySkillStatus;
 
 }
