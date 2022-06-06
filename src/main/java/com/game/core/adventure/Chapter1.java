@@ -2,44 +2,22 @@ package com.game.core.adventure;
 
 import com.game.dto.adventure.AdventureRequest;
 import com.game.dto.adventure.AdventureResponse;
-import com.game.dto.hero.HeroDTO;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class Chapter1 {
 
-    @Autowired
-    AdventureProgressStatusContext adventureProgressStatusContext;
-
-    private HeroDTO hero;
 
     public AdventureResponse startAdventure(AdventureRequest request) {
-        if (startAdventureHeroIsEmpty()) {
-            System.out.println("YOU ARE CONTINUE THE ADVENTURE");
-            var response = new AdventureResponse();
-            response.setHero(adventureProgressStatusContext.getHero());
-            return response;
-        } else {
-            System.out.println("NEW ADVENTURE BEGIN!");
-            var response = new AdventureResponse();
-            hero = request.getHero();
-            adventureProgressStatusContext.setHero(hero);
-            response.setHero(hero);
-            return response;
-        }
+        var response = new AdventureResponse();
+        response.setHero(request.getHero());
+        response.setAdventureDescription(" A strong hero " + request.getHero().getName() + " ! You start a Adventure!");
+        return response;
+
+
     }
 
-    private boolean startAdventureHeroIsEmpty() {
-        if (adventureProgressStatusContext.getHero() != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 }
